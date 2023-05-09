@@ -18,6 +18,7 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "UtilisateurPrive.h"
+#include "../Appareils/Capteur.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -43,10 +44,12 @@ UtilisateurPrive::UtilisateurPrive ( const UtilisateurPrive & unUtilisateurPrive
 } //----- Fin de UtilisateurPrive (constructeur de copie)
 
 
-UtilisateurPrive::UtilisateurPrive ( )
+UtilisateurPrive::UtilisateurPrive (String unNom, String unMail, String unMdp, String unId, Vector<Capteur> desCapteurs )
+    :Acteur (unNom, unMail, unMdp), idUtilisateur(unId), capteurs(desCapteurs);
 // Algorithme :
 //
 {
+    points 
 #ifdef MAP
     cout << "Appel au constructeur de <UtilisateurPrive>" << endl;
 #endif

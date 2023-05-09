@@ -18,6 +18,7 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "Fournisseur.h"
+#include "../Appareils/Purificateur.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -43,7 +44,8 @@ Fournisseur::Fournisseur ( const Fournisseur & unFournisseur )
 } //----- Fin de Fournisseur (constructeur de copie)
 
 
-Fournisseur::Fournisseur ( )
+Fournisseur::Fournisseur ( String unNom, String unMail, String unMdp, String unId, vector<Purificateur> desPurificateurs)
+    :Acteur(unNom, unMail, unMdp), idFournisseur(unId), purificateurs(desPurificateurs)
 // Algorithme :
 //
 {

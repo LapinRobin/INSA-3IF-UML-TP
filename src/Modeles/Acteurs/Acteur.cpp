@@ -40,7 +40,8 @@ Acteur::Acteur ( const Acteur & unActeur )
 } //----- Fin de Acteur (constructeur de copie)
 
 
-Acteur::Acteur ( )
+Acteur::Acteur (String unNom, String unMail, String unMdp )
+    : nom(unNom), mail(unMail), mdp(unMdp);
 // Algorithme :
 //
 {

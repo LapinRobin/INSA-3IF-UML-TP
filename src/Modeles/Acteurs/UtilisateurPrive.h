@@ -22,7 +22,7 @@
 //
 //------------------------------------------------------------------------
 
-class UtilisateurPrive : 
+class UtilisateurPrive : public Acteur
 {
 //----------------------------------------------------------------- PUBLIC
 
@@ -43,7 +43,7 @@ public:
     // Contrat :
     //
 
-    UtilisateurPrive ( );
+    UtilisateurPrive ( String unNom, String unMail, String unMdp, String unId, vector<Capteur> desCapteurs);
     // Mode d'emploi :
     //
     // Contrat :
@@ -63,7 +63,7 @@ protected:
 //----------------------------------------------------- Attributs protégés
 
 String idUtilisateur;
-Vector<Capteur> capteurs;
+vector<Capteur> capteurs;
 int points;
 
 };

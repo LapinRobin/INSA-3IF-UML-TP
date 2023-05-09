@@ -23,7 +23,7 @@
 //
 //------------------------------------------------------------------------
 
-class Acteur : 
+class Acteur 
 {
 //----------------------------------------------------------------- PUBLIC
 
@@ -44,7 +44,7 @@ public:
     // Contrat :
     //
 
-    Acteur ( );
+    Acteur ( String unNom, String unMail, String unMdp);
     // Mode d'emploi :
     //
     // Contrat :
