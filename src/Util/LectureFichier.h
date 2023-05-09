@@ -12,12 +12,12 @@
 
 //--------------------------------------------------- Interfaces utilisées
 
-#include "../Modeles/Acteurs/Acteur.h"
 #include "../Modeles/Acteurs/Fournisseur.h"
 #include "../Modeles/Acteurs/Agence.h"
 #include "../Modeles/Acteurs/UtilisateurPrive.h"
 #include "../Modeles/Appareils/Capteur.h"
 #include "../Modeles/Appareils/Purificateur.h"
+#include <unordered_map>
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -41,9 +41,6 @@ public:
 
     static void lireUtilisateursPrives( unordered_map<string,UtilisateurPrive>& listeARemplir ) ;
     
-    static void lirePurificateurs( unordered_map<string,Fournisseur>& fournisseursAModifier ) ;
-
-    static void lireMesure( unordered_map<string,Capteur>& capteursAModifier ) ;
 
 //------------------------------------------------- Surcharge d'opérateurs
     LectureFichier & operator = ( const LectureFichier & unLectureFichier );
@@ -77,6 +74,9 @@ public:
 protected:
 //----------------------------------------------------- Méthodes protégées
 
+    static void lirePurificateurs( unordered_map<string,Fournisseur>& fournisseursAModifier ) ;
+
+    static void lireMesure( unordered_map<string,Capteur>& capteursAModifier ) ;
 //----------------------------------------------------- Attributs protégés
 
 };
