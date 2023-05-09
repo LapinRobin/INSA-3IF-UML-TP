@@ -11,7 +11,7 @@
 #define Agence_H
 
 //--------------------------------------------------- Interfaces utilisées
-
+#include "Acteur.h"
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -36,13 +36,8 @@ public:
 
 
 //-------------------------------------------- Constructeurs - destructeur
-    Agence ( const Agence & unAgence );
-    // Mode d'emploi (constructeur de copie) :
-    //
-    // Contrat :
-    //
 
-    Agence ( );
+    Agence (string unNom, string unMail, string unMdp );
     // Mode d'emploi :
     //
     // Contrat :

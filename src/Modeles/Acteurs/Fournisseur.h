@@ -11,7 +11,8 @@
 #define Fournisseur_H
 
 //--------------------------------------------------- Interfaces utilisées
-
+#include "Acteur.h"
+#include "../Appareils/Purificateur.h"
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -36,13 +37,8 @@ public:
 
 
 //-------------------------------------------- Constructeurs - destructeur
-    Fournisseur ( const Fournisseur & unFournisseur );
-    // Mode d'emploi (constructeur de copie) :
-    //
-    // Contrat :
-    //
 
-    Fournisseur ( );
+    Fournisseur ( string unNom, string unMail, string unMdp, string unId, vector<Purificateur> desPurificateurs);
     // Mode d'emploi :
     //
     // Contrat :
@@ -61,8 +57,8 @@ protected:
 
 //----------------------------------------------------- Attributs protégés
 
-String idFournisseur;
-Vector<Purificateur> purificateurs;
+string idFournisseur;
+vector<Purificateur> purificateurs;
 
 };
 

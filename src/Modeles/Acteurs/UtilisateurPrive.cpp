@@ -34,22 +34,14 @@ using namespace std;
 
 
 //-------------------------------------------- Constructeurs - destructeur
-UtilisateurPrive::UtilisateurPrive ( const UtilisateurPrive & unUtilisateurPrive )
-// Algorithme :
-//
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <UtilisateurPrive>" << endl;
-#endif
-} //----- Fin de UtilisateurPrive (constructeur de copie)
 
 
 UtilisateurPrive::UtilisateurPrive (string unNom, string unMail, string unMdp, string unId, vector<Capteur> desCapteurs )
-    :Acteur (unNom, unMail, unMdp), idUtilisateur(unId), capteurs(desCapteurs);
+    :Acteur (unNom, unMail, unMdp), idUtilisateur(unId), capteurs(desCapteurs)
 // Algorithme :
 //
 {
-    points 
+    points = 0;
 #ifdef MAP
     cout << "Appel au constructeur de <UtilisateurPrive>" << endl;
 #endif

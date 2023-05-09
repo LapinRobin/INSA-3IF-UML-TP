@@ -11,6 +11,8 @@
 #define UtilisateurPrive_H
 
 //--------------------------------------------------- Interfaces utilisées
+#include "Acteur.h"
+#include "../Appareils/Capteur.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -37,11 +39,6 @@ public:
 
 
 //-------------------------------------------- Constructeurs - destructeur
-    UtilisateurPrive ( const UtilisateurPrive & unUtilisateurPrive );
-    // Mode d'emploi (constructeur de copie) :
-    //
-    // Contrat :
-    //
 
     UtilisateurPrive ( string unNom, string unMail, string unMdp, string unId, vector<Capteur> desCapteurs);
     // Mode d'emploi :

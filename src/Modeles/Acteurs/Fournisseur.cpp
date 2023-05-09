@@ -34,17 +34,8 @@ using namespace std;
 
 
 //-------------------------------------------- Constructeurs - destructeur
-Fournisseur::Fournisseur ( const Fournisseur & unFournisseur )
-// Algorithme :
-//
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <Fournisseur>" << endl;
-#endif
-} //----- Fin de Fournisseur (constructeur de copie)
 
-
-Fournisseur::Fournisseur ( String unNom, String unMail, String unMdp, String unId, vector<Purificateur> desPurificateurs)
+Fournisseur::Fournisseur ( string unNom, string unMail, string unMdp, string unId, vector<Purificateur> desPurificateurs)
     :Acteur(unNom, unMail, unMdp), idFournisseur(unId), purificateurs(desPurificateurs)
 // Algorithme :
 //

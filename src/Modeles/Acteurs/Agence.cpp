@@ -13,6 +13,7 @@
 //-------------------------------------------------------- Include système
 using namespace std;
 #include <iostream>
+#include <cstring>
 
 //------------------------------------------------------ Include personnel
 #include "Agence.h"
@@ -31,17 +32,10 @@ using namespace std;
 
 
 //-------------------------------------------- Constructeurs - destructeur
-Agence::Agence ( const Agence & unAgence )
-// Algorithme :
-//
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <Agence>" << endl;
-#endif
-} //----- Fin de Agence (constructeur de copie)
 
 
-Agence::Agence ( )
+Agence::Agence (string unNom, string unMail, string unMdp )
+    : Acteur(unNom, unMail, unMdp)
 // Algorithme :
 //
 {
@@ -52,6 +46,7 @@ Agence::Agence ( )
 
 
 Agence::~Agence ( )
+    
 // Algorithme :
 //
 {
