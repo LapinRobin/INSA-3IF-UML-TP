@@ -28,28 +28,61 @@ using namespace std;
 //{
 //} //----- Fin de Méthode
 
-
-//------------------------------------------------- Surcharge d'opérateurs
-Capteur & Capteur::operator = ( const Capteur & unCapteur )
+float Capteur::getMesureO3 ( string uneDate )
 // Algorithme :
 //
 {
-} //----- Fin de operator =
+    return o3.at(uneDate);
+} //----- Fin de Méthode
+
+float Capteur::getMesureSo2 ( string uneDate )
+// Algorithme :
+//
+{
+    return so2.at(uneDate);
+} //----- Fin de Méthode
+
+float Capteur::getMesureNo2 ( string uneDate )
+// Algorithme :
+//
+{
+    return no2.at(uneDate);
+} //----- Fin de Méthode
+
+float Capteur::getMesurePm10 ( string uneDate )
+// Algorithme :
+//
+{
+    return pm10.at(uneDate);
+} //----- Fin de Méthode
+
+vector<string> Capteur::getDates ( )
+// Algorithme :
+//
+{
+    vector<string> dates;
+    for (const std::pair<string, float>& element : o3) {
+        dates.push_back(element.first);
+    }
+    return dates;
+} //----- Fin de Méthode
+
+bool Capteur::estFonctionnel ( )
+// Algorithme :
+//
+{
+    return fonctionnel;
+} //----- Fin de Méthode
+
+
+//------------------------------------------------- Surcharge d'opérateurs
 
 
 //-------------------------------------------- Constructeurs - destructeur
-Capteur::Capteur ( const Capteur & unCapteur )
-// Algorithme :
-//
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <Capteur>" << endl;
-#endif
-} //----- Fin de Capteur (constructeur de copie)
 
 
-Capteur::Capteur ( string unId, bool estFonctionnel)
-        : id(unId), fonctionnel(estFonctionnel)
+Capteur::Capteur ( double uneLatitude, double uneLongitude, string unId, bool estFonctionnel)
+        : Appareil(uneLatitude, uneLongitude), id(unId), fonctionnel(estFonctionnel)
 // Algorithme :
 //
 {

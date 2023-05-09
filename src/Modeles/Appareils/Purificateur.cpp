@@ -30,22 +30,9 @@ using namespace std;
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-Purificateur & Purificateur::operator = ( const Purificateur & unPurificateur )
-// Algorithme :
-//
-{
-} //----- Fin de operator =
 
 
 //-------------------------------------------- Constructeurs - destructeur
-Purificateur::Purificateur ( const Purificateur & unPurificateur )
-// Algorithme :
-//
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <Purificateur>" << endl;
-#endif
-} //----- Fin de Purificateur (constructeur de copie)
 
 
 Purificateur::Purificateur ( double uneLatitude, double uneLongitude, string unId, string dateDemarrage, string dateArret)

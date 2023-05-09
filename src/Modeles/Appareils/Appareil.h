@@ -60,23 +60,11 @@ public:
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-    Appareil & operator = ( const Appareil & unAppareil );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
 
 //-------------------------------------------- Constructeurs - destructeur
-    Appareil ( const Appareil & unAppareil );
-    // Mode d'emploi (constructeur de copie) :
-    // Constructeur de copie de la classe Appareil
-    // Contrat :
-    // unAppareil doit être valide
 
 
-    Appareil ( double uneLatitude, double uneLongitude)
-            : latitude(uneLatitude), longitude(uneLongitude)
+    Appareil ( double uneLatitude, double uneLongitude);
     // Mode d'emploi :
     // Constructeur de la classe Appareil
     // Contrat :
