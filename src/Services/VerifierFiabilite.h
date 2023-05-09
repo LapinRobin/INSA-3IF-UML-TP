@@ -38,7 +38,7 @@ public:
 
 //-------------------------------------------- Constructeurs - destructeur
 
-    VerifierFiabilite ( string unNom, string unMail, string unMdp, string unId, vector<Capteur> desCapteurs);
+    VerifierFiabilite ( );
     // Mode d'emploi :
     //
     // Contrat :
@@ -57,9 +57,6 @@ protected:
 
 //----------------------------------------------------- Attributs protégés
 
-string idUtilisateur;
-vector<Capteur> capteurs;
-int points;
 
 };
 
