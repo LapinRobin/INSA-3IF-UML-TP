@@ -34,17 +34,29 @@ public:
     // Contrat :
     //
 
+    double getLatitude() const;
+    // Mode d'emploi :
+    // retourner la latitude de l'appareil
+    // Contrat :
+    // Non
+
+    double getLongitude() const;
+    // Mode d'emploi :
+    // retourner la longitude de l'appareil
+    // Contrat :
+    // Non
+
     double CalculerDistance ( const Appareil & appareil );
     // Mode d'emploi :
-    //
+    // Calcul de la distance entre l'appareil et un autre appareil
     // Contrat :
-    //
+    // L'appareil doit être valide
 
     double CalculerDistance ( double latitude, double longitude );
     // Mode d'emploi :
-    //
+    // Calcul de la distance entre l'appareil et un point de coordonnées données
     // Contrat :
-    //
+    // Les coordonnées doivent être valides
 
 
 //------------------------------------------------- Surcharge d'opérateurs
