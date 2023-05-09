@@ -43,7 +43,7 @@ public:
     // Contrat :
     //
 
-    UtilisateurPrive ( String unNom, String unMail, String unMdp, String unId, vector<Capteur> desCapteurs);
+    UtilisateurPrive ( string unNom, string unMail, string unMdp, string unId, vector<Capteur> desCapteurs);
     // Mode d'emploi :
     //
     // Contrat :
@@ -62,7 +62,7 @@ protected:
 
 //----------------------------------------------------- Attributs protégés
 
-String idUtilisateur;
+string idUtilisateur;
 vector<Capteur> capteurs;
 int points;
 
