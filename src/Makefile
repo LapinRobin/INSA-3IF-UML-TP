@@ -4,21 +4,19 @@
 CXX = g++
 CXXFLAGS = -std=c++14 -Wall
 
-# Directories
-SRCDIR = src
-OBJDIR = obj
+SRC_DIR = src
+UTIL_DIR = $(SRC_DIR)/Util
 
-# Files
-SRCS = $(wildcard $(SRCDIR)/**/*.cpp $(SRCDIR)/*.cpp)
-OBJS = $(patsubst $(SRCDIR)/%.cpp, $(OBJDIR)/%.o, $(SRCS))
-TARGET = program
+UTIL_SRCS = $(wildcard $(UTIL_DIR)/*.cpp)
+UTIL_OBJS = $(UTIL_SRCS:.cpp=.o)
 
-# Targets
-$(TARGET): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $@ $^
+all: main
 
-$(OBJDIR)/%.o: $(SRCDIR)/%.cpp
-	$(CXX) $(CXXFLAGS) -c -o $@ $<
+main: $(UTIL_OBJS) $(SRC_DIR)/main.cpp
+	$(CC) $(CFLAGS) $^ -o $@
+
+$(UTIL_DIR)/%.o: $(UTIL_DIR)/%.cpp $(UTIL_DIR)/%.h
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS) $(TARGET)
+	rm -f main $(UTIL_OBJS)
