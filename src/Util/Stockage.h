@@ -33,6 +33,28 @@ public:
     //
     // Contrat :
     //
+    void GetCapteurs(std::vector<Capteur> &vect_capteurs);
+    // Mode d'emploi :
+    // Passer par référence un vector pour le remplir avec les capteurs
+    // Retourne true si le vector est rempli, false sinon
+    // Contrat :
+    // Aucun
+
+
+
+
+    void GetUtilisateursPrives(std::vector<UtilisateurPrive> &vect_utilisateursPrives);
+    // Mode d'emploi :
+    // Passer par référence un vector pour le remplir avec les utilisateurs privés
+    // Contrat :
+    // Aucun
+
+
+    void GetFournisseurs(std::vector<Fournisseur> &vect_fournisseurs);
+    // Mode d'emploi :
+    // Passer par référence un vector pour le remplir avec les fournisseurs
+    // Contrat :
+    // Aucun
 
 
 //------------------------------------------------- Surcharge d'opérateurs
@@ -69,6 +91,10 @@ protected:
 
 //----------------------------------------------------- Attributs protégés
 
+private:
+    static std::unordered_map<std::string, Capteur> capteurs;
+    static std::unordered_map<std::string, UtilisateurPrive> utilisateursPrives;
+    static std::unordered_map<std::string, Fournisseur> fournisseurs;
 };
 
 //-------------------------------- Autres définitions dépendantes de <Stockage>
