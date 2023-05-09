@@ -35,15 +35,15 @@ class LectureFichier
 public:
 //----------------------------------------------------- Méthodes publiques
 
-    static void lireFournisseurs( unordered_map<string,Fournisseur>* listeARemplir ) ;
+    static void lireFournisseurs( unordered_map<string,Fournisseur>& listeARemplir ) ;
 
-    static void lireCapteurs( unordered_map<string,Capteur>* listeARemplir ) ;
+    static void lireCapteurs( unordered_map<string,Capteur>& listeARemplir ) ;
 
-    static void lireUtilisateursPrive( unordered_map<string,UtilisateurPrive>* listeARemplir ) ;
+    static void lireUtilisateursPrive( unordered_map<string,UtilisateurPrive>& listeARemplir ) ;
     
-    static void lirePurificateurs( unordered_map<string,Fournisseur>* fournisseursAModifier ) ;
+    static void lirePurificateurs( unordered_map<string,Fournisseur>& fournisseursAModifier ) ;
 
-    static void lireMesure( unordered_map<string,Capteur>* capteursAModifier ) ;
+    static void lireMesure( unordered_map<string,Capteur>& capteursAModifier ) ;
 
 //------------------------------------------------- Surcharge d'opérateurs
     LectureFichier & operator = ( const LectureFichier & unLectureFichier );

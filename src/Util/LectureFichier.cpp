@@ -10,12 +10,6 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "LectureFichier.h"
-#include "../Modeles/Acteurs/Acteur.h"
-#include "../Modeles/Acteurs/Fournisseur.h"
-#include "../Modeles/Acteurs/Agence.h"
-#include "../Modeles/Acteurs/UtilisateurPrive.h"
-#include "../Modeles/Appareils/Capteur.h"
-#include "../Modeles/Appareils/Purificateur.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -23,13 +17,13 @@ using namespace std;
 
 //----------------------------------------------------- Méthodes publiques
 
-void LectureFichier::lireCapteurs( unordered_map<string,Capteur>* listeARemplir )
+void LectureFichier::lireCapteurs( unordered_map<string,Capteur>& listeARemplir )
 {
     string buffer;
     string id;
     double longitude;
     double latitude;
-    ifstream fichierCapteurs("sensors.csv");
+    ifstream fichierCapteurs("../..data/sensors.csv");
     
     while(!fichierCapteurs.eof())
     {
@@ -40,7 +34,28 @@ void LectureFichier::lireCapteurs( unordered_map<string,Capteur>* listeARemplir 
         getline(fichierCapteurs,buffer,'\n');
         latitude=stod(buffer);
         Capteur cap(latitude,longitude,id);
-        listeARemplir->insert(make_pair(id,cap));
+        listeARemplir.insert(make_pair(id,cap));
+    }
+}
+
+void LectureFichier::lireFournisseurs( unordered_map<string,Fournisseur>& listeARemplir )
+{
+    string buffer;
+    string id;
+    double longitude;
+    double latitude;
+    ifstream fichierFournisseurs("../..data/sensors.csv");
+    
+    while(!fichierFournisseurs.eof())
+    {
+        getline(fichierFournisseurs,buffer,';');
+        id=buffer;
+        getline(fichierFournisseurs,buffer,';');
+        longitude=stod(buffer);
+        getline(fichierFournisseurs,buffer,'\n');
+        latitude=stod(buffer);
+        Fournisseur four(latitude,longitude,id);
+        listeARemplir.insert(make_pair(id,four));
     }
 }
 
