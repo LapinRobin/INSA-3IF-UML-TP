@@ -44,7 +44,7 @@ UtilisateurPrive::UtilisateurPrive ( const UtilisateurPrive & unUtilisateurPrive
 } //----- Fin de UtilisateurPrive (constructeur de copie)
 
 
-UtilisateurPrive::UtilisateurPrive (String unNom, String unMail, String unMdp, String unId, Vector<Capteur> desCapteurs )
+UtilisateurPrive::UtilisateurPrive (string unNom, string unMail, string unMdp, string unId, vector<Capteur> desCapteurs )
     :Acteur (unNom, unMail, unMdp), idUtilisateur(unId), capteurs(desCapteurs);
 // Algorithme :
 //
