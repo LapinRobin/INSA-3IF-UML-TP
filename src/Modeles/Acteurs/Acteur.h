@@ -44,7 +44,7 @@ public:
     // Contrat :
     //
 
-    Acteur ( String unNom, String unMail, String unMdp);
+    Acteur ( string unNom, string unMail, string unMdp);
     // Mode d'emploi :
     //
     // Contrat :
@@ -63,9 +63,9 @@ protected:
 
 //----------------------------------------------------- Attributs protégés
 
-String nom;
-String mail;
-String mdp;
+string nom;
+string mail;
+string mdp;
 
 };
 
