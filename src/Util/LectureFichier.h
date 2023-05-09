@@ -1,9 +1,9 @@
 /*************************************************************************
-                           LectureFichier  -  description
+                           Stockage  -  description
                              -------------------
-    début                : $DATE$
-    copyright            : (C) $YEAR$ par $AUTHOR$
-    e-mail               : $EMAIL$
+    début                : 2023
+    copyright            : (C) 2023 par $AUTHOR$
+    e-mail               : 
 *************************************************************************/
 
 //---------- Interface de la classe <LectureFichier> (fichier LectureFichier.h) ----------------
@@ -28,12 +28,16 @@ class LectureFichier
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    // type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
 
+    static void lireFournisseurs( unordered_map<string,Fournisseur>* listeARemplir ) ;
+
+    static void lireCapteurs( unordered_map<string,Capteur>* listeARemplir ) ;
+
+    static void lireUtilisateursPrive( unordered_map<string,UtilisateurPrive>* listeARemplir ) ;
+    
+    static void lirePurificateurs( unordered_map<string,Fournisseur>* fournisseursAModifier ) ;
+
+    static void lireMesure( unordered_map<string,Capteur>* capteursAModifier ) ;
 
 //------------------------------------------------- Surcharge d'opérateurs
     LectureFichier & operator = ( const LectureFichier & unLectureFichier );

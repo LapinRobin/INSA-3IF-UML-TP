@@ -5,8 +5,16 @@
 //-------------------------------------------------------- Include système
 using namespace std;
 #include <iostream>
+#include <unordered_map>
+#include <vector>
+#include <string>
+
 
 //------------------------------------------------------ Include personnel
+
+#include "Capteur.h"
+#include "UtilisateurPrive.h"
+#include "Fournisseur.h"
 #include "Stockage.h"
 
 //------------------------------------------------------------- Constantes
@@ -19,7 +27,47 @@ using namespace std;
 //
 //{
 //} //----- Fin de Méthode
+void GetCapteurs(std::vector<Capteur> &vect_capteurs)
+// Algorithme :
+// Passer par référence un vecteur de capteurs
+// Retourner un booléen pour savoir si la requête a fonctionné
+{ 
+    
+    // pass the values of private attribute capteurs to the reference vector
+    for (auto it = capteurs.begin(); it != capteurs.end(); ++it)
+    {
+        vect_capteurs.push_back(*it);
+    }
+    
+    
+    
+} //----- Fin de Méthode
 
+
+void GetUtilisateursPrives(std::vector<UtilisateurPrive> &vect_utilisateursPrives) 
+// Algorithme :
+// Passer par référence un vecteur d'utilisateurs privés
+// Retourner un booléen pour savoir si la requête a fonctionné
+{
+    // pass the values of private attribute utilisateursPrives to the reference vector
+    for (auto it = utilisateursPrives.begin(); it != utilisateursPrives.end(); ++it)
+    {
+        vect_utilisateursPrives.push_back(*it);
+    }
+
+} //----- Fin de Méthode
+
+void GetFournisseurs(std::vector<Fournisseur> &vect_fournisseurs)  
+// Algorithme :
+// Passer par référence un vecteur de fournisseurs
+// Retourner un booléen pour savoir si la requête a fonctionné
+{
+    // pass the values of private attribute fournisseurs to the reference vector
+    for (auto it = fournisseurs.begin(); it != fournisseurs.end(); ++it)
+    {
+        vect_fournisseurs.push_back(*it);
+    }
+} //----- Fin de Méthode
 
 //------------------------------------------------- Surcharge d'opérateurs
 Stockage & Stockage::operator = ( const Stockage & unStockage )
@@ -61,5 +109,6 @@ Stockage::~Stockage ( )
 
 
 //------------------------------------------------------------------ PRIVE
+
 
 //----------------------------------------------------- Méthodes protégées
