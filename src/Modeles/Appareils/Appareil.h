@@ -46,13 +46,13 @@ public:
     // Contrat :
     // Non
 
-    double CalculerDistance ( const Appareil & appareil );
+    double calculerDistance ( const Appareil & appareil );
     // Mode d'emploi :
     // Calcul de la distance entre l'appareil et un autre appareil
     // Contrat :
     // L'appareil doit être valide
 
-    double CalculerDistance ( double latitude, double longitude );
+    double calculerDistance ( double latitude, double longitude );
     // Mode d'emploi :
     // Calcul de la distance entre l'appareil et un point de coordonnées données
     // Contrat :

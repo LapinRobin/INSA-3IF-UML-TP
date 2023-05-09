@@ -16,6 +16,7 @@ using namespace std;
 #include "../Modeles/Acteurs/UtilisateurPrive.h"
 #include "../Modeles/Acteurs/Fournisseur.h"
 #include "Stockage.h"
+#include "LectureFichier.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -27,7 +28,20 @@ using namespace std;
 //
 //{
 //} //----- Fin de Méthode
-static void GetCapteurs(std::vector<Capteur> &vect_capteurs)
+
+void initialiser()
+{
+std::unordered_map<std::string, Capteur> Stockage::capteurs;
+LectureFichier::lireCapteurs(capteurs);
+
+std::unordered_map<std::string, UtilisateurPrive> Stockage::utilisateursPrives;
+lireUtilisateursPrives(utilisateursPrives);
+
+std::unordered_map<std::string, Fournisseur> Stockage::fournisseurs;
+LectureFichier::lireFournisseurs(fournisseurs);
+}
+
+static void getCapteurs(std::vector<Capteur> &vect_capteurs)
 // Algorithme :
 // Passer par référence un vecteur de capteurs
 // Retourner un booléen pour savoir si la requête a fonctionné
@@ -44,7 +58,7 @@ static void GetCapteurs(std::vector<Capteur> &vect_capteurs)
 } //----- Fin de Méthode
 
 
-static void GetUtilisateursPrives(std::vector<UtilisateurPrive> &vect_utilisateursPrives) 
+static void getUtilisateursPrives(std::vector<UtilisateurPrive> &vect_utilisateursPrives) 
 // Algorithme :
 // Passer par référence un vecteur d'utilisateurs privés
 // Retourner un booléen pour savoir si la requête a fonctionné
@@ -57,7 +71,7 @@ static void GetUtilisateursPrives(std::vector<UtilisateurPrive> &vect_utilisateu
 
 } //----- Fin de Méthode
 
-static void GetFournisseurs(std::vector<Fournisseur> &vect_fournisseurs)  
+static void getFournisseurs(std::vector<Fournisseur> &vect_fournisseurs)  
 // Algorithme :
 // Passer par référence un vecteur de fournisseurs
 // Retourner un booléen pour savoir si la requête a fonctionné
@@ -69,10 +83,7 @@ static void GetFournisseurs(std::vector<Fournisseur> &vect_fournisseurs)
     }
 } //----- Fin de Méthode
 
-void Stockage::Initialiser()
-{
-    
-}
+
 
 //------------------------------------------------- Surcharge d'opérateurs
 Stockage & Stockage::operator = ( const Stockage & unStockage )

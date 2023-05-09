@@ -27,7 +27,7 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-double VerifierFiabilite::CalculerTauxErreur ( const Capteur & capteur )
+double VerifierFiabilite::calculerTauxErreur ( const Capteur & capteur )
 // Algorithme :
 //
 {
@@ -41,7 +41,7 @@ double VerifierFiabilite::CalculerTauxErreur ( const Capteur & capteur )
 
 
     for(int i = 0; i< listeCapteur.size(); i++){
-        if(listeCapteur[i].estFonctionnel()==true && capteur.CalculerDistance(listeCapteur[i])<limiteDistance){
+        if(listeCapteur[i].estFonctionnel()==true && capteur.calculerDistance(listeCapteur[i])<limiteDistance){
             for(int j = 0; j<listeDate.size(); j++){
                 if(abs(capteur.getMesureO3(listeDate[j])-listeCapteur[i].getMesureO3(listeDate[j]))>limiteEcartMesure[1]){
                     compteurErreur++;

@@ -59,6 +59,27 @@ void LectureFichier::lireFournisseurs( unordered_map<string,Fournisseur>& listeA
     }
 }
 
+void LectureFichier::lireUtilisateursPrives( unordered_map<string,UtilisateurPrive>& listeARemplir )
+{
+    string buffer;
+    string id;
+    string mail;
+    string mdp;
+    ifstream fichierUtilisateursPrives("../..data/users.csv");
+    
+    while(!fichierUtilisateursPrives.eof())
+    {
+        getline(fichierUtilisateursPrives,buffer,';');
+        id=buffer;
+        getline(fichierUtilisateursPrives,buffer,';');
+        mail=buffer;
+        getline(fichierUtilisateursPrives,buffer,'\n');
+        mdp=buffer;
+        UtilisateurPrive user(id,mail,mdp);
+        listeARemplir.insert(make_pair(id,user));
+    }
+}
+
 
 //------------------------------------------------- Surcharge d'opérateurs
 LectureFichier & LectureFichier::operator = ( const LectureFichier & unLectureFichier )

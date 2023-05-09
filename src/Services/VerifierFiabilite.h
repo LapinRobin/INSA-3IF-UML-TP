@@ -28,7 +28,7 @@ class VerifierFiabilite
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    double CalculerTauxErreur ( const Capteur & capteur );
+    double calculerTauxErreur ( const Capteur & capteur );
     // Mode d'emploi :
     //
     // Contrat :

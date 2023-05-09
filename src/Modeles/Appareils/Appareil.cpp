@@ -44,15 +44,15 @@ double Appareil::getLongitude() const
     return longitude;
 } //----- Fin de Méthode
 
-double Appareil::CalculerDistance ( const Appareil & unAppareil )
+double Appareil::calculerDistance ( const Appareil & unAppareil )
 // Algorithme :
 //
 {
-    return CalculerDistance(unAppareil.latitude, unAppareil.longitude);
+    return calculerDistance(unAppareil.latitude, unAppareil.longitude);
 } //----- Fin de Méthode
 
 
-double Appareil::CalculerDistance(double uneLatitude, double uneLongitude)
+double Appareil::calculerDistance(double uneLatitude, double uneLongitude)
 // Algorithme :
 // Calcul de la distance entre l'appareil et un point de coordonnées données
 {

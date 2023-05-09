@@ -39,7 +39,7 @@ public:
 
     static void lireCapteurs( unordered_map<string,Capteur>& listeARemplir ) ;
 
-    static void lireUtilisateursPrive( unordered_map<string,UtilisateurPrive>& listeARemplir ) ;
+    static void lireUtilisateursPrives( unordered_map<string,UtilisateurPrive>& listeARemplir ) ;
     
     static void lirePurificateurs( unordered_map<string,Fournisseur>& fournisseursAModifier ) ;
 

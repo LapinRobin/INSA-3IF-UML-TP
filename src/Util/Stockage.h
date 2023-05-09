@@ -33,7 +33,7 @@ public:
     //
     // Contrat :
     //
-    static void GetCapteurs(std::vector<Capteur> &vect_capteurs);
+    static void getCapteurs(std::vector<Capteur> &vect_capteurs);
     // Mode d'emploi :
     // Passer par référence un vector pour le remplir avec les capteurs
     // Retourne true si le vector est rempli, false sinon
@@ -43,14 +43,14 @@ public:
 
 
 
-    static void GetUtilisateursPrives(std::vector<UtilisateurPrive> &vect_utilisateursPrives);
+    static void getUtilisateursPrives(std::vector<UtilisateurPrive> &vect_utilisateursPrives);
     // Mode d'emploi :
     // Passer par référence un vector pour le remplir avec les utilisateurs privés
     // Contrat :
     // Aucun
 
 
-    static void GetFournisseurs(std::vector<Fournisseur> &vect_fournisseurs);
+    static void getFournisseurs(std::vector<Fournisseur> &vect_fournisseurs);
     // Mode d'emploi :
     // Passer par référence un vector pour le remplir avec les fournisseurs
     // Contrat :
