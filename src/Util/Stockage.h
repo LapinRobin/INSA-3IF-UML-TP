@@ -56,6 +56,8 @@ public:
     // Contrat :
     // Aucun
 
+    void Initialiser();
+
 
 //------------------------------------------------- Surcharge d'opérateurs
     Stockage & operator = ( const Stockage & unStockage );

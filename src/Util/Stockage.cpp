@@ -69,6 +69,11 @@ static void GetFournisseurs(std::vector<Fournisseur> &vect_fournisseurs)
     }
 } //----- Fin de Méthode
 
+void Stockage::Initialiser()
+{
+    
+}
+
 //------------------------------------------------- Surcharge d'opérateurs
 Stockage & Stockage::operator = ( const Stockage & unStockage )
 // Algorithme :
