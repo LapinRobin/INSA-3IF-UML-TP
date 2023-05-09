@@ -48,7 +48,7 @@ double Appareil::CalculerDistance ( const Appareil & unAppareil )
 // Algorithme :
 //
 {
-    CalculerDistance(unAppareil.latitude, unAppareil.longitude);
+    return CalculerDistance(unAppareil.latitude, unAppareil.longitude);
 } //----- Fin de Méthode
 
 
@@ -78,22 +78,9 @@ double Appareil::CalculerDistance(double uneLatitude, double uneLongitude)
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-Appareil & Appareil::operator = ( const Appareil & unAppareil )
-// Algorithme :
-//
-{
-} //----- Fin de operator =
 
 
 //-------------------------------------------- Constructeurs - destructeur
-Appareil::Appareil ( const Appareil & unAppareil )
-// Algorithme :
-//
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <Appareil>" << endl;
-#endif
-} //----- Fin de Appareil (constructeur de copie)
 
 
 Appareil::Appareil ( double uneLatitude, double uneLongitude)
