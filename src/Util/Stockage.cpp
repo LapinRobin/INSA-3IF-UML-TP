@@ -12,9 +12,9 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 
-#include "Capteur.h"
-#include "UtilisateurPrive.h"
-#include "Fournisseur.h"
+#include "../Modeles/Appareils/Capteur.h"
+#include "../Modeles/Acteurs/UtilisateurPrive.h"
+#include "../Modeles/Acteurs/Fournisseur.h"
 #include "Stockage.h"
 
 //------------------------------------------------------------- Constantes

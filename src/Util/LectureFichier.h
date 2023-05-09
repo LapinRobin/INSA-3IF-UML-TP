@@ -12,6 +12,12 @@
 
 //--------------------------------------------------- Interfaces utilisées
 
+#include "../Modeles/Acteurs/Acteur.h"
+#include "../Modeles/Acteurs/Fournisseur.h"
+#include "../Modeles/Acteurs/Agence.h"
+#include "../Modeles/Acteurs/UtilisateurPrive.h"
+#include "../Modeles/Appareils/Capteur.h"
+#include "../Modeles/Appareils/Purificateur.h"
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types

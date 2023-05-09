@@ -12,6 +12,7 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include "Acteur.h"
+#include <vector>
 #include "../Appareils/Purificateur.h"
 //------------------------------------------------------------- Constantes
 
