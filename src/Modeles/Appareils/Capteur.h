@@ -13,6 +13,7 @@
 //--------------------------------------------------- Interfaces utilisées
 #include <string>
 #include <unordered_map>
+#include <vector>
 #include "Appareil.h"
 //------------------------------------------------------------- Constantes
 
@@ -36,21 +37,47 @@ public:
     // Contrat :
     //
 
+    float getMesureO3 ( string date );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
 
-//------------------------------------------------- Surcharge d'opérateurs
-    Capteur & operator = ( const Capteur & unCapteur );
+    float getMesureSo2 ( string date );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+
+    float getMesureNo2( string date );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+
+    float getMesurePm10 ( string date );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+
+    bool estFonctionnel ( );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+
+    vector<string> getDates ( );
     // Mode d'emploi :
     //
     // Contrat :
     //
 
 
+//------------------------------------------------- Surcharge d'opérateurs
+
+
 //-------------------------------------------- Constructeurs - destructeur
-    Capteur ( const Capteur & unCapteur );
-    // Mode d'emploi (constructeur de copie) :
-    //
-    // Contrat :
-    //
 
     Capteur ( double uneLatitude, double uneLongitude, string unId, bool estFonctionnel = true );
     // Mode d'emploi :

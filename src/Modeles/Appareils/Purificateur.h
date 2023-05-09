@@ -37,19 +37,9 @@ public:
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-    Purificateur & operator = ( const Purificateur & unPurificateur );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
 
 
 //-------------------------------------------- Constructeurs - destructeur
-    Purificateur ( const Purificateur & unPurificateur );
-    // Mode d'emploi (constructeur de copie) :
-    //
-    // Contrat :
-    //
 
     Purificateur ( double uneLatitude, double uneLongitude, string unId, string dateDemarrage, string dateArret );
     // Mode d'emploi :
