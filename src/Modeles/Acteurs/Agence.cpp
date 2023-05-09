@@ -1,4 +1,12 @@
-//---------- Réalisation de la classe <LectureFichier> (fichier LectureFichier.cpp) ------------
+/*************************************************************************
+                           Agence  -  description
+                             -------------------
+    début                : $DATE$
+    copyright            : (C) $YEAR$ par $AUTHOR$
+    e-mail               : $EMAIL$
+*************************************************************************/
+
+//---------- Réalisation de la classe <Agence> (fichier Agence.cpp) ------------
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -7,59 +15,53 @@ using namespace std;
 #include <iostream>
 
 //------------------------------------------------------ Include personnel
-#include "LectureFichier.h"
+#include "Agence.h"
 
 //------------------------------------------------------------- Constantes
 
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type LectureFichier::Méthode ( liste des paramètres )
+// type Agence::Méthode ( liste des paramètres )
 // Algorithme :
 //
 //{
 //} //----- Fin de Méthode
 
 
-//------------------------------------------------- Surcharge d'opérateurs
-LectureFichier & LectureFichier::operator = ( const LectureFichier & unLectureFichier )
-// Algorithme :
-//
-{
-} //----- Fin de operator =
-
 
 //-------------------------------------------- Constructeurs - destructeur
-LectureFichier::LectureFichier ( const LectureFichier & unLectureFichier )
+Agence::Agence ( const Agence & unAgence )
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au constructeur de copie de <LectureFichier>" << endl;
+    cout << "Appel au constructeur de copie de <Agence>" << endl;
 #endif
-} //----- Fin de LectureFichier (constructeur de copie)
+} //----- Fin de Agence (constructeur de copie)
 
 
-LectureFichier::LectureFichier ( )
+Agence::Agence ( )
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au constructeur de <LectureFichier>" << endl;
+    cout << "Appel au constructeur de <Agence>" << endl;
 #endif
-} //----- Fin de LectureFichier
+} //----- Fin de Agence
 
 
-LectureFichier::~LectureFichier ( )
+Agence::~Agence ( )
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au destructeur de <LectureFichier>" << endl;
+    cout << "Appel au destructeur de <Agence>" << endl;
 #endif
-} //----- Fin de ~LectureFichier
+} //----- Fin de ~Agence
 
 
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
+

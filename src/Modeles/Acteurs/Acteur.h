@@ -1,28 +1,29 @@
 /*************************************************************************
-                           Stockage  -  description
+                           Acteur  -  description
                              -------------------
-    début                : 2023
-    copyright            : (C) 2023 par $AUTHOR$
-    e-mail               : 
+    début                : $DATE$
+    copyright            : (C) $YEAR$ par $AUTHOR$
+    e-mail               : $EMAIL$
 *************************************************************************/
 
-//---------- Interface de la classe <Stockage> (fichier Stockage.h) ----------------
-#if ! defined ( STOCKAGE_H )
-#define STOCKAGE_H
+//---------- Interface de la classe <Acteur> (fichier Acteur.h) ----------------
+#if ! defined ( Acteur_H )
+#define Acteur_H
 
 //--------------------------------------------------- Interfaces utilisées
+#include <cstring>
 
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <Stockage>
+// Rôle de la classe <Acteur>
 //
 //
 //------------------------------------------------------------------------
 
-class Stockage
+class Acteur : 
 {
 //----------------------------------------------------------------- PUBLIC
 
@@ -35,28 +36,21 @@ public:
     //
 
 
-//------------------------------------------------- Surcharge d'opérateurs
-    Stockage & operator = ( const Stockage & unStockage );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
 
 //-------------------------------------------- Constructeurs - destructeur
-    Stockage ( const Stockage & unStockage );
+    Acteur ( const Acteur & unActeur );
     // Mode d'emploi (constructeur de copie) :
     //
     // Contrat :
     //
 
-    Stockage ( );
+    Acteur ( );
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    virtual ~Stockage ( );
+    virtual ~Acteur ( );
     // Mode d'emploi :
     //
     // Contrat :
@@ -69,8 +63,13 @@ protected:
 
 //----------------------------------------------------- Attributs protégés
 
+String nom;
+String mail;
+String mdp;
+
 };
 
-//-------------------------------- Autres définitions dépendantes de <Stockage>
+//-------------------------------- Autres définitions dépendantes de <Acteur>
 
-#endif // STOCKAGE_H
+#endif // Acteur_H
+

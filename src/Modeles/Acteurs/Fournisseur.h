@@ -1,14 +1,14 @@
 /*************************************************************************
-                           LectureFichier  -  description
+                           Fournisseur  -  description
                              -------------------
     début                : $DATE$
     copyright            : (C) $YEAR$ par $AUTHOR$
     e-mail               : $EMAIL$
 *************************************************************************/
 
-//---------- Interface de la classe <LectureFichier> (fichier LectureFichier.h) ----------------
-#if ! defined ( LECTUREFICHIER_H )
-#define LECTUREFICHIER_H
+//---------- Interface de la classe <Fournisseur> (fichier Fournisseur.h) ----------------
+#if ! defined ( Fournisseur_H )
+#define Fournisseur_H
 
 //--------------------------------------------------- Interfaces utilisées
 
@@ -17,12 +17,12 @@
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <LectureFichier>
+// Rôle de la classe <Fournisseur>
 //
 //
 //------------------------------------------------------------------------
 
-class LectureFichier
+class Fournisseur : public Acteur
 {
 //----------------------------------------------------------------- PUBLIC
 
@@ -35,28 +35,20 @@ public:
     //
 
 
-//------------------------------------------------- Surcharge d'opérateurs
-    LectureFichier & operator = ( const LectureFichier & unLectureFichier );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-
 //-------------------------------------------- Constructeurs - destructeur
-    LectureFichier ( const LectureFichier & unLectureFichier );
+    Fournisseur ( const Fournisseur & unFournisseur );
     // Mode d'emploi (constructeur de copie) :
     //
     // Contrat :
     //
 
-    LectureFichier ( );
+    Fournisseur ( );
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    virtual ~LectureFichier ( );
+    virtual ~Fournisseur ( );
     // Mode d'emploi :
     //
     // Contrat :
@@ -69,8 +61,12 @@ protected:
 
 //----------------------------------------------------- Attributs protégés
 
+String idFournisseur;
+Vector<Purificateur> purificateurs;
+
 };
 
-//-------------------------------- Autres définitions dépendantes de <LectureFichier>
+//-------------------------------- Autres définitions dépendantes de <Fournisseur>
 
-#endif // LECTUREFICHIER_H
+#endif // Fournisseur_H
+

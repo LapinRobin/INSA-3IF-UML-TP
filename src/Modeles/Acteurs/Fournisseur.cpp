@@ -1,63 +1,66 @@
 /*************************************************************************
-                           Acteur  -  description
+                           Fournisseur  -  description
                              -------------------
     début                : $DATE$
     copyright            : (C) $YEAR$ par $AUTHOR$
     e-mail               : $EMAIL$
 *************************************************************************/
 
-//---------- Réalisation de la classe <Acteur> (fichier Acteur.cpp) ------------
+//---------- Réalisation de la classe <Fournisseur> (fichier Fournisseur.cpp) ------------
 
 //---------------------------------------------------------------- INCLUDE
 
 //-------------------------------------------------------- Include système
 using namespace std;
 #include <iostream>
+#include <vector>
+#include <cstring>
 
 //------------------------------------------------------ Include personnel
-#include "Acteur.h"
+#include "Fournisseur.h"
 
 //------------------------------------------------------------- Constantes
 
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type Acteur::Méthode ( liste des paramètres )
+// type Fournisseur::Méthode ( liste des paramètres )
 // Algorithme :
 //
 //{
 //} //----- Fin de Méthode
 
 
+
 //-------------------------------------------- Constructeurs - destructeur
-Acteur::Acteur ( const Acteur & unActeur )
+Fournisseur::Fournisseur ( const Fournisseur & unFournisseur )
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au constructeur de copie de <Acteur>" << endl;
+    cout << "Appel au constructeur de copie de <Fournisseur>" << endl;
 #endif
-} //----- Fin de Acteur (constructeur de copie)
+} //----- Fin de Fournisseur (constructeur de copie)
 
 
-Acteur::Acteur ( )
+Fournisseur::Fournisseur ( )
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au constructeur de <Acteur>" << endl;
+    cout << "Appel au constructeur de <Fournisseur>" << endl;
 #endif
-} //----- Fin de Acteur
+} //----- Fin de Fournisseur
 
 
-Acteur::~Acteur ( )
+Fournisseur::~Fournisseur ( )
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au destructeur de <Acteur>" << endl;
+    cout << "Appel au destructeur de <Fournisseur>" << endl;
 #endif
-} //----- Fin de ~Acteur
+} //----- Fin de ~Fournisseur
 
 
 //------------------------------------------------------------------ PRIVE

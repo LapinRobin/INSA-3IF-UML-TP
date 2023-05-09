@@ -1,14 +1,14 @@
 /*************************************************************************
-                           Stockage  -  description
+                           Agence  -  description
                              -------------------
-    début                : 2023
-    copyright            : (C) 2023 par $AUTHOR$
-    e-mail               : 
+    début                : $DATE$
+    copyright            : (C) $YEAR$ par $AUTHOR$
+    e-mail               : $EMAIL$
 *************************************************************************/
 
-//---------- Interface de la classe <Stockage> (fichier Stockage.h) ----------------
-#if ! defined ( STOCKAGE_H )
-#define STOCKAGE_H
+//---------- Interface de la classe <Agence> (fichier Agence.h) ----------------
+#if ! defined ( Agence_H )
+#define Agence_H
 
 //--------------------------------------------------- Interfaces utilisées
 
@@ -17,12 +17,12 @@
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <Stockage>
+// Rôle de la classe <Agence>
 //
 //
 //------------------------------------------------------------------------
 
-class Stockage
+class Agence : public Acteur
 {
 //----------------------------------------------------------------- PUBLIC
 
@@ -35,28 +35,20 @@ public:
     //
 
 
-//------------------------------------------------- Surcharge d'opérateurs
-    Stockage & operator = ( const Stockage & unStockage );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-
 //-------------------------------------------- Constructeurs - destructeur
-    Stockage ( const Stockage & unStockage );
+    Agence ( const Agence & unAgence );
     // Mode d'emploi (constructeur de copie) :
     //
     // Contrat :
     //
 
-    Stockage ( );
+    Agence ( );
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    virtual ~Stockage ( );
+    virtual ~Agence ( );
     // Mode d'emploi :
     //
     // Contrat :
@@ -71,6 +63,7 @@ protected:
 
 };
 
-//-------------------------------- Autres définitions dépendantes de <Stockage>
+//-------------------------------- Autres définitions dépendantes de <Agence>
 
-#endif // STOCKAGE_H
+#endif // Agence_H
+

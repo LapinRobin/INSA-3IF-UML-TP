@@ -1,14 +1,14 @@
 /*************************************************************************
-                           Stockage  -  description
+                           UtilisateurPrive  -  description
                              -------------------
-    début                : 2023
-    copyright            : (C) 2023 par $AUTHOR$
-    e-mail               : 
+    début                : $DATE$
+    copyright            : (C) $YEAR$ par $AUTHOR$
+    e-mail               : $EMAIL$
 *************************************************************************/
 
-//---------- Interface de la classe <Stockage> (fichier Stockage.h) ----------------
-#if ! defined ( STOCKAGE_H )
-#define STOCKAGE_H
+//---------- Interface de la classe <UtilisateurPrive> (fichier UtilisateurPrive.h) ----------------
+#if ! defined ( UtilisateurPrive_H )
+#define UtilisateurPrive_H
 
 //--------------------------------------------------- Interfaces utilisées
 
@@ -17,12 +17,12 @@
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <Stockage>
+// Rôle de la classe <UtilisateurPrive>
 //
 //
 //------------------------------------------------------------------------
 
-class Stockage
+class UtilisateurPrive : 
 {
 //----------------------------------------------------------------- PUBLIC
 
@@ -35,28 +35,21 @@ public:
     //
 
 
-//------------------------------------------------- Surcharge d'opérateurs
-    Stockage & operator = ( const Stockage & unStockage );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
 
 //-------------------------------------------- Constructeurs - destructeur
-    Stockage ( const Stockage & unStockage );
+    UtilisateurPrive ( const UtilisateurPrive & unUtilisateurPrive );
     // Mode d'emploi (constructeur de copie) :
     //
     // Contrat :
     //
 
-    Stockage ( );
+    UtilisateurPrive ( );
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    virtual ~Stockage ( );
+    virtual ~UtilisateurPrive ( );
     // Mode d'emploi :
     //
     // Contrat :
@@ -69,8 +62,13 @@ protected:
 
 //----------------------------------------------------- Attributs protégés
 
+String idUtilisateur;
+Vector<Capteur> capteurs;
+int points;
+
 };
 
-//-------------------------------- Autres définitions dépendantes de <Stockage>
+//-------------------------------- Autres définitions dépendantes de <UtilisateurPrive>
 
-#endif // STOCKAGE_H
+#endif // UtilisateurPrive_H
+

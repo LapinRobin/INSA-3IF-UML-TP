@@ -1,63 +1,66 @@
 /*************************************************************************
-                           Acteur  -  description
+                           UtilisateurPrive  -  description
                              -------------------
     début                : $DATE$
     copyright            : (C) $YEAR$ par $AUTHOR$
     e-mail               : $EMAIL$
 *************************************************************************/
 
-//---------- Réalisation de la classe <Acteur> (fichier Acteur.cpp) ------------
+//---------- Réalisation de la classe <UtilisateurPrive> (fichier UtilisateurPrive.cpp) ------------
 
 //---------------------------------------------------------------- INCLUDE
 
 //-------------------------------------------------------- Include système
 using namespace std;
 #include <iostream>
+#include <cstring>
+#include <vector>
 
 //------------------------------------------------------ Include personnel
-#include "Acteur.h"
+#include "UtilisateurPrive.h"
 
 //------------------------------------------------------------- Constantes
 
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type Acteur::Méthode ( liste des paramètres )
+// type UtilisateurPrive::Méthode ( liste des paramètres )
 // Algorithme :
 //
 //{
 //} //----- Fin de Méthode
 
 
+
 //-------------------------------------------- Constructeurs - destructeur
-Acteur::Acteur ( const Acteur & unActeur )
+UtilisateurPrive::UtilisateurPrive ( const UtilisateurPrive & unUtilisateurPrive )
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au constructeur de copie de <Acteur>" << endl;
+    cout << "Appel au constructeur de copie de <UtilisateurPrive>" << endl;
 #endif
-} //----- Fin de Acteur (constructeur de copie)
+} //----- Fin de UtilisateurPrive (constructeur de copie)
 
 
-Acteur::Acteur ( )
+UtilisateurPrive::UtilisateurPrive ( )
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au constructeur de <Acteur>" << endl;
+    cout << "Appel au constructeur de <UtilisateurPrive>" << endl;
 #endif
-} //----- Fin de Acteur
+} //----- Fin de UtilisateurPrive
 
 
-Acteur::~Acteur ( )
+UtilisateurPrive::~UtilisateurPrive ( )
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au destructeur de <Acteur>" << endl;
+    cout << "Appel au destructeur de <UtilisateurPrive>" << endl;
 #endif
-} //----- Fin de ~Acteur
+} //----- Fin de ~UtilisateurPrive
 
 
 //------------------------------------------------------------------ PRIVE
