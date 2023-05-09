@@ -56,6 +56,11 @@ OptionMenu gererMenuPrincipal() {
     }
 }
 
+// Fonction pour gérer le menu spécifique à chaque rôle
+void gererMenuRole(Role role) {
+    // TODO: Implémenter les options de menu spécifiques à chaque rôle
+}
+
 int main() {
     while(true) {
         OptionMenu option = gererMenuPrincipal();
