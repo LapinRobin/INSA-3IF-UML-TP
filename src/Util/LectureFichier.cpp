@@ -42,7 +42,6 @@ void LectureFichier::lireCapteurs( unordered_map<string,Capteur>* listeARemplir 
         Capteur cap(latitude,longitude,id);
         listeARemplir->insert(make_pair(id,cap));
     }
-    return;
 }
 
 
