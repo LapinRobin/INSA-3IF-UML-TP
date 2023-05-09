@@ -1,12 +1,12 @@
 /*************************************************************************
-                           Acteur  -  description
+                           Agence  -  description
                              -------------------
     début                : $DATE$
     copyright            : (C) $YEAR$ par $AUTHOR$
     e-mail               : $EMAIL$
 *************************************************************************/
 
-//---------- Réalisation de la classe <Acteur> (fichier Acteur.cpp) ------------
+//---------- Réalisation de la classe <Agence> (fichier Agence.cpp) ------------
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -15,49 +15,50 @@ using namespace std;
 #include <iostream>
 
 //------------------------------------------------------ Include personnel
-#include "Acteur.h"
+#include "Agence.h"
 
 //------------------------------------------------------------- Constantes
 
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type Acteur::Méthode ( liste des paramètres )
+// type Agence::Méthode ( liste des paramètres )
 // Algorithme :
 //
 //{
 //} //----- Fin de Méthode
 
 
+
 //-------------------------------------------- Constructeurs - destructeur
-Acteur::Acteur ( const Acteur & unActeur )
+Agence::Agence ( const Agence & unAgence )
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au constructeur de copie de <Acteur>" << endl;
+    cout << "Appel au constructeur de copie de <Agence>" << endl;
 #endif
-} //----- Fin de Acteur (constructeur de copie)
+} //----- Fin de Agence (constructeur de copie)
 
 
-Acteur::Acteur ( )
+Agence::Agence ( )
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au constructeur de <Acteur>" << endl;
+    cout << "Appel au constructeur de <Agence>" << endl;
 #endif
-} //----- Fin de Acteur
+} //----- Fin de Agence
 
 
-Acteur::~Acteur ( )
+Agence::~Agence ( )
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au destructeur de <Acteur>" << endl;
+    cout << "Appel au destructeur de <Agence>" << endl;
 #endif
-} //----- Fin de ~Acteur
+} //----- Fin de ~Agence
 
 
 //------------------------------------------------------------------ PRIVE
