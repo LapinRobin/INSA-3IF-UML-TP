@@ -36,6 +36,8 @@ public:
     // Contrat :
     //
 
+    void ajouterPurificateur(const Purificateur & unPurificateur);
+
 
 //-------------------------------------------- Constructeurs - destructeur
 

@@ -31,7 +31,10 @@ using namespace std;
 //{
 //} //----- Fin de Méthode
 
-
+void Fournisseur::ajouterPurificateur(const Purificateur & unPurificateur)
+{
+    purificateurs.push_back(unPurificateur);
+}
 
 //-------------------------------------------- Constructeurs - destructeur
 
