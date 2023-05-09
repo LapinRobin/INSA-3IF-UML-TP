@@ -5,7 +5,6 @@
 //-------------------------------------------------------- Include système
 using namespace std;
 #include <iostream>
-#include <unordered_map>
 #include <fstream>
 
 //------------------------------------------------------ Include personnel
@@ -41,21 +40,30 @@ void LectureFichier::lireCapteurs( unordered_map<string,Capteur>& listeARemplir 
 void LectureFichier::lireFournisseurs( unordered_map<string,Fournisseur>& listeARemplir )
 {
     string buffer;
-    string id;
-    double longitude;
-    double latitude;
-    ifstream fichierFournisseurs("../..data/sensors.csv");
+    string fournisseurId;
+    string purificateurId;
+    ifstream fichierFournisseurs("../../data/providers.csv");
+    unordered_map<string,Purificateur> listePurificateurs;
+    lirePurificateurs(listePurificateurs);
     
     while(!fichierFournisseurs.eof())
     {
         getline(fichierFournisseurs,buffer,';');
-        id=buffer;
+        fournisseurId=buffer;
         getline(fichierFournisseurs,buffer,';');
-        longitude=stod(buffer);
-        getline(fichierFournisseurs,buffer,'\n');
-        latitude=stod(buffer);
-        Fournisseur four(latitude,longitude,id);
-        listeARemplir.insert(make_pair(id,four));
+        purificateurId=buffer;
+        getline(fichierFournisseurs,buffer);
+        if(listeARemplir.find(fournisseurId)!=listeARemplir.end())
+        {
+            listeARemplir[fournisseurId].ajouterPurificateur(listePurificateurs[purificateurId]);
+        }
+        else
+        {
+            vector<Purificateur> desPurificateurs;
+            desPurificateurs.push_back(listePurificateurs[purificateurId]);
+            Fournisseur four(fournisseurId,fournisseurId+"@gmail.com","mdp",fournisseurId,desPurificateurs);
+            listeARemplir.insert(make_pair(fournisseurId,four));
+        }
     }
 }
 
