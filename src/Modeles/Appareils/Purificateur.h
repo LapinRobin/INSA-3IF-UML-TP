@@ -1,30 +1,29 @@
 /*************************************************************************
-                           Capteur  -  description
+                           Purificateur  -  description
                              -------------------
     début                : $2023$
     copyright            : (C) $2023$ par $CREMONA$
     e-mail               : $antoine.cremona@insa-lyon.fr$
 *************************************************************************/
 
-//---------- Interface de la classe <Capteur> (fichier Capteur.h) ----------------
-#if ! defined ( CAPTEUR_H )
-#define CAPTEUR_H
+//---------- Interface de la classe <Purificateur> (fichier Purificateur.h) ----------------
+#if ! defined ( PURIFICATEUR_H )
+#define PURIFICATEUR_H
 
 //--------------------------------------------------- Interfaces utilisées
 #include <string>
-#include <unordered_map>
 #include "Appareil.h"
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <Capteur>
+// Rôle de la classe <Purificateur>
 //
 //
 //------------------------------------------------------------------------
 
-class Capteur : public Appareil
+class Purificateur : public Appareil
 {
 //----------------------------------------------------------------- PUBLIC
 
@@ -38,7 +37,7 @@ public:
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-    Capteur & operator = ( const Capteur & unCapteur );
+    Purificateur & operator = ( const Purificateur & unPurificateur );
     // Mode d'emploi :
     //
     // Contrat :
@@ -46,19 +45,19 @@ public:
 
 
 //-------------------------------------------- Constructeurs - destructeur
-    Capteur ( const Capteur & unCapteur );
+    Purificateur ( const Purificateur & unPurificateur );
     // Mode d'emploi (constructeur de copie) :
     //
     // Contrat :
     //
 
-    Capteur ( double uneLatitude, double uneLongitude, string unId, bool estFonctionnel = true );
+    Purificateur ( double uneLatitude, double uneLongitude, string unId, string dateDemarrage, string dateArret );
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    virtual ~Capteur ( );
+    virtual ~Purificateur ( );
     // Mode d'emploi :
     //
     // Contrat :
@@ -68,17 +67,13 @@ public:
 
 protected:
 //----------------------------------------------------- Méthodes protégées
-    
 //----------------------------------------------------- Attributs protégés
     string id;
-    bool fonctionnel;
-    unordered_map<string, float> o3;
-    unordered_map<string, float> so2;
-    unordered_map<string, float> no2;
-    unordered_map<string, float> pm10;
+    string demarrage;
+    string arret;
 };
 
-//-------------------------------- Autres définitions dépendantes de <Capteur>
+//-------------------------------- Autres définitions dépendantes de <Purificateur>
 
-#endif // CAPTEUR_H
+#endif // PURIFICATEUR_H
 
