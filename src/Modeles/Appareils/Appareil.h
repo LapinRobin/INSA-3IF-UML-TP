@@ -70,16 +70,17 @@ public:
 //-------------------------------------------- Constructeurs - destructeur
     Appareil ( const Appareil & unAppareil );
     // Mode d'emploi (constructeur de copie) :
-    //
+    // Constructeur de copie de la classe Appareil
     // Contrat :
-    //
+    // unAppareil doit être valide
+
 
     Appareil ( double uneLatitude, double uneLongitude)
             : latitude(uneLatitude), longitude(uneLongitude)
     // Mode d'emploi :
-    //
+    // Constructeur de la classe Appareil
     // Contrat :
-    //
+    // Les coordonnées doivent être valides
 
     virtual ~Appareil ( );
     // Mode d'emploi :
