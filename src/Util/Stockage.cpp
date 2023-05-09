@@ -27,7 +27,7 @@ using namespace std;
 //
 //{
 //} //----- Fin de Méthode
-void GetCapteurs(std::vector<Capteur> &vect_capteurs)
+static void GetCapteurs(std::vector<Capteur> &vect_capteurs)
 // Algorithme :
 // Passer par référence un vecteur de capteurs
 // Retourner un booléen pour savoir si la requête a fonctionné
@@ -44,7 +44,7 @@ void GetCapteurs(std::vector<Capteur> &vect_capteurs)
 } //----- Fin de Méthode
 
 
-void GetUtilisateursPrives(std::vector<UtilisateurPrive> &vect_utilisateursPrives) 
+static void GetUtilisateursPrives(std::vector<UtilisateurPrive> &vect_utilisateursPrives) 
 // Algorithme :
 // Passer par référence un vecteur d'utilisateurs privés
 // Retourner un booléen pour savoir si la requête a fonctionné
@@ -57,7 +57,7 @@ void GetUtilisateursPrives(std::vector<UtilisateurPrive> &vect_utilisateursPrive
 
 } //----- Fin de Méthode
 
-void GetFournisseurs(std::vector<Fournisseur> &vect_fournisseurs)  
+static void GetFournisseurs(std::vector<Fournisseur> &vect_fournisseurs)  
 // Algorithme :
 // Passer par référence un vecteur de fournisseurs
 // Retourner un booléen pour savoir si la requête a fonctionné
