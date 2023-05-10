@@ -33,7 +33,7 @@ public:
     //
     // Contrat :
     //
-
+    string getMdp();
 
 
 //-------------------------------------------- Constructeurs - destructeur
