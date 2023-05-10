@@ -62,8 +62,9 @@ vector<string> Capteur::getDates ( ) const
 //
 {
     vector<string> dates;
-    for (const std::pair<string, float>& element : o3) {
-        dates.push_back(element.first);
+    for (std::unordered_map<std::string, float>::const_iterator it = o3.begin(); it != o3.end(); ++it) 
+    {
+        dates.push_back(it->first);
     }
     return dates;
 } //----- Fin de Méthode
