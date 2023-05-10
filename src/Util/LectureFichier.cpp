@@ -6,6 +6,7 @@
 using namespace std;
 #include <iostream>
 #include <fstream>
+#include <string>
 
 //------------------------------------------------------ Include personnel
 #include "LectureFichier.h"
@@ -22,7 +23,7 @@ void LectureFichier::lireCapteurs( unordered_map<string,Capteur>& listeARemplir 
     string id;
     double longitude;
     double latitude;
-    ifstream fichierCapteurs("../..data/sensors.csv");
+    ifstream fichierCapteurs("../../data/sensors.csv");
     
     while(!fichierCapteurs.eof())
     {
@@ -30,11 +31,13 @@ void LectureFichier::lireCapteurs( unordered_map<string,Capteur>& listeARemplir 
         id=buffer;
         getline(fichierCapteurs,buffer,';');
         longitude=stod(buffer);
-        getline(fichierCapteurs,buffer,'\n');
+        getline(fichierCapteurs,buffer,';');
         latitude=stod(buffer);
+        getline(fichierCapteurs,buffer);
         Capteur cap(latitude,longitude,id);
         listeARemplir.insert(make_pair(id,cap));
     }
+    lireMesures(listeARemplir);
 }
 
 void LectureFichier::lireFournisseurs( unordered_map<string,Fournisseur>& listeARemplir )
@@ -73,7 +76,7 @@ void LectureFichier::lireUtilisateursPrives( unordered_map<string,UtilisateurPri
     string id;
     string mail;
     string mdp;
-    ifstream fichierUtilisateursPrives("../..data/users.csv");
+    ifstream fichierUtilisateursPrives("../../data/users.csv");
     
     while(!fichierUtilisateursPrives.eof())
     {
@@ -131,3 +134,27 @@ LectureFichier::~LectureFichier ( )
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
+
+void LectureFichier::lireMesures( unordered_map<string,Capteur>& capteursAModifier )
+{
+    string buffer;
+    string date;
+    string capteurId;
+    string type;
+    float mesure;
+    ifstream fichierMesures("../../data/sensors.csv");
+    
+    while(!fichierMesures.eof())
+    {
+        getline(fichierMesures,buffer,';');
+        date=buffer;
+        getline(fichierMesures,buffer,';');
+        capteurId=buffer;
+        getline(fichierMesures,buffer,';');
+        type==buffer;
+        getline(fichierMesures,buffer,';');
+        mesure=stof(buffer);
+        getline(fichierMesures,buffer);
+        capteursAModifier[capteurId].ajouterMesure(date,mesure,type);
+    }
+}
