@@ -58,12 +58,12 @@ void LectureFichier::lireFournisseurs( unordered_map<string,Fournisseur>& listeA
         getline(fichierFournisseurs,buffer);
         if(listeARemplir.find(fournisseurId)!=listeARemplir.end())
         {
-            listeARemplir[fournisseurId].ajouterPurificateur(listePurificateurs[purificateurId]);
+            listeARemplir.at(fournisseurId).ajouterPurificateur(listePurificateurs.at(purificateurId));
         }
         else
         {
             vector<Purificateur> desPurificateurs;
-            desPurificateurs.push_back(listePurificateurs[purificateurId]);
+            desPurificateurs.push_back(listePurificateurs.at(purificateurId));
             Fournisseur four(fournisseurId,fournisseurId+"@gmail.com","mdp",fournisseurId,desPurificateurs);
             listeARemplir.insert(make_pair(fournisseurId,four));
         }
@@ -87,7 +87,7 @@ void LectureFichier::lireUtilisateursPrives( unordered_map<string,UtilisateurPri
         vector<Capteur> desCapteurs;
         if(listeARemplir.find(userId)!=listeARemplir.end())
         {
-            listeARemplir[userId].ajouterCapteur(listeCapteurs.at(capteurId));
+            listeARemplir.at(userId).ajouterCapteur(listeCapteurs.at(capteurId));
         }
         else
         {
@@ -147,7 +147,7 @@ void LectureFichier::lireMesures( unordered_map<string,Capteur>& capteursAModifi
         getline(fichierMesures,buffer,';');
         mesure=stof(buffer);
         getline(fichierMesures,buffer);
-        capteursAModifier[capteurId].ajouterMesure(date,mesure,type);
+        capteursAModifier.at(capteurId).ajouterMesure(date,mesure,type);
     }
 }
 
