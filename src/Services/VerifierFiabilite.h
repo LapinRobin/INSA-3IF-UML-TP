@@ -30,9 +30,9 @@ public:
 //----------------------------------------------------- Méthodes publiques
     double calculerTauxErreur ( const Capteur & capteur );
     // Mode d'emploi :
-    //
+    // Retourne le taux d'erreur d'un capteur
     // Contrat :
-    //
+    // Le capteur doit être valide
 
 
 

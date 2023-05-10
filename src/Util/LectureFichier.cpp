@@ -19,6 +19,10 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 
 void LectureFichier::lireCapteurs( unordered_map<string,Capteur>& listeARemplir )
+// Algorithme :
+// Lire le fichier sensors.csv et le stocker dans une référence de unordered_map passé en paramètre
+
+
 {
     string buffer;
     string id;
@@ -46,6 +50,8 @@ void LectureFichier::lireCapteurs( unordered_map<string,Capteur>& listeARemplir 
 }
 
 void LectureFichier::lireFournisseurs( unordered_map<string,Fournisseur>& listeARemplir )
+// Algorithme :
+// Lire le fichier providers.csv et le stocker dans une référence de unordered_map passé en paramètre
 {
     string buffer;
     string fournisseurId;
@@ -80,6 +86,9 @@ void LectureFichier::lireFournisseurs( unordered_map<string,Fournisseur>& listeA
 }
 
 void LectureFichier::lireUtilisateursPrives( unordered_map<string,UtilisateurPrive>& listeARemplir,const unordered_map<string,Capteur>& listeCapteurs )
+// Algorithme :
+// Lire le fichier users.csv et le stocker dans une référence de unordered_map passé en paramètre
+
 {
     string buffer;
     string userId;
@@ -141,6 +150,8 @@ LectureFichier::~LectureFichier ( )
 //----------------------------------------------------- Méthodes protégées
 
 void LectureFichier::lireMesures( unordered_map<string,Capteur>& capteursAModifier )
+// Algorithme :
+// Lire le fichier measurements.csv et le stocker dans une référence de unordered_map passé en paramètre
 {
     string buffer;
     string date;
@@ -169,6 +180,8 @@ void LectureFichier::lireMesures( unordered_map<string,Capteur>& capteursAModifi
 }
 
 void LectureFichier::lirePurificateurs( unordered_map<string,Purificateur>& listeARemplir )
+// Algorithme :
+// Lire le fichier cleaners.csv et le stocker dans une référence de unordered_map passé en paramètre
 {
     string buffer;
     ifstream fichierPurificateurs("./dataset/cleaners.csv");

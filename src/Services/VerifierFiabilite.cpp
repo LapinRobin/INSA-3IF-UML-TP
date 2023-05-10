@@ -25,8 +25,11 @@ using namespace std;
 
 //----------------------------------------------------- Méthodes publiques
 double VerifierFiabilite::calculerTauxErreur ( const Capteur & capteur )
-// Algorithme :
-//
+// Algorithme : 
+// On récupère la liste des capteurs fonctionnels à moins de 100km du capteur en paramètre.
+// Pour chaque capteur de cette liste, on compare les mesures de ce capteur avec celles du capteur en paramètre.
+// Si l'écart entre les mesures est supérieur à un seuil, on incrémente le compteur d'erreur.
+// A la fin, on retourne le taux d'erreur.
 {
     int limiteDistance = 100;
     const float limiteEcartMesure [] = {2.0,2.0,2.0,2.0};

@@ -29,6 +29,9 @@ using namespace std;
 //} //----- Fin de Méthode
 
 void Fournisseur::ajouterPurificateur(const Purificateur & unPurificateur)
+// Algorithme :
+// Ajoute un purificateur au fournisseur
+
 {
     purificateurs.push_back(unPurificateur);
 }

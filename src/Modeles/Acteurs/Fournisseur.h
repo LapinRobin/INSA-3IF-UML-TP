@@ -32,20 +32,28 @@ public:
 //----------------------------------------------------- Méthodes publiques
     // type Méthode ( liste des paramètres );
     // Mode d'emploi :
-    //
+    // 
     // Contrat :
     //
 
     void ajouterPurificateur(const Purificateur & unPurificateur);
+    // Mode d'emploi :
+    // Ajoute un purificateur au fournisseur
+    // Contrat :
+    // Le purificateur doit être valide
+
 
 
 //-------------------------------------------- Constructeurs - destructeur
 
     Fournisseur ( std::string unNom, std::string unMail, std::string unMdp, std::string unId, std::vector<Purificateur> desPurificateurs);
     // Mode d'emploi :
-    //
+    // Initialise un fournisseur avec un nom, un mail, un mot de passe, un id et un vecteur de purificateurs
     // Contrat :
-    //
+    // Le vecteur de purificateurs doit être valide, et les autres paramètres doivent être non vides
+
+    
+
 
     virtual ~Fournisseur ( );
     // Mode d'emploi :

@@ -20,7 +20,7 @@
 
 //------------------------------------------------------------------------
 // Rôle de la classe <Capteur>
-//
+// 
 //
 //------------------------------------------------------------------------
 
@@ -38,41 +38,46 @@ public:
 
     float getMesureO3 ( const std::string& date ) const;
     // Mode d'emploi :
-    //
+    // Retourne la mesure de O3 à une date donnée
     // Contrat :
-    //
+    // La date doit être valide
 
     float getMesureSo2 ( const std::string& date ) const;
     // Mode d'emploi :
-    //
+    // Retourne la mesure de So2 à une date donnée
     // Contrat :
-    //
+    // La date doit être valide
 
     float getMesureNo2( const std::string& date ) const;
     // Mode d'emploi :
-    //
+    // Retourne la mesure de No2 à une date donnée
     // Contrat :
-    //
+    // La date doit être valide
 
     float getMesurePm10 ( const std::string& date ) const;
     // Mode d'emploi :
-    //
+    // Retourne la mesure de Pm10 à une date donnée
     // Contrat :
-    //
+    // La date doit être valide
 
     bool estFonctionnel ( ) const;
     // Mode d'emploi :
-    //
+    // Retourne vrai si le capteur est fonctionnel
     // Contrat :
-    //
+    // Aucun
 
     std::vector<std::string> getDates ( ) const;
     // Mode d'emploi :
-    //
+    // Retourne un vecteur contenant toutes les dates pour lesquelles on a des mesures
     // Contrat :
-    //
+    // Aucun
 
     bool ajouterMesure( const std::string& date, const float& mesure, const std::string& type );
+    // Mode d'emploi :
+    // Ajoute une mesure à la date donnée
+    // Contrat :
+    // La date doit être valide, la mesure doit être positive, et le type doit être valide
+
 
 //------------------------------------------------- Surcharge d'opérateurs
 
@@ -81,15 +86,16 @@ public:
 
     Capteur ( double uneLatitude, double uneLongitude, const std::string& unId, bool estFonctionnel = true );
     // Mode d'emploi :
-    //
+    // Constructeur d'un capteur
     // Contrat :
-    //
+    // Les paramètres doivent être valides
 
     virtual ~Capteur ( );
     // Mode d'emploi :
-    //
+    // Destructeur d'un capteur
     // Contrat :
-    //
+    // Aucun
+
 
 //------------------------------------------------------------------ PRIVE
 
