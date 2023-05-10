@@ -15,8 +15,11 @@ using namespace std;
 
 //------------------------------------------------------------- Constantes
 
-//----------------------------------------------------------------- PUBLIC
+std::unordered_map<std::string, Capteur> Stockage::capteurs;
+std::unordered_map<std::string, UtilisateurPrive> Stockage::utilisateursPrives;
+std::unordered_map<std::string, Fournisseur> Stockage::fournisseurs;
 
+//----------------------------------------------------------------- PUBLIC
 //----------------------------------------------------- Méthodes publiques
 // type Stockage::Méthode ( liste des paramètres )
 // Algorithme :
@@ -24,10 +27,6 @@ using namespace std;
 //{
 //} //----- Fin de Méthode
 
-std::unordered_map<std::string, Capteur> Stockage::capteurs;
-std::unordered_map<std::string, UtilisateurPrive> Stockage::utilisateursPrives;
-std::unordered_map<std::string, Fournisseur> Stockage::fournisseurs;
- 
 void Stockage::initialiser()
 {
     LectureFichier::lireCapteurs(capteurs);
@@ -54,7 +53,7 @@ void Stockage::getCapteurs(std::vector<Capteur> &vect_capteurs)
 } //----- Fin de Méthode
 
 
-void Stockage::getUtilisateursPrives(std::vector<UtilisateurPrive> &vect_utilisateursPrives) 
+void Stockage::getUtilisateursPrives(std::vector<UtilisateurPrive> &vect_utilisateursPrives)
 // Algorithme :
 // Passer par référence un vecteur d'utilisateurs privés
 // Retourner un booléen pour savoir si la requête a fonctionné
@@ -67,7 +66,7 @@ void Stockage::getUtilisateursPrives(std::vector<UtilisateurPrive> &vect_utilisa
 
 } //----- Fin de Méthode
 
-void Stockage::getFournisseurs(std::vector<Fournisseur> &vect_fournisseurs)  
+void Stockage::getFournisseurs(std::vector<Fournisseur> &vect_fournisseurs)
 // Algorithme :
 // Passer par référence un vecteur de fournisseurs
 // Retourner un booléen pour savoir si la requête a fonctionné
