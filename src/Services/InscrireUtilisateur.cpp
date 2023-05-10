@@ -1,12 +1,12 @@
 /*************************************************************************
-                           AuthentifierUtilisateur  -  description
+                           InscrireUtilisateur  -  description
                              -------------------
     début                : $DATE$
     copyright            : (C) $YEAR$ par $AUTHOR$
     e-mail               : $EMAIL$
 *************************************************************************/
 
-//---------- Réalisation de la classe <AuthentifierUtilisateur> (fichier AuthentifierUtilisateur.cpp) ------------
+//---------- Réalisation de la classe <InscrireUtilisateur> (fichier InscrireUtilisateur.cpp) ------------
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -16,7 +16,7 @@ using namespace std;
 
 
 //------------------------------------------------------ Include personnel
-#include "AuthentifierUtilisateur.h"
+#include "InscrireUtilisateur.h"
 
 
 //------------------------------------------------------------- Constantes
@@ -26,28 +26,30 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 
 
-AuthentifierUtilisateur::authentifierUtilisateur(string unMail, string unMdp)
+bool InscrireUtilisateur::inscrireUtilisateur() {
+    return true;
+}
 
 //-------------------------------------------- Constructeurs - destructeur
 
-AuthentifierUtilisateur::AuthentifierUtilisateur ( )
+InscrireUtilisateur::InscrireUtilisateur ( )
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au constructeur de <AuthentifierUtilisateur>" << endl;
+    cout << "Appel au constructeur de <InscrireUtilisateur>" << endl;
 #endif
-} //----- Fin de AuthentifierUtilisateur
+} //----- Fin de InscrireUtilisateur
 
 
-AuthentifierUtilisateur::~AuthentifierUtilisateur ( )
+InscrireUtilisateur::~InscrireUtilisateur ( )
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au destructeur de <AuthentifierUtilisateur>" << endl;
+    cout << "Appel au destructeur de <InscrireUtilisateur>" << endl;
 #endif
-} //----- Fin de ~AuthentifierUtilisateur
+} //----- Fin de ~InscrireUtilisateur
 
 
 //------------------------------------------------------------------ PRIVE
