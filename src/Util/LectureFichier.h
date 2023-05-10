@@ -39,7 +39,7 @@ public:
 
     static void lireCapteurs( unordered_map<string,Capteur>& listeARemplir ) ;
 
-    static void lireUtilisateursPrives( unordered_map<string,UtilisateurPrive>& listeARemplir ) ;
+    static void lireUtilisateursPrives( unordered_map<string,UtilisateurPrive>& listeARemplir, const unordered_map<string,Capteur>& listeCapteurs ) ;
     
 
 //------------------------------------------------- Surcharge d'opérateurs

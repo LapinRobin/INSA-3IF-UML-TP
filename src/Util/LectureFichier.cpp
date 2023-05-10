@@ -30,9 +30,9 @@ void LectureFichier::lireCapteurs( unordered_map<string,Capteur>& listeARemplir 
         getline(fichierCapteurs,buffer,';');
         id=buffer;
         getline(fichierCapteurs,buffer,';');
-        longitude=stod(buffer);
-        getline(fichierCapteurs,buffer,';');
         latitude=stod(buffer);
+        getline(fichierCapteurs,buffer,';');
+        longitude=stod(buffer);
         getline(fichierCapteurs,buffer);
         Capteur cap(latitude,longitude,id);
         listeARemplir.insert(make_pair(id,cap));
@@ -70,23 +70,24 @@ void LectureFichier::lireFournisseurs( unordered_map<string,Fournisseur>& listeA
     }
 }
 
-void LectureFichier::lireUtilisateursPrives( unordered_map<string,UtilisateurPrive>& listeARemplir )
+void LectureFichier::lireUtilisateursPrives( unordered_map<string,UtilisateurPrive>& listeARemplir,const unordered_map<string,Capteur>& listeCapteurs )
 {
     string buffer;
-    string id;
-    string mail;
-    string mdp;
+    string userId;
+    string capteurId;
     ifstream fichierUtilisateursPrives("../../data/users.csv");
     
     while(!fichierUtilisateursPrives.eof())
     {
         getline(fichierUtilisateursPrives,buffer,';');
-        id=buffer;
+        userId=buffer;
         getline(fichierUtilisateursPrives,buffer,';');
-        mail=buffer;
-        getline(fichierUtilisateursPrives,buffer,'\n');
-        mdp=buffer;
-        UtilisateurPrive user(id,mail,mdp);
+        capteurId=buffer;
+        getline(fichierUtilisateursPrives,buffer);
+        vector<Capteur> desCapteurs;
+        if()
+        
+        UtilisateurPrive user(userId,userId+"@gmail.com","mdp",userId,desCapteurs);
         listeARemplir.insert(make_pair(id,user));
     }
 }
@@ -156,5 +157,33 @@ void LectureFichier::lireMesures( unordered_map<string,Capteur>& capteursAModifi
         mesure=stof(buffer);
         getline(fichierMesures,buffer);
         capteursAModifier[capteurId].ajouterMesure(date,mesure,type);
+    }
+}
+
+void LectureFichier::lirePurificateurs( unordered_map<string,Purificateur>& listeARemplir )
+{
+    string buffer;
+    ifstream fichierPurificateurs("../../data/cleaners.cvs");
+    string purificateurId;
+    double latitude;
+    double longitude;
+    string dateDebut;
+    string dateFin;
+
+    while(!fichierPurificateurs.eof())
+    {
+        getline(fichierPurificateurs,buffer,';');
+        purificateurId=buffer;
+        getline(fichierPurificateurs,buffer,';');
+        latitude=stod(buffer);
+        getline(fichierPurificateurs,buffer,';');
+        longitude=stod(buffer);
+        getline(fichierPurificateurs,buffer,';');
+        dateDebut=buffer;
+        getline(fichierPurificateurs,buffer,';');
+        dateFin=buffer;
+        getline(fichierPurificateurs,buffer);
+        Purificateur purif(latitude,longitude,purificateurId,dateDebut,dateFin);
+        listeARemplir.insert(make_pair(purificateurId,purif));
     }
 }
