@@ -42,7 +42,7 @@ public:
 
 //-------------------------------------------- Constructeurs - destructeur
 
-    UtilisateurPrive ( string unNom, string unMail, string unMdp, string unId, vector<Capteur> desCapteurs);
+    UtilisateurPrive ( std::string unNom, std::string unMail, std::string unMdp, std::string unId, std::vector<Capteur> desCapteurs);
     // Mode d'emploi :
     //
     // Contrat :
@@ -61,8 +61,8 @@ protected:
 
 //----------------------------------------------------- Attributs protégés
 
-string idUtilisateur;
-vector<Capteur> capteurs;
+std::string idUtilisateur;
+std::vector<Capteur> capteurs;
 int points;
 
 };

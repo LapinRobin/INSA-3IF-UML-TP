@@ -23,10 +23,11 @@ using namespace std;
 //
 //{
 //} //----- Fin de Méthode
-/* std::unordered_map<std::string, Capteur> Stockage::capteurs;
+
+std::unordered_map<std::string, Capteur> Stockage::capteurs;
 std::unordered_map<std::string, UtilisateurPrive> Stockage::utilisateursPrives;
 std::unordered_map<std::string, Fournisseur> Stockage::fournisseurs;
- */
+ 
 void Stockage::initialiser()
 {
     LectureFichier::lireCapteurs(capteurs);
@@ -39,7 +40,7 @@ void Stockage::initialiser()
 void Stockage::getCapteurs(std::vector<Capteur> &vect_capteurs)
 // Algorithme :
 // Passer par référence un vecteur de capteurs
-// Retourner un booléen pour savoir si la requête a fonctionné
+// 
 { 
     
     // pass the values of private attribute capteurs to the reference vector

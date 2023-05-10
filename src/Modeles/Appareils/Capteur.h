@@ -36,25 +36,25 @@ public:
     // Contrat :
     //
 
-    float getMesureO3 ( const string& date ) const;
+    float getMesureO3 ( const std::string& date ) const;
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    float getMesureSo2 ( const string& date ) const;
+    float getMesureSo2 ( const std::string& date ) const;
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    float getMesureNo2( const string& date ) const;
+    float getMesureNo2( const std::string& date ) const;
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    float getMesurePm10 ( const string& date ) const;
+    float getMesurePm10 ( const std::string& date ) const;
     // Mode d'emploi :
     //
     // Contrat :
@@ -66,20 +66,20 @@ public:
     // Contrat :
     //
 
-    vector<string> getDates ( ) const;
+    std::vector<std::string> getDates ( ) const;
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    bool ajouterMesure( const string& date, const float& mesure, const string& type );
+    bool ajouterMesure( const std::string& date, const float& mesure, const std::string& type );
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 
 //-------------------------------------------- Constructeurs - destructeur
 
-    Capteur ( double uneLatitude, double uneLongitude, const string& unId, bool estFonctionnel = true );
+    Capteur ( double uneLatitude, double uneLongitude, const std::string& unId, bool estFonctionnel = true );
     // Mode d'emploi :
     //
     // Contrat :
@@ -97,12 +97,12 @@ protected:
 //----------------------------------------------------- Méthodes protégées
     
 //----------------------------------------------------- Attributs protégés
-    string id;
+    std::string id;
     bool fonctionnel;
-    std::unordered_map<string, float> o3;
-    std::unordered_map<string, float> so2;
-    std::unordered_map<string, float> no2;
-    std::unordered_map<string, float> pm10;
+    std::unordered_map<std::string, float> o3;
+    std::unordered_map<std::string, float> so2;
+    std::unordered_map<std::string, float> no2;
+    std::unordered_map<std::string, float> pm10;
 };
 
 //-------------------------------- Autres définitions dépendantes de <Capteur>

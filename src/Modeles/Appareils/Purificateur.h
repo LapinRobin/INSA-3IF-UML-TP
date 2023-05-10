@@ -11,7 +11,6 @@
 #define PURIFICATEUR_H
 
 //--------------------------------------------------- Interfaces utilisées
-#include <string>
 #include "Appareil.h"
 //------------------------------------------------------------- Constantes
 
@@ -41,7 +40,7 @@ public:
 
 //-------------------------------------------- Constructeurs - destructeur
 
-    Purificateur ( double uneLatitude, double uneLongitude, string unId, string dateDemarrage, string dateArret );
+    Purificateur ( double uneLatitude, double uneLongitude, std::string unId, std::string dateDemarrage, std::string dateArret );
     // Mode d'emploi :
     //
     // Contrat :
@@ -58,9 +57,9 @@ public:
 protected:
 //----------------------------------------------------- Méthodes protégées
 //----------------------------------------------------- Attributs protégés
-    string id;
-    string demarrage;
-    string arret;
+    std::string id;
+    std::string demarrage;
+    std::string arret;
 };
 
 //-------------------------------- Autres définitions dépendantes de <Purificateur>

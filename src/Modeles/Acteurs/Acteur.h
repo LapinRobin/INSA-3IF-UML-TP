@@ -38,7 +38,7 @@ public:
 
 //-------------------------------------------- Constructeurs - destructeur
 
-    Acteur ( string unNom, string unMail, string unMdp);
+    Acteur ( std::string unNom, std::string unMail, std::string unMdp);
     // Mode d'emploi :
     //
     // Contrat :
@@ -57,9 +57,9 @@ protected:
 
 //----------------------------------------------------- Attributs protégés
 
-string nom;
-string mail;
-string mdp;
+std::string nom;
+std::string mail;
+std::string mdp;
 
 };
 

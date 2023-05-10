@@ -41,7 +41,7 @@ public:
 
 //-------------------------------------------- Constructeurs - destructeur
 
-    Fournisseur ( string unNom, string unMail, string unMdp, string unId, vector<Purificateur> desPurificateurs);
+    Fournisseur ( std::string unNom, std::string unMail, std::string unMdp, std::string unId, std::vector<Purificateur> desPurificateurs);
     // Mode d'emploi :
     //
     // Contrat :
@@ -60,8 +60,8 @@ protected:
 
 //----------------------------------------------------- Attributs protégés
 
-    string idFournisseur;
-    vector<Purificateur> purificateurs;
+    std::string idFournisseur;
+    std::vector<Purificateur> purificateurs;
 
 };
 

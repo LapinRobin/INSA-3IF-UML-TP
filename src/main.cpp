@@ -1,5 +1,6 @@
 #include<iostream>
 #include<string>
+#include "Util/Stockage.h"
 
 using namespace std;
 
@@ -65,7 +66,7 @@ void gererMenuRole(Role role) {
 */
 
 int main() {
-    while(true) {
+    /*while(true) {
         OptionMenu option = gererMenuPrincipal();
 
         switch(option) {
@@ -80,7 +81,9 @@ int main() {
             default:
                 cout << "Option non valide. Veuillez réessayer.\n";
         }
-    }
+    }*/
+
+    Stockage::initialiser();
 
     return 0;
 }
