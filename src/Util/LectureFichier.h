@@ -75,7 +75,7 @@ protected:
 
     static void lirePurificateurs( unordered_map<string,Purificateur>& listeARemplir ) ;
 
-    static void lireMesure( unordered_map<string,Capteur>& capteursAModifier ) ;
+    static void lireMesures( unordered_map<string,Capteur>& capteursAModifier ) ;
 //----------------------------------------------------- Attributs protégés
 
 };
