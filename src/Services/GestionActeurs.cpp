@@ -1,12 +1,12 @@
 /*************************************************************************
-                           AuthentifierUtilisateur  -  description
+                           GestionActeurs  -  description
                              -------------------
     début                : $DATE$
     copyright            : (C) $YEAR$ par $AUTHOR$
     e-mail               : $EMAIL$
 *************************************************************************/
 
-//---------- Réalisation de la classe <AuthentifierUtilisateur> (fichier AuthentifierUtilisateur.cpp) ------------
+//---------- Réalisation de la classe <GestionActeurs> (fichier GestionActeurs.cpp) ------------
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -16,7 +16,7 @@ using namespace std;
 
 
 //------------------------------------------------------ Include personnel
-#include "AuthentifierUtilisateur.h"
+#include "GestionActeurs.h"
 
 
 //------------------------------------------------------------- Constantes
@@ -30,24 +30,24 @@ using namespace std;
 
 //-------------------------------------------- Constructeurs - destructeur
 
-AuthentifierUtilisateur::AuthentifierUtilisateur ( )
+GestionActeurs::GestionActeurs ( )
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au constructeur de <AuthentifierUtilisateur>" << endl;
+    cout << "Appel au constructeur de <GestionActeurs>" << endl;
 #endif
-} //----- Fin de AuthentifierUtilisateur
+} //----- Fin de GestionActeurs
 
 
-AuthentifierUtilisateur::~AuthentifierUtilisateur ( )
+GestionActeurs::~GestionActeurs ( )
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au destructeur de <AuthentifierUtilisateur>" << endl;
+    cout << "Appel au destructeur de <GestionActeurs>" << endl;
 #endif
-} //----- Fin de ~AuthentifierUtilisateur
+} //----- Fin de ~GestionActeurs
 
 
 //------------------------------------------------------------------ PRIVE

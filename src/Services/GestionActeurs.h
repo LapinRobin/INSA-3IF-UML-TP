@@ -1,14 +1,14 @@
 /*************************************************************************
-                           AuthentifierUtilisateur  -  description
+                           GestionActeurs  -  description
                              -------------------
     début                : $DATE$
     copyright            : (C) $YEAR$ par $AUTHOR$
     e-mail               : $EMAIL$
 *************************************************************************/
 
-//---------- Interface de la classe <AuthentifierUtilisateur> (fichier AuthentifierUtilisateur.h) ----------------
-#if ! defined ( AUTHENTIFIERUTILISATEUR_H )
-#define AUTHENTIFIERUTILISATEUR_H
+//---------- Interface de la classe <GestionActeurs> (fichier GestionActeurs.h) ----------------
+#if ! defined ( GESTIONACTEURS_H )
+#define GESTIONACTEURS_H
 
 //--------------------------------------------------- Interfaces utilisées
 
@@ -17,12 +17,12 @@
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <AuthentifierUtilisateur>
+// Rôle de la classe <GestionActeurs>
 //
 //
 //------------------------------------------------------------------------
 
-class AuthentifierUtilisateur 
+class GestionActeurs 
 {
 //----------------------------------------------------------------- PUBLIC
 
@@ -33,13 +33,13 @@ public:
 
 //-------------------------------------------- Constructeurs - destructeur
 
-    AuthentifierUtilisateur ( );
+    GestionActeurs ( );
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    virtual ~AuthentifierUtilisateur ( );
+    virtual ~GestionActeurs ( );
     // Mode d'emploi :
     //
     // Contrat :
@@ -55,6 +55,6 @@ protected:
 
 };
 
-//-------------------------------- Autres définitions dépendantes de <AuthentifierUtilisateur>
+//-------------------------------- Autres définitions dépendantes de <GestionActeurs>
 
-#endif // AUTHENTIFIERUTILISATEUR_H
+#endif // GESTIONACTEURS_H
