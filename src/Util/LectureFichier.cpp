@@ -39,7 +39,6 @@ void LectureFichier::lireCapteurs( unordered_map<string,Capteur>& listeARemplir 
         getline(fichierCapteurs,buffer,';');
         longitude=stod(buffer);
         getline(fichierCapteurs,buffer);
-        fichierCapteurs.get();
         Capteur cap(latitude,longitude,id);
         listeARemplir.insert(make_pair(id,cap));
     }
@@ -66,7 +65,6 @@ void LectureFichier::lireFournisseurs( unordered_map<string,Fournisseur>& listeA
         getline(fichierFournisseurs,buffer,';');
         purificateurId=buffer;
         getline(fichierFournisseurs,buffer);
-        fichierFournisseurs.get();
         if(listeARemplir.find(fournisseurId)!=listeARemplir.end())
         {
             listeARemplir.at(fournisseurId).ajouterPurificateur(listePurificateurs.at(purificateurId));
@@ -99,7 +97,6 @@ void LectureFichier::lireUtilisateursPrives( unordered_map<string,UtilisateurPri
         getline(fichierUtilisateursPrives,buffer,';');
         capteurId=buffer;
         getline(fichierUtilisateursPrives,buffer);
-        fichierUtilisateursPrives.get();
         vector<Capteur> desCapteurs;
         if(listeARemplir.find(userId)!=listeARemplir.end())
         {
@@ -167,7 +164,6 @@ void LectureFichier::lireMesures( unordered_map<string,Capteur>& capteursAModifi
         getline(fichierMesures,buffer,';');
         mesure=stof(buffer);
         getline(fichierMesures,buffer);
-        fichierMesures.get();
         capteursAModifier.at(capteurId).ajouterMesure(date,mesure,type);
     }
 }
@@ -199,7 +195,6 @@ void LectureFichier::lirePurificateurs( unordered_map<string,Purificateur>& list
         getline(fichierPurificateurs,buffer,';');
         dateFin=buffer;
         getline(fichierPurificateurs,buffer);
-        fichierPurificateurs.get();
         Purificateur purif(latitude,longitude,purificateurId,dateDebut,dateFin);
         listeARemplir.insert(make_pair(purificateurId,purif));
     }
