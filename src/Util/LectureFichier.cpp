@@ -24,11 +24,15 @@ void LectureFichier::lireCapteurs( unordered_map<string,Capteur>& listeARemplir 
     string id;
     double longitude;
     double latitude;
-    ifstream fichierCapteurs("../../dataset/sensors.csv");
+    ifstream fichierCapteurs("./dataset/sensors.csv");
     
     while(!fichierCapteurs.eof())
     {
         getline(fichierCapteurs,buffer,';');
+        if(fichierCapteurs.eof())
+        {
+            break;
+        }
         id=buffer;
         getline(fichierCapteurs,buffer,';');
         latitude=stod(buffer);
@@ -47,13 +51,17 @@ void LectureFichier::lireFournisseurs( unordered_map<string,Fournisseur>& listeA
     string buffer;
     string fournisseurId;
     string purificateurId;
-    ifstream fichierFournisseurs("../../dataset/providers.csv");
+    ifstream fichierFournisseurs("./dataset/providers.csv");
     unordered_map<string,Purificateur> listePurificateurs;
     lirePurificateurs(listePurificateurs);
     
     while(!fichierFournisseurs.eof())
     {
         getline(fichierFournisseurs,buffer,';');
+        if(fichierFournisseurs.eof())
+        {
+            break;
+        }
         fournisseurId=buffer;
         getline(fichierFournisseurs,buffer,';');
         purificateurId=buffer;
@@ -78,11 +86,15 @@ void LectureFichier::lireUtilisateursPrives( unordered_map<string,UtilisateurPri
     string buffer;
     string userId;
     string capteurId;
-    ifstream fichierUtilisateursPrives("../../dataset/users.csv");
+    ifstream fichierUtilisateursPrives("./dataset/users.csv");
     
     while(!fichierUtilisateursPrives.eof())
     {
         getline(fichierUtilisateursPrives,buffer,';');
+        if(fichierUtilisateursPrives.eof())
+        {
+            break;
+        }
         userId=buffer;
         getline(fichierUtilisateursPrives,buffer,';');
         capteurId=buffer;
@@ -138,11 +150,15 @@ void LectureFichier::lireMesures( unordered_map<string,Capteur>& capteursAModifi
     string capteurId;
     string type;
     float mesure;
-    ifstream fichierMesures("../../dataset/sensors.csv");
+    ifstream fichierMesures("./dataset/measurements.csv");
     
     while(!fichierMesures.eof())
     {
         getline(fichierMesures,buffer,';');
+        if(fichierMesures.eof())
+        {
+            break;
+        }
         date=buffer;
         getline(fichierMesures,buffer,';');
         capteurId=buffer;
@@ -159,7 +175,7 @@ void LectureFichier::lireMesures( unordered_map<string,Capteur>& capteursAModifi
 void LectureFichier::lirePurificateurs( unordered_map<string,Purificateur>& listeARemplir )
 {
     string buffer;
-    ifstream fichierPurificateurs("../../dataset/cleaners.csv");
+    ifstream fichierPurificateurs("./dataset/cleaners.csv");
     string purificateurId;
     double latitude;
     double longitude;
@@ -169,6 +185,10 @@ void LectureFichier::lirePurificateurs( unordered_map<string,Purificateur>& list
     while(!fichierPurificateurs.eof())
     {
         getline(fichierPurificateurs,buffer,';');
+        if(fichierPurificateurs.eof())
+        {
+            break;
+        }
         purificateurId=buffer;
         getline(fichierPurificateurs,buffer,';');
         latitude=stod(buffer);
