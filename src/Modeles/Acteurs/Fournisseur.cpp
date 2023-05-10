@@ -13,12 +13,9 @@
 //-------------------------------------------------------- Include système
 using namespace std;
 #include <iostream>
-#include <vector>
-#include <cstring>
 
 //------------------------------------------------------ Include personnel
 #include "Fournisseur.h"
-#include "../Appareils/Purificateur.h"
 
 //------------------------------------------------------------- Constantes
 

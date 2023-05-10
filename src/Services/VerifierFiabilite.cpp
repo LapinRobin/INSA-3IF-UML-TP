@@ -13,9 +13,7 @@
 //-------------------------------------------------------- Include système
 using namespace std;
 #include <iostream>
-#include <cstring>
 #include <vector>
-#include <cstdlib>
 
 //------------------------------------------------------ Include personnel
 #include "VerifierFiabilite.h"

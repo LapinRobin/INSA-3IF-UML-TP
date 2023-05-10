@@ -16,7 +16,6 @@
 #include "../Modeles/Acteurs/UtilisateurPrive.h"
 #include "../Modeles/Appareils/Capteur.h"
 #include "../Modeles/Appareils/Purificateur.h"
-#include <unordered_map>
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types

@@ -13,12 +13,11 @@
 //-------------------------------------------------------- Include système
 using namespace std;
 #include <iostream>
-#include <cstring>
 #include <vector>
 
 //------------------------------------------------------ Include personnel
 #include "UtilisateurPrive.h"
-#include "../Appareils/Capteur.h"
+
 
 //------------------------------------------------------------- Constantes
 

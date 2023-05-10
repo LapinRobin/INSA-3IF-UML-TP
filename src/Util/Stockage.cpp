@@ -7,7 +7,6 @@ using namespace std;
 #include <iostream>
 #include <unordered_map>
 #include <vector>
-#include <string>
 
 
 //------------------------------------------------------ Include personnel
