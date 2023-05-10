@@ -42,20 +42,8 @@ public:
     
 
 //------------------------------------------------- Surcharge d'opérateurs
-    LectureFichier & operator = ( const LectureFichier & unLectureFichier );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
 
 //-------------------------------------------- Constructeurs - destructeur
-    LectureFichier ( const LectureFichier & unLectureFichier );
-    // Mode d'emploi (constructeur de copie) :
-    //
-    // Contrat :
-    //
-
     LectureFichier ( );
     // Mode d'emploi :
     //

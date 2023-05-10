@@ -19,8 +19,8 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "VerifierFiabilite.h"
-#include "Capteur.h"
-#include "Stockage.h"
+#include "../Modeles/Appareils/Capteur.h"
+#include "../Util/Stockage.h"
 
 //------------------------------------------------------------- Constantes
 

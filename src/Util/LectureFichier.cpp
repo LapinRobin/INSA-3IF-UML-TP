@@ -100,23 +100,8 @@ void LectureFichier::lireUtilisateursPrives( unordered_map<string,UtilisateurPri
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-LectureFichier & LectureFichier::operator = ( const LectureFichier & unLectureFichier )
-// Algorithme :
-//
-{
-} //----- Fin de operator =
-
 
 //-------------------------------------------- Constructeurs - destructeur
-LectureFichier::LectureFichier ( const LectureFichier & unLectureFichier )
-// Algorithme :
-//
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <LectureFichier>" << endl;
-#endif
-} //----- Fin de LectureFichier (constructeur de copie)
-
 
 LectureFichier::LectureFichier ( )
 // Algorithme :
