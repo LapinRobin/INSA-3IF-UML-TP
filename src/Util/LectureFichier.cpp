@@ -24,7 +24,7 @@ void LectureFichier::lireCapteurs( unordered_map<string,Capteur>& listeARemplir 
     string id;
     double longitude;
     double latitude;
-    ifstream fichierCapteurs("../../dataset/sensors.csv");
+    ifstream fichierCapteurs("./dataset/sensors.csv");
     
     while(!fichierCapteurs.eof())
     {
@@ -46,7 +46,7 @@ void LectureFichier::lireFournisseurs( unordered_map<string,Fournisseur>& listeA
     string buffer;
     string fournisseurId;
     string purificateurId;
-    ifstream fichierFournisseurs("../../dataset/providers.csv");
+    ifstream fichierFournisseurs("./dataset/providers.csv");
     unordered_map<string,Purificateur> listePurificateurs;
     lirePurificateurs(listePurificateurs);
     
@@ -76,7 +76,7 @@ void LectureFichier::lireUtilisateursPrives( unordered_map<string,UtilisateurPri
     string buffer;
     string userId;
     string capteurId;
-    ifstream fichierUtilisateursPrives("../../dataset/users.csv");
+    ifstream fichierUtilisateursPrives("./dataset/users.csv");
     
     while(!fichierUtilisateursPrives.eof())
     {
@@ -135,7 +135,7 @@ void LectureFichier::lireMesures( unordered_map<string,Capteur>& capteursAModifi
     string capteurId;
     string type;
     float mesure;
-    ifstream fichierMesures("../../dataset/sensors.csv");
+    ifstream fichierMesures("./dataset/sensors.csv");
     
     while(!fichierMesures.eof())
     {
@@ -155,7 +155,7 @@ void LectureFichier::lireMesures( unordered_map<string,Capteur>& capteursAModifi
 void LectureFichier::lirePurificateurs( unordered_map<string,Purificateur>& listeARemplir )
 {
     string buffer;
-    ifstream fichierPurificateurs("../../dataset/cleaners.csv");
+    ifstream fichierPurificateurs("./dataset/cleaners.csv");
     string purificateurId;
     double latitude;
     double longitude;
