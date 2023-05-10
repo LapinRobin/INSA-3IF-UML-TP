@@ -67,25 +67,28 @@ vector<string> Capteur::getDates ( ) const
     return dates;
 } //----- Fin de Méthode
 
-bool Capteur::ajouterMesure( const string& date, const float& mesure, const typeMesure& type )
+bool Capteur::ajouterMesure( const string& date, const float& mesure, const string& type )
 {
     pair<unordered_map<string,float>::iterator,bool> controle;
-    switch (type)
+    if(type=="O3")
     {
-    case typeMesure::O_3:
         controle = o3.insert(make_pair(date,mesure));
         return controle.second;
-    case typeMesure::SO_2:
+    }
+    if(type=="SO2")
+    {
         controle = so2.insert(make_pair(date,mesure));
         return controle.second;
-    case typeMesure::NO_2:
+    }
+    if(type=="NO2")
+    {
         controle = no2.insert(make_pair(date,mesure));
         return controle.second;
-    case typeMesure::PM_10:
+    }
+    if(type=="PM10")
+    {
         controle = pm10.insert(make_pair(date,mesure));
         return controle.second;
-    default:
-        return false;
     }
 }
 

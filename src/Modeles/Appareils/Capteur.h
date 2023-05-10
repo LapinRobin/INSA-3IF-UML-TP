@@ -18,7 +18,6 @@
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
-enum typeMesure {O_3,SO_2,NO_2,PM_10};
 
 //------------------------------------------------------------------------
 // Rôle de la classe <Capteur>
@@ -74,7 +73,7 @@ public:
     // Contrat :
     //
 
-    bool ajouterMesure( const string& date, const float& mesure, const typeMesure& type );
+    bool ajouterMesure( const string& date, const float& mesure, const string& type );
 
 //------------------------------------------------- Surcharge d'opérateurs
 
