@@ -10,6 +10,10 @@
 #if ! defined ( STOCKAGE_H )
 #define STOCKAGE_H
 
+#include "../Modeles/Acteurs/UtilisateurPrive.h"
+#include "../Modeles/Appareils/Capteur.h"
+#include "../Modeles/Acteurs/Fournisseur.h"
+
 //--------------------------------------------------- Interfaces utilisées
 
 //------------------------------------------------------------- Constantes
@@ -33,6 +37,9 @@ public:
     //
     // Contrat :
     //
+
+    static void initialiser();
+
     static void getCapteurs(std::vector<Capteur> &vect_capteurs);
     // Mode d'emploi :
     // Passer par référence un vector pour le remplir avec les capteurs
@@ -56,7 +63,6 @@ public:
     // Contrat :
     // Aucun
 
-    void Initialiser();
 
 
 //------------------------------------------------- Surcharge d'opérateurs
