@@ -11,7 +11,6 @@
 #define LECTUREFICHIER_H
 
 //--------------------------------------------------- Interfaces utilisées
-
 #include "../Modeles/Acteurs/Fournisseur.h"
 #include "../Modeles/Acteurs/Agence.h"
 #include "../Modeles/Acteurs/UtilisateurPrive.h"
