@@ -31,7 +31,10 @@ using namespace std;
 //{
 //} //----- Fin de Méthode
 
-
+void UtilisateurPrive::ajouterCapteur(const Capteur& unCapteur)
+{
+    capteurs.push_back(unCapteur);
+}
 
 //-------------------------------------------- Constructeurs - destructeur
 

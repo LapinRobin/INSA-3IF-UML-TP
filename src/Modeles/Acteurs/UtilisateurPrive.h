@@ -36,6 +36,8 @@ public:
     // Contrat :
     //
 
+    void ajouterCapteur(const Capteur& unCapteur);
+
 
 
 //-------------------------------------------- Constructeurs - destructeur

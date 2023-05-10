@@ -85,10 +85,16 @@ void LectureFichier::lireUtilisateursPrives( unordered_map<string,UtilisateurPri
         capteurId=buffer;
         getline(fichierUtilisateursPrives,buffer);
         vector<Capteur> desCapteurs;
-        if()
-        
-        UtilisateurPrive user(userId,userId+"@gmail.com","mdp",userId,desCapteurs);
-        listeARemplir.insert(make_pair(id,user));
+        if(listeARemplir.find(userId)!=listeARemplir.end())
+        {
+            listeARemplir[userId].ajouterCapteur(listeCapteurs.at(capteurId));
+        }
+        else
+        {
+            desCapteurs.push_back(listeCapteurs.at(capteurId));
+            UtilisateurPrive user(userId,userId+"@gmail.com","mdp",userId,desCapteurs);
+            listeARemplir.insert(make_pair(userId,user));   
+        }
     }
 }
 
