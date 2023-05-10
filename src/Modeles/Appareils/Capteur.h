@@ -18,6 +18,7 @@
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
+enum typeMesure {O_3,SO_2,NO_2,PM_10};
 
 //------------------------------------------------------------------------
 // Rôle de la classe <Capteur>
@@ -37,49 +38,50 @@ public:
     // Contrat :
     //
 
-    float getMesureO3 ( string date );
+    float getMesureO3 ( const string& date ) const;
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    float getMesureSo2 ( string date );
+    float getMesureSo2 ( const string& date ) const;
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    float getMesureNo2( string date );
+    float getMesureNo2( const string& date ) const;
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    float getMesurePm10 ( string date );
+    float getMesurePm10 ( const string& date ) const;
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    bool estFonctionnel ( );
+    bool estFonctionnel ( ) const;
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    vector<string> getDates ( );
+    vector<string> getDates ( ) const;
     // Mode d'emploi :
     //
     // Contrat :
     //
 
+    bool ajouterMesure( const string& date, const float& mesure, const typeMesure& type );
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 
 //-------------------------------------------- Constructeurs - destructeur
 
-    Capteur ( double uneLatitude, double uneLongitude, string unId, bool estFonctionnel = true );
+    Capteur ( double uneLatitude, double uneLongitude, const string& unId, bool estFonctionnel = true );
     // Mode d'emploi :
     //
     // Contrat :

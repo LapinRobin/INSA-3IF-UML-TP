@@ -28,35 +28,35 @@ using namespace std;
 //{
 //} //----- Fin de Méthode
 
-float Capteur::getMesureO3 ( string uneDate )
+float Capteur::getMesureO3 ( const string& uneDate ) const
 // Algorithme :
 //
 {
     return o3.at(uneDate);
 } //----- Fin de Méthode
 
-float Capteur::getMesureSo2 ( string uneDate )
+float Capteur::getMesureSo2 ( const string& uneDate ) const
 // Algorithme :
 //
 {
     return so2.at(uneDate);
 } //----- Fin de Méthode
 
-float Capteur::getMesureNo2 ( string uneDate )
+float Capteur::getMesureNo2 ( const string& uneDate ) const
 // Algorithme :
 //
 {
     return no2.at(uneDate);
 } //----- Fin de Méthode
 
-float Capteur::getMesurePm10 ( string uneDate )
+float Capteur::getMesurePm10 ( const string& uneDate ) const
 // Algorithme :
 //
 {
     return pm10.at(uneDate);
 } //----- Fin de Méthode
 
-vector<string> Capteur::getDates ( )
+vector<string> Capteur::getDates ( ) const
 // Algorithme :
 //
 {
@@ -67,7 +67,29 @@ vector<string> Capteur::getDates ( )
     return dates;
 } //----- Fin de Méthode
 
-bool Capteur::estFonctionnel ( )
+bool Capteur::ajouterMesure( const string& date, const float& mesure, const typeMesure& type )
+{
+    pair<unordered_map<string,float>::iterator,bool> controle;
+    switch (type)
+    {
+    case typeMesure::O_3:
+        controle = o3.insert(make_pair(date,mesure));
+        return controle.second;
+    case typeMesure::SO_2:
+        controle = so2.insert(make_pair(date,mesure));
+        return controle.second;
+    case typeMesure::NO_2:
+        controle = no2.insert(make_pair(date,mesure));
+        return controle.second;
+    case typeMesure::PM_10:
+        controle = pm10.insert(make_pair(date,mesure));
+        return controle.second;
+    default:
+        return false;
+    }
+}
+
+bool Capteur::estFonctionnel ( ) const
 // Algorithme :
 //
 {
@@ -81,7 +103,7 @@ bool Capteur::estFonctionnel ( )
 //-------------------------------------------- Constructeurs - destructeur
 
 
-Capteur::Capteur ( double uneLatitude, double uneLongitude, string unId, bool estFonctionnel)
+Capteur::Capteur ( double uneLatitude, double uneLongitude, const string& unId, bool estFonctionnel)
         : Appareil(uneLatitude, uneLongitude), id(unId), fonctionnel(estFonctionnel)
 // Algorithme :
 //
