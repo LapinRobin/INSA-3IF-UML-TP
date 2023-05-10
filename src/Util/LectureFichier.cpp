@@ -25,7 +25,7 @@ void LectureFichier::lireCapteurs( unordered_map<string,Capteur>& listeARemplir 
     string id;
     double longitude;
     double latitude;
-    ifstream fichierCapteurs("../../data/sensors.csv");
+    ifstream fichierCapteurs("../../dataset/sensors.csv");
     
     while(!fichierCapteurs.eof())
     {
@@ -47,7 +47,7 @@ void LectureFichier::lireFournisseurs( unordered_map<string,Fournisseur>& listeA
     string buffer;
     string fournisseurId;
     string purificateurId;
-    ifstream fichierFournisseurs("../../data/providers.csv");
+    ifstream fichierFournisseurs("../../dataset/providers.csv");
     unordered_map<string,Purificateur> listePurificateurs;
     lirePurificateurs(listePurificateurs);
     
@@ -60,12 +60,12 @@ void LectureFichier::lireFournisseurs( unordered_map<string,Fournisseur>& listeA
         getline(fichierFournisseurs,buffer);
         if(listeARemplir.find(fournisseurId)!=listeARemplir.end())
         {
-            listeARemplir[fournisseurId].ajouterPurificateur(listePurificateurs[purificateurId]);
+            listeARemplir.at(fournisseurId).ajouterPurificateur(listePurificateurs.at(purificateurId));
         }
         else
         {
             vector<Purificateur> desPurificateurs;
-            desPurificateurs.push_back(listePurificateurs[purificateurId]);
+            desPurificateurs.push_back(listePurificateurs.at(purificateurId));
             Fournisseur four(fournisseurId,fournisseurId+"@gmail.com","mdp",fournisseurId,desPurificateurs);
             listeARemplir.insert(make_pair(fournisseurId,four));
         }
@@ -77,7 +77,7 @@ void LectureFichier::lireUtilisateursPrives( unordered_map<string,UtilisateurPri
     string buffer;
     string userId;
     string capteurId;
-    ifstream fichierUtilisateursPrives("../../data/users.csv");
+    ifstream fichierUtilisateursPrives("../../dataset/users.csv");
     
     while(!fichierUtilisateursPrives.eof())
     {
@@ -89,7 +89,7 @@ void LectureFichier::lireUtilisateursPrives( unordered_map<string,UtilisateurPri
         vector<Capteur> desCapteurs;
         if(listeARemplir.find(userId)!=listeARemplir.end())
         {
-            listeARemplir[userId].ajouterCapteur(listeCapteurs.at(capteurId));
+            listeARemplir.at(userId).ajouterCapteur(listeCapteurs.at(capteurId));
         }
         else
         {
@@ -136,7 +136,7 @@ void LectureFichier::lireMesures( unordered_map<string,Capteur>& capteursAModifi
     string capteurId;
     string type;
     float mesure;
-    ifstream fichierMesures("../../data/sensors.csv");
+    ifstream fichierMesures("../../dataset/sensors.csv");
     
     while(!fichierMesures.eof())
     {
@@ -149,14 +149,14 @@ void LectureFichier::lireMesures( unordered_map<string,Capteur>& capteursAModifi
         getline(fichierMesures,buffer,';');
         mesure=stof(buffer);
         getline(fichierMesures,buffer);
-        capteursAModifier[capteurId].ajouterMesure(date,mesure,type);
+        capteursAModifier.at(capteurId).ajouterMesure(date,mesure,type);
     }
 }
 
 void LectureFichier::lirePurificateurs( unordered_map<string,Purificateur>& listeARemplir )
 {
     string buffer;
-    ifstream fichierPurificateurs("../../data/cleaners.cvs");
+    ifstream fichierPurificateurs("../../dataset/cleaners.csv");
     string purificateurId;
     double latitude;
     double longitude;
