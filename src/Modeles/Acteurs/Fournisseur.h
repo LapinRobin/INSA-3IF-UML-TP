@@ -60,8 +60,8 @@ protected:
 
 //----------------------------------------------------- Attributs protégés
 
-string idFournisseur;
-vector<Purificateur> purificateurs;
+    string idFournisseur;
+    vector<Purificateur> purificateurs;
 
 };
 

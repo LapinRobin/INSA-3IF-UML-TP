@@ -11,10 +11,6 @@ using namespace std;
 
 
 //------------------------------------------------------ Include personnel
-
-#include "../Modeles/Appareils/Capteur.h"
-#include "../Modeles/Acteurs/UtilisateurPrive.h"
-#include "../Modeles/Acteurs/Fournisseur.h"
 #include "Stockage.h"
 #include "LectureFichier.h"
 
@@ -34,13 +30,10 @@ std::unordered_map<std::string, Fournisseur> Stockage::fournisseurs;
  */
 void Stockage::initialiser()
 {
-    std::unordered_map<std::string, Capteur> Stockage::capteurs;
     LectureFichier::lireCapteurs(capteurs);
 
-    std::unordered_map<std::string, UtilisateurPrive> Stockage::utilisateursPrives;
-    LectureFichier::lireUtilisateursPrives(utilisateursPrives);
+    LectureFichier::lireUtilisateursPrives(utilisateursPrives, capteurs);
 
-    std::unordered_map<std::string, Fournisseur> Stockage::fournisseurs;
     LectureFichier::lireFournisseurs(fournisseurs);
 }
 
@@ -61,7 +54,7 @@ void Stockage::getCapteurs(std::vector<Capteur> &vect_capteurs)
 } //----- Fin de Méthode
 
 
-void getUtilisateursPrives(std::vector<UtilisateurPrive> &vect_utilisateursPrives) 
+void Stockage::getUtilisateursPrives(std::vector<UtilisateurPrive> &vect_utilisateursPrives) 
 // Algorithme :
 // Passer par référence un vecteur d'utilisateurs privés
 // Retourner un booléen pour savoir si la requête a fonctionné
@@ -74,7 +67,7 @@ void getUtilisateursPrives(std::vector<UtilisateurPrive> &vect_utilisateursPrive
 
 } //----- Fin de Méthode
 
-void getFournisseurs(std::vector<Fournisseur> &vect_fournisseurs)  
+void Stockage::getFournisseurs(std::vector<Fournisseur> &vect_fournisseurs)  
 // Algorithme :
 // Passer par référence un vecteur de fournisseurs
 // Retourner un booléen pour savoir si la requête a fonctionné
@@ -89,23 +82,8 @@ void getFournisseurs(std::vector<Fournisseur> &vect_fournisseurs)
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-Stockage & Stockage::operator = ( const Stockage & unStockage )
-// Algorithme :
-//
-{
-} //----- Fin de operator =
-
 
 //-------------------------------------------- Constructeurs - destructeur
-Stockage::Stockage ( const Stockage & unStockage )
-// Algorithme :
-//
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <Stockage>" << endl;
-#endif
-} //----- Fin de Stockage (constructeur de copie)
-
 
 Stockage::Stockage ( )
 // Algorithme :

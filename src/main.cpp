@@ -55,11 +55,14 @@ OptionMenu gererMenuPrincipal() {
         default: return INVALIDE;
     }
 }
-
+/*
 // Fonction pour gérer le menu spécifique à chaque rôle
 void gererMenuRole(Role role) {
     // TODO: Implémenter les options de menu spécifiques à chaque rôle
+    int test = role;
+    test = 0;
 }
+*/
 
 int main() {
     while(true) {

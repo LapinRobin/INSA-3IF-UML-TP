@@ -19,7 +19,6 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "VerifierFiabilite.h"
-#include "../Modeles/Appareils/Capteur.h"
 #include "../Util/Stockage.h"
 
 //------------------------------------------------------------- Constantes
@@ -32,17 +31,18 @@ double VerifierFiabilite::calculerTauxErreur ( const Capteur & capteur )
 //
 {
     int limiteDistance = 100;
-    float limiteEcartMesure = {2.0,2.0,2.0,2.0};
+    const float limiteEcartMesure [] = {2.0,2.0,2.0,2.0};
     float compteurErreur = 0.0;
     float compteurMesure = 0.0;
 
-    vector<Capteur> listeCapteur = Stockage.getListCapteurs();
+    vector<Capteur> listeCapteur;
+    Stockage::getCapteurs(listeCapteur);
     vector<string> listeDate = capteur.getDates();
 
 
-    for(int i = 0; i< listeCapteur.size(); i++){
-        if(listeCapteur[i].estFonctionnel()==true && capteur.calculerDistance(listeCapteur[i])<limiteDistance){
-            for(int j = 0; j<listeDate.size(); j++){
+    for(int i = 0; i< (int)listeCapteur.size(); i++){
+        if(listeCapteur[i].estFonctionnel() && capteur.calculerDistance(listeCapteur[i])<limiteDistance){
+            for(int j = 0; j<(int)listeDate.size(); j++){
                 if(abs(capteur.getMesureO3(listeDate[j])-listeCapteur[i].getMesureO3(listeDate[j]))>limiteEcartMesure[1]){
                     compteurErreur++;
                 }

@@ -14,6 +14,7 @@
 using namespace std;
 #include <iostream>
 
+
 //------------------------------------------------------ Include personnel
 #include "Capteur.h"
 
@@ -89,6 +90,10 @@ bool Capteur::ajouterMesure( const string& date, const float& mesure, const stri
     {
         controle = pm10.insert(make_pair(date,mesure));
         return controle.second;
+    }
+    else
+    {
+        return false;
     }
 }
 

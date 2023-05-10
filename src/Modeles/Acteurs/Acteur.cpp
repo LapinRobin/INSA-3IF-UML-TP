@@ -30,14 +30,6 @@ using namespace std;
 
 
 //-------------------------------------------- Constructeurs - destructeur
-Acteur::Acteur ( const Acteur & unActeur )
-// Algorithme :
-//
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <Acteur>" << endl;
-#endif
-} //----- Fin de Acteur (constructeur de copie)
 
 
 Acteur::Acteur(string unNom, string unMail, string unMdp)

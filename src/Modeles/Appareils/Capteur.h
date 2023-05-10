@@ -11,10 +11,9 @@
 #define CAPTEUR_H
 
 //--------------------------------------------------- Interfaces utilisées
-#include <string>
+#include "Appareil.h"
 #include <unordered_map>
 #include <vector>
-#include "Appareil.h"
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -100,10 +99,10 @@ protected:
 //----------------------------------------------------- Attributs protégés
     string id;
     bool fonctionnel;
-    unordered_map<string, float> o3;
-    unordered_map<string, float> so2;
-    unordered_map<string, float> no2;
-    unordered_map<string, float> pm10;
+    std::unordered_map<string, float> o3;
+    std::unordered_map<string, float> so2;
+    std::unordered_map<string, float> no2;
+    std::unordered_map<string, float> pm10;
 };
 
 //-------------------------------- Autres définitions dépendantes de <Capteur>

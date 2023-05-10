@@ -44,7 +44,7 @@ double Appareil::getLongitude() const
     return longitude;
 } //----- Fin de Méthode
 
-double Appareil::calculerDistance ( const Appareil & unAppareil )
+double Appareil::calculerDistance ( const Appareil & unAppareil ) const
 // Algorithme :
 //
 {
@@ -52,7 +52,7 @@ double Appareil::calculerDistance ( const Appareil & unAppareil )
 } //----- Fin de Méthode
 
 
-double Appareil::calculerDistance(double uneLatitude, double uneLongitude)
+double Appareil::calculerDistance(double uneLatitude, double uneLongitude) const
 // Algorithme :
 // Calcul de la distance entre l'appareil et un point de coordonnées données
 {

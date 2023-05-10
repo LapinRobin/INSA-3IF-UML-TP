@@ -38,11 +38,6 @@ public:
 
 
 //-------------------------------------------- Constructeurs - destructeur
-    Acteur ( const Acteur & unActeur );
-    // Mode d'emploi (constructeur de copie) :
-    //
-    // Contrat :
-    //
 
     Acteur ( string unNom, string unMail, string unMdp);
     // Mode d'emploi :
