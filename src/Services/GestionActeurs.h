@@ -29,7 +29,7 @@ class GestionActeurs
 public:
 //----------------------------------------------------- Méthodes publiques
 
-    Acteur authentifier(string mail, string mdp);
+    Acteur* authentifier(string mail, string mdp);
 
     bool inscrire(Acteur acteur);
 

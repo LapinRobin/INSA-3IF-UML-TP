@@ -29,18 +29,20 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
+std::vector<UtilisateurPrive> vect_utilisateursPrives;
 
-Acteur GestionActeurs::authentifier(string unMail, string unMdp)
+
+/* Acteur GestionActeurs::authentifier(string unId, string unMdp)
 {
     // vérifier si l'utilisateur existe dans la base de données
-    auto userIt = Stockage::utilisateursPrives.find(unMail);
-    if (userIt != Stockage::utilisateursPrives.end() && userIt->second.getMdp() == unMdp)
+    auto userIt = Stockage::getUtilisateursPrives(vect_utilisateursPrives).find(unId);
+    if (userIt != Stockage::utilisateursPrives.end(UtilisateurPrive) && userIt->second.getMdp() == unMdp)
     {
         return userIt->second;
     }
 
     // vérifier si l'agence existe dans la base de données
-    auto providerIt = Stockage::fournisseurs.find(unMail);
+    auto providerIt = Stockage::fournisseurs.find(unId);
     if (providerIt != Stockage::fournisseurs.end() && providerIt->second.getMdp() == unMdp)
     {
         return providerIt->second;
@@ -48,14 +50,32 @@ Acteur GestionActeurs::authentifier(string unMail, string unMdp)
 
     // retourner null Acteur si pas trouvé
     return Acteur::Acteur();
-}
+} */
 
+Acteur* GestionActeurs::authentifier(string unId, string unMdp)
+{
+    // vérifier si l'utilisateur existe dans la base de données
+    UtilisateurPrive* user = Stockage::getUtilisateurPrive(unId);
+    if (user != nullptr && user->getMdp() == unMdp)
+    {
+        return user;
+    }
+
+    // vérifier si le fournisseur existe dans la base de données
+    Fournisseur* provider = Stockage::getFournisseur(unId);
+    if (provider != nullptr && provider->getMdp() == unMdp)
+    {
+        return provider;
+    }
+
+    // retourner null Acteur si pas trouvé
+    return nullptr;
+}
 
 
 bool GestionActeurs::inscrire(Acteur unActeur)
 {
     // TODO
-    return false;
 }
 
 

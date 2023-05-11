@@ -45,6 +45,10 @@ public:
     // Contrat :
     // Aucun
 
+    static UtilisateurPrive* getUtilisateurPrive(std::string id);
+    
+    static Fournisseur* getFournisseur(std::string id);
+
     static void getUtilisateursPrives(std::vector<UtilisateurPrive> &vect_utilisateursPrives);
     // Mode d'emploi :
     // Passer par référence un vector pour le remplir avec les utilisateurs privés

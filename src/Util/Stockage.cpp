@@ -50,6 +50,15 @@ void Stockage::getCapteurs(std::vector<Capteur> &vect_capteurs)
     
 } //----- Fin de Méthode
 
+UtilisateurPrive* Stockage::getUtilisateurPrive(string id)
+{
+    try {
+        return &utilisateursPrives.at(id);
+    } catch (const std::out_of_range& e) {
+        // return null UtilisateurPrive
+        return nullptr;
+    }
+}
 
 void Stockage::getUtilisateursPrives(std::vector<UtilisateurPrive> &vect_utilisateursPrives)
 // Algorithme :
@@ -62,6 +71,16 @@ void Stockage::getUtilisateursPrives(std::vector<UtilisateurPrive> &vect_utilisa
     }
 
 } //----- Fin de Méthode
+
+Fournisseur* Stockage::getFournisseur(string id)
+{
+    try {
+        return &fournisseurs.at(id);
+    } catch (const std::out_of_range& e) {
+        // return null Fournisseur
+        return nullptr;
+    }
+}
 
 void Stockage::getFournisseurs(std::vector<Fournisseur> &vect_fournisseurs)
 // Algorithme :
