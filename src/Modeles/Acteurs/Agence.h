@@ -36,7 +36,7 @@ public:
 
 //------------------------------------------------- Surcharge d'opérateurs
 
-friend ostream& operator<<(ostream& os,const Agence& ag);
+friend std::ostream& operator<<(std::ostream& os,const Agence& ag);
 
 //-------------------------------------------- Constructeurs - destructeur
 

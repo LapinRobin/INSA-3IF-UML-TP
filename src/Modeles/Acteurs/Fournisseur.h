@@ -44,7 +44,7 @@ public:
 
 //------------------------------------------------- Surcharge d'opérateurs
 
-friend ostream& operator<<(ostream& os,const Fournisseur& four);
+friend std::ostream& operator<<(std::ostream& os,const Fournisseur& four);
 
 //-------------------------------------------- Constructeurs - destructeur
 
