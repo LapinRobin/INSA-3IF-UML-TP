@@ -42,7 +42,9 @@ public:
     // Contrat :
     // Le purificateur doit être valide
 
+//------------------------------------------------- Surcharge d'opérateurs
 
+friend ostream& operator<<(ostream& os,const Fournisseur& four);
 
 //-------------------------------------------- Constructeurs - destructeur
 
