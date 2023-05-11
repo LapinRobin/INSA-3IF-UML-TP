@@ -13,12 +13,15 @@
 //-------------------------------------------------------- Include système
 using namespace std;
 #include <iostream>
+#include <sstream>
+#include <ctime>
+#include <string>
 
 
 //------------------------------------------------------ Include personnel
 #include "CalculerMoyenne.h"
-// #include "../Util/Stockage.h"
-// #include "../Modeles/Appareils/Capteur.h"
+#include "../Util/Stockage.h"
+#include "../Modeles/Appareils/Capteur.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -27,16 +30,38 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 
 int CalculerMoyenne::calculerMoyenne(double latitude, double longitude, int rayon, string t1, string t2) {
-    double o3Moyen = 30.0;
-    double so2Moyen = 40.0;
-    double no2Moyen = 30.0;
-    double pm10Moyen = 7.0;
+    double o3Moyen = 0.0;
+    double so2Moyen = 0.0;
+    double no2Moyen = 0.0;
+    double pm10Moyen = 0.0;
     int compteurCapteur = 0;
 
-    
+    vector<Capteur> capteurs;
+    Stockage::getCapteurs(capteurs);
 
-    int index = calculerIndiceAtmo(o3Moyen, so2Moyen, no2Moyen, pm10Moyen);
-    return index;
+    for (Capteur c : capteurs) {
+        // if Capteur dans le rayon
+        if (c.calculerDistance(latitude, longitude) <= rayon) {
+            for (string date : c.getDates()) {
+                // si date dans l'intervale
+                if (date >= t1 && date <= t2) {
+                    // add the measures to the total
+                    o3Moyen += c.getMesureO3(date);
+                    so2Moyen += c.getMesureSo2(date);
+                    no2Moyen += c.getMesureNo2(date);
+                    pm10Moyen += c.getMesurePm10(date);
+                    compteurCapteur++;
+                }
+            }
+        }
+    }
+
+    // calculate the average
+    o3Moyen /= compteurCapteur;
+    so2Moyen /= compteurCapteur;
+    no2Moyen /= compteurCapteur;
+    pm10Moyen /= compteurCapteur;
+    return calculerIndiceAtmo(o3Moyen, so2Moyen, no2Moyen, pm10Moyen);
 }
 
 int CalculerMoyenne::calculerIndiceAtmo(double O3, double SO2, double NO2, double PM10) {
@@ -92,6 +117,24 @@ int CalculerMoyenne::calculerIndiceAtmo(double O3, double SO2, double NO2, doubl
 
     // Return the highest index
     return std::max({indexO3, indexSO2, indexNO2, indexPM10});
+}
+
+int calculerJoursEntreDates(const std::string& date1, const std::string& date2) {
+    struct tm tm1 = {0}, tm2 = {0};
+
+    sscanf(date1.c_str(), "%d-%d-%d", &tm1.tm_year, &tm1.tm_mon, &tm1.tm_mday);
+    sscanf(date2.c_str(), "%d-%d-%d", &tm2.tm_year, &tm2.tm_mon, &tm2.tm_mday);
+
+    tm1.tm_year -= 1900; // years since 1900
+    tm1.tm_mon -= 1; // months since January (0-11)
+    tm2.tm_year -= 1900;
+    tm2.tm_mon -= 1;
+
+    time_t t1 = mktime(&tm1);
+    time_t t2 = mktime(&tm2);
+
+    double secondes = difftime(t2, t1);
+    return secondes / (60 * 60 * 24);
 }
 
 
