@@ -41,7 +41,7 @@ void Fournisseur::ajouterPurificateur(const Purificateur & unPurificateur)
 ostream& operator<<(ostream& os,const Fournisseur& four)
 {
     os << "IdFournisseur : " << four.nom << "Mail : " << four.mail << "Purificateurs :" << endl;
-    for (int i=0;i<four.purificateurs.size();++i)
+    for (int i=0;i<(int)four.purificateurs.size();++i)
     {
         os << four.purificateurs[i] << ", ";
     }

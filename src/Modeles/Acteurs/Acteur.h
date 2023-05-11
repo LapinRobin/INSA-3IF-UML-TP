@@ -33,7 +33,7 @@ public:
     //
     // Contrat :
     //
-    string getMdp();
+    std::string getMdp();
 
 
 //-------------------------------------------- Constructeurs - destructeur
