@@ -34,6 +34,9 @@ public:
     // Contrat :
     //
 
+//------------------------------------------------- Surcharge d'opérateurs
+
+friend ostream& operator<<(ostream& os,const Agence& ag);
 
 //-------------------------------------------- Constructeurs - destructeur
 
