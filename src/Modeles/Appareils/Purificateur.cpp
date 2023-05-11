@@ -31,6 +31,10 @@ using namespace std;
 
 //------------------------------------------------- Surcharge d'opérateurs
 
+ostream& operator<<(ostream& os,const Purificateur& purif)
+{
+    return os << "Id : " << purif.id << "Latitude : " << purif.latitude << "Longitude : " << purif.longitude << "Date départ : " << purif.demarrage << "Date fin : " << purif.arret;
+}
 
 //-------------------------------------------- Constructeurs - destructeur
 

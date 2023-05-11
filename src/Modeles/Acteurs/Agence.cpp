@@ -29,7 +29,13 @@ using namespace std;
 //{
 //} //----- Fin de Méthode
 
+//------------------------------------------------- Surcharge d'opérateurs
 
+ostream& operator<<(ostream& os,const Agence& ag)
+{
+    os << "Nom : " << ag.nom << "Mail : " << ag.mail << endl;
+    return os;
+}
 
 //-------------------------------------------- Constructeurs - destructeur
 

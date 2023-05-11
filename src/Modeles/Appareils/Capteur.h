@@ -81,6 +81,10 @@ public:
 
 //------------------------------------------------- Surcharge d'opérateurs
 
+friend std::ostream& operator<<(std::ostream& os, const Capteur& capteur);
+
+bool operator!=(const Capteur& capteur)const;
+
 
 //-------------------------------------------- Constructeurs - destructeur
 

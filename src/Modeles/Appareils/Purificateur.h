@@ -37,6 +37,7 @@ public:
 
 //------------------------------------------------- Surcharge d'opérateurs
 
+friend std::ostream& operator<<(std::ostream& os,const Purificateur& purif);
 
 //-------------------------------------------- Constructeurs - destructeur
 

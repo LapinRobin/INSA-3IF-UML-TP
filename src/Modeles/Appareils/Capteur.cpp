@@ -13,6 +13,7 @@
 //-------------------------------------------------------- Include système
 using namespace std;
 #include <iostream>
+#include <cassert>
 
 
 //------------------------------------------------------ Include personnel
@@ -33,6 +34,7 @@ float Capteur::getMesureO3 ( const string& uneDate ) const
 // Algorithme :
 // retourner la mesure de O3 à une date donnée
 {
+    
     return o3.at(uneDate);
 } //----- Fin de Méthode
 
@@ -62,7 +64,7 @@ vector<string> Capteur::getDates ( ) const
 // retourner les dates des mesures
 {
     vector<string> dates;
-    for (std::unordered_map<std::string, float>::const_iterator it = o3.begin(); it != o3.end(); ++it) 
+    for (unordered_map<string, float>::const_iterator it = o3.begin(); it != o3.end(); ++it) 
     {
         dates.push_back(it->first);
     }
@@ -109,6 +111,16 @@ bool Capteur::estFonctionnel ( ) const
 
 
 //------------------------------------------------- Surcharge d'opérateurs
+ostream& operator<<(ostream& os, const Capteur& capteur)
+{
+    os << "SensorId : "<< capteur.id << " Latitude : "<< capteur.latitude<<" Longitude : "<< capteur.longitude;
+    return os;
+}
+
+bool Capteur::operator!=(const Capteur& capteur)const
+{
+    return (id!=capteur.id);
+}
 
 
 //-------------------------------------------- Constructeurs - destructeur
