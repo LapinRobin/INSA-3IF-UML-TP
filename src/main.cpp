@@ -1,6 +1,8 @@
 #include<iostream>
 #include<string>
 #include "Util/Stockage.h"
+#include "Services/VerifierFiabilite.h"
+#include "Modeles/Acteurs/Acteur.h"
 
 using namespace std;
 
@@ -84,6 +86,16 @@ int main() {
     }*/
 
     Stockage::initialiser();
+
+    vector<Capteur> capteurs;
+    Stockage::getCapteurs(capteurs);
+    VerifierFiabilite vf;
+    for(int i = 0; i<(int)capteurs.size(); i++){
+       cout << vf.calculerTauxErreur(capteurs[i])<<endl; 
+    }
+    //cout << vf.calculerTauxErreur(Stockage::getCapteurById("Sensor70"))<<endl; 
+    //cout << vf.calculerTauxErreur(Stockage::getCapteurById("Sensor36"))<<endl; 
+    
 
     return 0;
 }

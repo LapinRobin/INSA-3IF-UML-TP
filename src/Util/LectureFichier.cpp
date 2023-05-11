@@ -8,6 +8,7 @@ using namespace std;
 #include <fstream>
 #include <string>
 #include <unordered_map>
+#include <cassert>
 
 //------------------------------------------------------ Include personnel
 #include "LectureFichier.h"
@@ -171,10 +172,11 @@ void LectureFichier::lireMesures( unordered_map<string,Capteur>& capteursAModifi
         getline(fichierMesures,buffer,';');
         capteurId=buffer;
         getline(fichierMesures,buffer,';');
-        type==buffer;
+        type=buffer;
         getline(fichierMesures,buffer,';');
         mesure=stof(buffer);
         getline(fichierMesures,buffer);
+        
         capteursAModifier.at(capteurId).ajouterMesure(date,mesure,type);
     }
 }
