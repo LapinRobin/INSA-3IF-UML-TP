@@ -29,7 +29,7 @@ class ObserverImpact
 public:
 //----------------------------------------------------- Méthodes publiques
 
-
+    float observerImpact(vector<Capteur> sensors, string start, string stop, Appareil p);
 
 //-------------------------------------------- Constructeurs - destructeur
 
