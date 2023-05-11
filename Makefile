@@ -1,33 +1,32 @@
-# Compiler
-CXX=g++
+# Define directories
+SRC_DIR := src
+ACTEUR_DIR := $(SRC_DIR)/Modeles/Acteurs
+APPAREIL_DIR := $(SRC_DIR)/Modeles/Appareils
+SERVICES_DIR := $(SRC_DIR)/Services
+UTIL_DIR := $(SRC_DIR)/Util
+OBJ_DIR := obj
+BIN_DIR := bin
 
-# Compiler flags
-CXXFLAGS=-Wall -Wextra -std=c++14
+# Define executable name
+EXEC := main
 
-# Directory of source files
-SRC_DIR=./src
+# Define the source and object files
+SRCS := $(wildcard $(SRC_DIR)/*.cpp $(ACTEUR_DIR)/*.cpp $(APPAREIL_DIR)/*.cpp $(SERVICES_DIR)/*.cpp $(UTIL_DIR)/*.cpp)
+OBJS := $(patsubst %.cpp,$(OBJ_DIR)/%.o,$(SRCS))
 
-ACTEUR_DIR=./src/Modeles/Acteurs
-APPAREIL_DIR=./src/Modeles/Appareils
-SERVICES_DIR=./src/Services
-UTIL_DIR=./src/Util
+# Define compiler and flags
+CXX := g++
+CXXFLAGS := -Wall -Wextra -std=c++17
 
+# Rule to link the final executable
+$(BIN_DIR)/$(EXEC): $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $@ $^
 
-# Directory for object files
-OBJ_DIR=./obj
+# Rule to compile source files into object files
+$(OBJ_DIR)/%.o: %.cpp
+	mkdir -p $(@D)
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
-# Directory for the executable
-BIN_DIR=./bin
-
-# Executable name
-EXEC=main
-
-all:
-	$(CXX) $(CXXFLAGS) -o $(BIN_DIR)/$(EXEC) $(SRC_DIR)/*.cpp $(ACTEUR_DIR)/*.cpp $(APPAREIL_DIR)/*.cpp $(SERVICES_DIR)/*.cpp $(UTIL_DIR)/*.cpp
-
-
-
+# Clean rule
 clean:
-	rm -f $(OBJ_DIR)/*.o
-	rm -f $(BIN_DIR)/$(EXEC)
-
+	rm -rf $(OBJ_DIR)/* $(BIN_DIR)/$(EXEC)

@@ -9,7 +9,7 @@
 //---------- Interface de la classe <GestionActeurs> (fichier GestionActeurs.h) ----------------
 #if ! defined ( GESTIONACTEURS_H )
 #define GESTIONACTEURS_H
-
+#include "../Modeles/Acteurs/Acteur.h"
 //--------------------------------------------------- Interfaces utilisées
 
 //------------------------------------------------------------- Constantes
@@ -29,7 +29,7 @@ class GestionActeurs
 public:
 //----------------------------------------------------- Méthodes publiques
 
-    Acteur* authentifier(string mail, string mdp);
+    Acteur* authentifier(std::string mail, std::string mdp);
 
     bool inscrire(Acteur acteur);
 

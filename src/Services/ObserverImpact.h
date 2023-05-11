@@ -1,14 +1,14 @@
 /*************************************************************************
-                           Acteur  -  description
+                           ObserverImpact  -  description
                              -------------------
     début                : $DATE$
     copyright            : (C) $YEAR$ par $AUTHOR$
     e-mail               : $EMAIL$
 *************************************************************************/
 
-//---------- Interface de la classe <Acteur> (fichier Acteur.h) ----------------
-#if ! defined ( Acteur_H )
-#define Acteur_H
+//---------- Interface de la classe <ObserverImpact> (fichier ObserverImpact.h) ----------------
+#if ! defined ( OBSERVERIMPACT_H )
+#define OBSERVERIMPACT_H
 
 //--------------------------------------------------- Interfaces utilisées
 
@@ -17,34 +17,29 @@
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <Acteur>
+// Rôle de la classe <ObserverImpact>
 //
 //
 //------------------------------------------------------------------------
 
-class Acteur 
+class ObserverImpact 
 {
 //----------------------------------------------------------------- PUBLIC
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    // type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-    std::string getMdp();
+
 
 
 //-------------------------------------------- Constructeurs - destructeur
 
-    Acteur ( std::string unNom, std::string unMail, std::string unMdp);
+    ObserverImpact ( );
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    virtual ~Acteur ( );
+    virtual ~ObserverImpact ( );
     // Mode d'emploi :
     //
     // Contrat :
@@ -57,13 +52,9 @@ protected:
 
 //----------------------------------------------------- Attributs protégés
 
-std::string nom;
-std::string mail;
-std::string mdp;
 
 };
 
-//-------------------------------- Autres définitions dépendantes de <Acteur>
+//-------------------------------- Autres définitions dépendantes de <ObserverImpact>
 
-#endif // Acteur_H
-
+#endif // OBSERVERIMPACT_H
