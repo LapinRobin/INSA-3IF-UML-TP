@@ -92,6 +92,11 @@ void Stockage::getFournisseurs(std::vector<Fournisseur> &vect_fournisseurs)
     }
 } //----- Fin de Méthode
 
+Capteur& Stockage::getCapteurById(string id)
+{
+    return capteurs.at(id);
+}
+
 
 
 //------------------------------------------------- Surcharge d'opérateurs
