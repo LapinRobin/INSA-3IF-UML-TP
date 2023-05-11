@@ -17,6 +17,11 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "GestionActeurs.h"
+#include "../Modeles/Acteurs/Acteur.h"
+#include "../Modeles/Acteurs/UtilisateurPrive.h"
+#include "../Modeles/Acteurs/Fournisseur.h"
+#include "../Modeles/Acteurs/Agence.h"
+#include "Stockage.h"
 
 
 //------------------------------------------------------------- Constantes
@@ -24,6 +29,55 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
+std::vector<UtilisateurPrive> vect_utilisateursPrives;
+
+
+/* Acteur GestionActeurs::authentifier(string unId, string unMdp)
+{
+    // vérifier si l'utilisateur existe dans la base de données
+    auto userIt = Stockage::getUtilisateursPrives(vect_utilisateursPrives).find(unId);
+    if (userIt != Stockage::utilisateursPrives.end(UtilisateurPrive) && userIt->second.getMdp() == unMdp)
+    {
+        return userIt->second;
+    }
+
+    // vérifier si l'agence existe dans la base de données
+    auto providerIt = Stockage::fournisseurs.find(unId);
+    if (providerIt != Stockage::fournisseurs.end() && providerIt->second.getMdp() == unMdp)
+    {
+        return providerIt->second;
+    }
+
+    // retourner null Acteur si pas trouvé
+    return Acteur::Acteur();
+} */
+
+Acteur* GestionActeurs::authentifier(string unId, string unMdp)
+{
+    // vérifier si l'utilisateur existe dans la base de données
+    UtilisateurPrive* user = Stockage::getUtilisateurPrive(unId);
+    if (user != nullptr && user->getMdp() == unMdp)
+    {
+        return user;
+    }
+
+    // vérifier si le fournisseur existe dans la base de données
+    Fournisseur* provider = Stockage::getFournisseur(unId);
+    if (provider != nullptr && provider->getMdp() == unMdp)
+    {
+        return provider;
+    }
+
+    // retourner null Acteur si pas trouvé
+    return nullptr;
+}
+
+
+bool GestionActeurs::inscrire(Acteur unActeur)
+{
+    // TODO
+}
+
 
 
 

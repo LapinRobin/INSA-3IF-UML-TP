@@ -28,6 +28,11 @@ using namespace std;
 //{
 //} //----- Fin de Méthode
 
+string Acteur::getMdp() {
+    return mdp;
+}
+
+
 
 //-------------------------------------------- Constructeurs - destructeur
 
