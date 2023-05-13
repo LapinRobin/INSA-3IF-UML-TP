@@ -27,7 +27,7 @@ using namespace std;
 
 //----------------------------------------------------- Méthodes publiques
 
-float ObserverImpact::observerImpact(vector<Capteur> sensors, string start, string stop, Appareil p) {
+float ObserverImpact::observerImpact(const vector<Capteur>& sensors, const string& start, const string& stop, const Appareil& p) {
     float compteurAvant = 0.0;
     float compteurApres = 0.0;
     float rayonAction = 1000.0;

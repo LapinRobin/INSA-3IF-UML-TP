@@ -29,7 +29,7 @@ class ObserverImpact
 public:
 //----------------------------------------------------- Méthodes publiques
 
-    float observerImpact(vector<Capteur> sensors, string start, string stop, Appareil p);
+    float observerImpact(const std::vector<Capteur>& sensors, const std::string& start, const std::string& stop, const Appareil& p);
 
 //-------------------------------------------- Constructeurs - destructeur
 
