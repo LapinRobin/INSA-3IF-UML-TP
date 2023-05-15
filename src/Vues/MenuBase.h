@@ -1,37 +1,29 @@
 /*************************************************************************
-                           Affichage  -  description
+                           MenuBase  -  description
                              -------------------
     début                : $DATE$
     copyright            : (C) $YEAR$ par $AUTHOR$
     e-mail               : $EMAIL$
 *************************************************************************/
 
-//---------- Interface de la classe <Affichage> (fichier Affichage.h) ----------------
-#if ! defined ( AFFICHAGE_H )
-#define AFFICHAGE_H
+//---------- Interface de la classe <MenuBase> (fichier MenuBase.h) ----------------
+#if ! defined ( MENUBASE_H )
+#define MENUBASE_H
 
 //--------------------------------------------------- Interfaces utilisées
-#include <map>
-
+#include <vector>
+#include <string>
+//------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
 
-struct OptionMenu
-{
-    const char* texte;
-    Menu* (*action)();
-};
-typedef std::map<char,OptionMenu> Menu;
-
-//------------------------------------------------------------- Constantes
-
 //------------------------------------------------------------------------
-// Rôle de la classe <Affichage>
+// Rôle de la classe <MenuBase>
 //
 //
 //------------------------------------------------------------------------
 
-class Affichage
+class MenuBase
 {
 //----------------------------------------------------------------- PUBLIC
 
@@ -43,20 +35,12 @@ public:
     // Contrat :
     //
 
-    static void afficherTitre();
+    void ajouterSousMenu(MenuBase*);
 
-    static Menu* se_connecter();
-
-    static Menu* s_inscrire();
-
-    void gererMenu(Menu* menu);
-
-    static Menu* setDoitQuitter();
-
-    static void effacerConsole();
+    MenuBase* getSousMenu(int choix);
 
 //------------------------------------------------- Surcharge d'opérateurs
-    Affichage & operator = ( const Affichage & unAffichage );
+    MenuBase & operator = ( const MenuBase & unMenuBase );
     // Mode d'emploi :
     //
     // Contrat :
@@ -64,19 +48,19 @@ public:
 
 
 //-------------------------------------------- Constructeurs - destructeur
-    Affichage ( const Affichage & unAffichage );
+    MenuBase ( const MenuBase & unMenuBase );
     // Mode d'emploi (constructeur de copie) :
     //
     // Contrat :
     //
 
-    Affichage ( );
+    MenuBase (  char* options, int nbOptions );
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    virtual ~Affichage ( );
+    virtual ~MenuBase ( );
     // Mode d'emploi :
     //
     // Contrat :
@@ -88,9 +72,14 @@ protected:
 //----------------------------------------------------- Méthodes protégées
 
 //----------------------------------------------------- Attributs protégés
-static bool doitQuiter;
+
+std::vector<MenuBase*> sousMenus;
+MenuBase* parent;
+bool retour;
+bool quitter;
+std::string titre;
 };
 
-//-------------------------------- Autres définitions dépendantes de <Affichage>
+//-------------------------------- Autres définitions dépendantes de <MenuBase>
 
-#endif // AFFICHAGE_H
+#endif // MENUBASE_H
