@@ -11,10 +11,17 @@
 #define AFFICHAGE_H
 
 //--------------------------------------------------- Interfaces utilisées
+#include <map>
 
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
+
+struct OptionMenu
+{
+    const char* texte;
+    void (*action)();
+};
 
 //------------------------------------------------------------------------
 // Rôle de la classe <Affichage>
@@ -34,6 +41,13 @@ public:
     // Contrat :
     //
 
+    void afficherTitre();
+
+    void se_connecter();
+
+    void s_inscrire();
+
+    void gererMenu(OptionMenu* menu,unsigned int nbChoix);
 
 //------------------------------------------------- Surcharge d'opérateurs
     Affichage & operator = ( const Affichage & unAffichage );
