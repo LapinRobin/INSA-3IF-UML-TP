@@ -13,10 +13,10 @@
 //-------------------------------------------------------- Include système
 using namespace std;
 #include <iostream>
+#include "Menus.h"
 
 //------------------------------------------------------ Include personnel
 #include "MenuBase.h"
-#include "Affichage.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -29,16 +29,23 @@ using namespace std;
 //{
 //} //----- Fin de Méthode
 
+MenuBase* MenuBase::getNextMenu(int choix)const
+{
+    if (choix=='q')
+        return nullptr;
+    if (choix==0)
+        return parent;
+    return sousMenus.at(choix-1);
+}
+
 int MenuBase::doAction()
 {
     int choix=action();
     if(choix!=-1)
-    {
         return choix;
-    }
     bool mauvaisChoix=false;
-    Affichage::effacerConsole();
-    Affichage::afficherTitre();
+    effacerConsole();
+    afficherTitre();
     cout << *this << endl;
     cout << endl;
     do
@@ -52,21 +59,19 @@ int MenuBase::doAction()
         cout << "Quel est votre choix ?"<< endl;
         char caractere;
         mauvaisChoix=true;
-        if(!cin >> caractere)
-        {
-            continue;
-        }
+        cin >> caractere;
         if (caractere=='q')
         {
             choix=caractere;
             mauvaisChoix=false;
         }
-        else if((parent!=nullptr && choix=='0') || (choix>'0' && choix<=('0'+sousMenus.size())))
+        else if((parent!=nullptr && caractere=='0') || (caractere>'0' && caractere<=('0'+sousMenus.size())))
         {
             choix=caractere-'0';
             mauvaisChoix=false;
         }
     }while(mauvaisChoix);
+
     return choix;
 }
 
@@ -103,13 +108,17 @@ MenuBase::MenuBase ( const MenuBase & unMenuBase )
 } //----- Fin de MenuBase (constructeur de copie)
 
 
-MenuBase::MenuBase ( std::string unTitre,MenuBase* unParent ) : titre(unTitre),parent(unParent)
+MenuBase::MenuBase ( std::string unTitre,MenuBase* unParent, int (*uneAction)() ) : titre(unTitre),parent(unParent), action(uneAction)
 // Algorithme :
 //
 {
 #ifdef MAP
     cout << "Appel au constructeur de <MenuBase>" << endl;
 #endif
+    if(unParent!=nullptr)
+    {
+        unParent->sousMenus.push_back(this);
+    }
 } //----- Fin de MenuBase
 
 

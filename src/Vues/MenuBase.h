@@ -36,9 +36,11 @@ public:
     // Contrat :
     //
 
-    void ajouterSousMenu(MenuBase*);
-
-    MenuBase* getNextMenu(int choix) const; 
+    MenuBase* getNextMenu(int choix)const ; 
+    // Mode d'emploi :
+    // prend le choix en paramètre et renvoie le menu qui doit alors apparaitre
+    // Contrat :
+    // Le choix doit être valide (il faut avoir appelé doAction avant)
 
     int doAction();
 
@@ -49,7 +51,7 @@ public:
     // Contrat :
     //
 
-    friend ostream& operator<<(ostream& out,const MenuBase& menu);
+    friend std::ostream& operator<<(std::ostream& out,const MenuBase& menu);
 
 //-------------------------------------------- Constructeurs - destructeur
     MenuBase ( const MenuBase & unMenuBase );
@@ -58,7 +60,7 @@ public:
     // Contrat :
     //
 
-    MenuBase (  std::string unTitre,MenuBase* unParent =nullptr );
+    MenuBase (  std::string unTitre,MenuBase* unParent, int (*uneAction)() );
     // Mode d'emploi :
     //
     // Contrat :
@@ -78,9 +80,10 @@ protected:
 //----------------------------------------------------- Attributs protégés
 
 std::vector<MenuBase*> sousMenus;
-MenuBase* parent;
 std::string titre;
 int (*action)();
+MenuBase* parent;
+
 };
 
 //-------------------------------- Autres définitions dépendantes de <MenuBase>
