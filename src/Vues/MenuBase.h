@@ -13,6 +13,7 @@
 //--------------------------------------------------- Interfaces utilisées
 #include <vector>
 #include <string>
+#include <iostream>
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -37,7 +38,9 @@ public:
 
     void ajouterSousMenu(MenuBase*);
 
-    MenuBase* getSousMenu(int choix);
+    MenuBase* getNextMenu(int choix) const; 
+
+    int doAction();
 
 //------------------------------------------------- Surcharge d'opérateurs
     MenuBase & operator = ( const MenuBase & unMenuBase );
@@ -46,6 +49,7 @@ public:
     // Contrat :
     //
 
+    friend ostream& operator<<(ostream& out,const MenuBase& menu);
 
 //-------------------------------------------- Constructeurs - destructeur
     MenuBase ( const MenuBase & unMenuBase );
@@ -54,7 +58,7 @@ public:
     // Contrat :
     //
 
-    MenuBase (  char* options, int nbOptions );
+    MenuBase (  std::string unTitre,MenuBase* unParent =nullptr );
     // Mode d'emploi :
     //
     // Contrat :
@@ -75,9 +79,8 @@ protected:
 
 std::vector<MenuBase*> sousMenus;
 MenuBase* parent;
-bool retour;
-bool quitter;
 std::string titre;
+int (*action)();
 };
 
 //-------------------------------- Autres définitions dépendantes de <MenuBase>
