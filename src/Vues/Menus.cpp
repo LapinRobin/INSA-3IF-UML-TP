@@ -1,5 +1,10 @@
 #include "MenuBase.h"
 #include "Menus.h"
+#include "../Services/GestionActeurs.h"
+#include "../Modeles/Acteurs/Acteur.h"
+#include "../Modeles/Acteurs/UtilisateurPrive.h"
+#include "../Modeles/Acteurs/Fournisseur.h"
+#include "../Modeles/Acteurs/Agence.h"
 #include <iostream>
 
 using namespace std;
@@ -57,11 +62,28 @@ int se_connecter()
     cin >> identifiant;
     cout << "Entrez votre mot de passe: ";
     cin >> mot_de_passe;
-    return 0;
-    // TODO: Valider les informations d'identification
 
-    // Si les informations d'identification sont valides
-    // TODO: Accédez au menu spécifique à votre rôle
+    // Valider les informations d'identification
+    GestionActeurs ga;
+    Acteur* act=ga.authentifier(identifiant,mot_de_passe);
+    if(act==nullptr)
+    {
+        cout << "Mauvais identifiant et/ou mot de passe.\n Tapez sur ENTRER pour continuer" << endl;
+        char buffer;
+        cin >> buffer;
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
+        return 0;
+    }
+
+    // Accédez au menu spécifique à votre rôle
+    if(dynamic_cast<UtilisateurPrive*>(act)!=nullptr)
+        return 1;
+    if(dynamic_cast<Agence*>(act)!=nullptr)
+        return 2;
+    if(dynamic_cast<Fournisseur*>(act)!=nullptr)
+        return 3;
+    return 0;
+    
 }
 
 int s_inscrire()
