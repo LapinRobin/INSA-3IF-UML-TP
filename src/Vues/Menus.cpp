@@ -160,26 +160,32 @@ int s_inscrire()
 
 int classerCapteur()
 {
+    //TODO
     return 0;
 }
 int calculerMoyZone()
 {
+    //TODO
     return 0;
 }
 int calculerMoyPos()
 {
+    //TODO
     return 0;
 }
 int analyserImpactPurif()
 {
+    //TODO
     return 0;
 }
 int analyserCapteur()
 {
+    //TODO
     return 0;
 }
 int analyserUtilisateur()
 {
+    //TODO
     return 0;
 }
 
