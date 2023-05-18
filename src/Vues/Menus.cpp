@@ -13,6 +13,12 @@ using namespace std;
 int doNothing();
 int se_connecter();
 int s_inscrire();
+int classerCapteur();
+int calculerMoyZone();
+int calculerMoyPos();
+int analyserImpactPurif();
+int analyserCapteur();
+int analyserUtilisateur();
 
 // Implémentation des menus
 
@@ -27,6 +33,40 @@ MenuBase menuUtilisateur("Menu utilisateur",&menuConnection,doNothing);
 MenuBase menuAgence("Menu agence gouvernementale",&menuConnection,doNothing);
 
 MenuBase menuFournisseur("Menu Fournisseur",&menuConnection,doNothing);
+
+// Fonctionnalités utilisateur
+MenuBase menuClasserCapteurUser("Classer les capteurs par similarité",&menuUtilisateur,classerCapteur);
+
+MenuBase menuCalculerMoyZoneUser("Calculer la moyenne de la qualité de l'air dans une zone",&menuUtilisateur,calculerMoyZone);
+
+MenuBase menuCalculerMoyPosUser("Calculer la moyenne de la qualité de l'air à une position",&menuUtilisateur,calculerMoyPos);
+
+// Fonctionnalités agence
+MenuBase menuDonneesAirAgence("Consulter les données sur la qualité de l'air", &menuAgence,doNothing);
+
+MenuBase menuClasserCapteurAgency("Classer les capteurs par similarité",&menuDonneesAirAgence,classerCapteur);
+
+MenuBase menuCalculerMoyZoneAgency("Calculer la moyenne de la qualité de l'air dans une zone",&menuDonneesAirAgence,calculerMoyZone);
+
+MenuBase menuCalculerMoyPosAgency("Calculer la moyenne de la qualité de l'air à une position",&menuDonneesAirAgence,calculerMoyPos);
+
+MenuBase menuImpactPurifAgence("Analyser l'impact des purificateurs sur l'air",&menuAgence,analyserImpactPurif);
+
+MenuBase menuAnalyseCapteur("Analyser les données d'un capteur",&menuAgence,analyserCapteur);
+
+MenuBase menuAnalyseUtilisateur("Analyser les données d'un utilisateur",&menuAgence,analyserUtilisateur);
+
+// Fonctionnalités fournisseur
+MenuBase menuDonneesAirFournisseur("Consulter les données sur la qualité de l'air",&menuFournisseur,doNothing);
+
+MenuBase menuClasserCapteurProvider("Classer les capteurs par similarité",&menuDonneesAirFournisseur,classerCapteur);
+
+MenuBase menuCalculerMoyZoneProvider("Calculer la moyenne de la qualité de l'air dans une zone",&menuDonneesAirFournisseur,calculerMoyZone);
+
+MenuBase menuCalculerMoyPosProvider("Calculer la moyenne de la qualité de l'air à une position",&menuDonneesAirFournisseur,calculerMoyPos);
+
+MenuBase menuImpactPurifFournisseur("Analyser l'impact des purificateurs surl l'air",&menuFournisseur,analyserImpactPurif);
+
 
 // Fonctions publiques
 
@@ -97,6 +137,31 @@ int s_inscrire()
     cin >> identifiant;
     cout << "Entrez votre mot de passe: ";
     cin >> mot_de_passe;
+    return 0;
+}
+
+int classerCapteur()
+{
+    return 0;
+}
+int calculerMoyZone()
+{
+    return 0;
+}
+int calculerMoyPos()
+{
+    return 0;
+}
+int analyserImpactPurif()
+{
+    return 0;
+}
+int analyserCapteur()
+{
+    return 0;
+}
+int analyserUtilisateur()
+{
     return 0;
 }
 
