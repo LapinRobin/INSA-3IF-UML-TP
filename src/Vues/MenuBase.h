@@ -81,8 +81,9 @@ protected:
 
 std::vector<MenuBase*> sousMenus;
 std::string titre;
-int (*action)();
 MenuBase* parent;
+int (*action)();
+
 
 };
 
