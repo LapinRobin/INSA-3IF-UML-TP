@@ -62,7 +62,7 @@ public:
     // Contrat :
     // Aucun
 
-    static Capteur& getCapteurById(string id);
+    static Capteur& getCapteurById(std::string id);
 
 
 //------------------------------------------------- Surcharge d'opérateurs
