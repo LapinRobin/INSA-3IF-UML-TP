@@ -39,6 +39,25 @@ int CalculerMoyenne::calculerMoyenne(double latitude, double longitude, int rayo
     vector<Capteur> capteurs;
     Stockage::getCapteurs(capteurs);
 
+    // Check if there are any sensors in the specified zone
+    bool sensorsFound = false;
+    for (Capteur c : capteurs) {
+        if (c.calculerDistance(latitude, longitude) <= rayon) {
+            sensorsFound = true;
+            break;
+        }
+    }
+    if (!sensorsFound) {
+        // Return a default value or an error code to indicate that no data is available for the specified location and time range
+        return -1;
+    }
+
+    // Check if the time range is valid
+    if (t2 < t1) {
+        // Return a default value or an error code to indicate that the time range is invalid
+        return -2;
+    }
+
     for (Capteur c : capteurs) {
         // if Capteur dans le rayon
         if (c.calculerDistance(latitude, longitude) <= rayon) {
@@ -54,6 +73,12 @@ int CalculerMoyenne::calculerMoyenne(double latitude, double longitude, int rayo
                 }
             }
         }
+    }
+
+    // Check if there is any data available for the specified time range
+    if (compteurCapteur == 0) {
+        // Return a default value or an error code to indicate that no data is available for the specified location and time range
+        return -3;
     }
 
     // calculate the average
