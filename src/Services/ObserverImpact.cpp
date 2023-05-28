@@ -77,6 +77,10 @@ float ObserverImpact::observerImpact(const vector<Capteur>& sensors, const strin
             }
         }
     }
+    // Si aucun capteur n'a été trouvé avant la date de début, on considère que le purificateur n'a pas d'impact
+    if (compteurAvant == 0) {
+        return 0.0;
+    }
     return rayonAction;
 }
 
