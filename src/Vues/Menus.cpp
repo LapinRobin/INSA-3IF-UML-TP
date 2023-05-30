@@ -1,6 +1,8 @@
 #include "MenuBase.h"
 #include "Menus.h"
 #include "../Services/GestionActeurs.h"
+#include "../Services/VerifierFiabilite.h"
+#include "../Util/Stockage.h"
 #include "../Modeles/Acteurs/Acteur.h"
 #include "../Modeles/Acteurs/UtilisateurPrive.h"
 #include "../Modeles/Acteurs/Fournisseur.h"
@@ -104,7 +106,7 @@ int se_connecter()
         estConnecte=false;
         return 0;
     }
-    cout << "Connection " << endl;
+    cout << "Connexion " << endl;
     string identifiant, mot_de_passe;
     cout << "Entrez votre identifiant: ";
     cin >> identifiant;
@@ -180,7 +182,29 @@ int analyserImpactPurif()
 }
 int analyserCapteur()
 {
-    //TODO
+    string idCapteur;
+    cout << "Entrez l'ID du capteur que vous voulez analyser :" << endl;
+    cin >> idCapteur;
+    Capteur capteur = Stockage::getCapteurById(idCapteur);
+    VerifierFiabilite vf;
+    double taux = vf.calculerTauxErreur(capteur);
+    cout << "Le taux d'erreur de ce capteur, en se basant sur une zone de 50km de rayon, est de : " << taux << endl;
+    double tauxLimite = 0.2;
+    if(taux < tauxLimite )
+        cout << "Ce capteur fonctionne normalement, sans dépasser le taux limite de " << tauxLimite << endl;
+    else
+    {
+        cout << "Ce capteur ne fonctionne pas normalement, il dépasse le taux limite de " << tauxLimite << endl;
+        cout << "Voulez-vous marquer ce capteur comme défaillant ? (oui/non)" << endl;
+        string reponse;
+        cin >> reponse;
+        if(reponse == "oui")
+            cout << "Capteur marqué, vous pourrez le rétablir après réparation grâce à la fonction prévue à cet effet." << endl;
+    }
+        
+    cin.ignore(numeric_limits<streamsize>::max(),'\n');
+    string buffer;
+    getline(cin,buffer);    
     return 0;
 }
 int analyserUtilisateur()

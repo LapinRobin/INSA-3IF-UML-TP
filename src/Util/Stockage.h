@@ -69,7 +69,7 @@ public:
 
     static Capteur& getCapteurById(std::string id);
 
-    static Agence& getAgence();
+    static Agence* getAgence();
 
 
 //------------------------------------------------- Surcharge d'opérateurs
