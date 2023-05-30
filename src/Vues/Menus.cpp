@@ -5,6 +5,9 @@
 #include "../Modeles/Acteurs/UtilisateurPrive.h"
 #include "../Modeles/Acteurs/Fournisseur.h"
 #include "../Modeles/Acteurs/Agence.h"
+#include "../Services/CalculerMoyenne.h"
+#include "../Services/ObserverImpact.h"
+#include "../Util/Stockage.h"
 #include <string>
 #include <iostream>
 
@@ -15,8 +18,7 @@ int doNothing();
 int se_connecter();
 int s_inscrire();
 int classerCapteur();
-int calculerMoyZone();
-int calculerMoyPos();
+int calculerMoy();
 int analyserImpactPurif();
 int analyserCapteur();
 int analyserUtilisateur();
@@ -39,18 +41,16 @@ MenuBase menuFournisseur("Menu Fournisseur",&menuConnection,doNothing);
 // Fonctionnalités utilisateur
 MenuBase menuClasserCapteurUser("Classer les capteurs par similarité",&menuUtilisateur,classerCapteur);
 
-MenuBase menuCalculerMoyZoneUser("Calculer la moyenne de la qualité de l'air dans une zone",&menuUtilisateur,calculerMoyZone);
+MenuBase menuCalculerMoy("Calculer la moyenne de la qualité de l'air",&menuUtilisateur,calculerMoy);
 
-MenuBase menuCalculerMoyPosUser("Calculer la moyenne de la qualité de l'air à une position",&menuUtilisateur,calculerMoyPos);
+MenuBase menuObserverImpact("Observer l'impact des purificateurs sur l'air",&menuUtilisateur,analyserImpactPurif);
 
 // Fonctionnalités agence
 MenuBase menuDonneesAirAgence("Consulter les données sur la qualité de l'air", &menuAgence,doNothing);
 
 MenuBase menuClasserCapteurAgency("Classer les capteurs par similarité",&menuDonneesAirAgence,classerCapteur);
 
-MenuBase menuCalculerMoyZoneAgency("Calculer la moyenne de la qualité de l'air dans une zone",&menuDonneesAirAgence,calculerMoyZone);
-
-MenuBase menuCalculerMoyPosAgency("Calculer la moyenne de la qualité de l'air à une position",&menuDonneesAirAgence,calculerMoyPos);
+MenuBase menuCalculerMoyAgence("Calculer la moyenne de la qualité de l'air",&menuDonneesAirAgence,calculerMoy);
 
 MenuBase menuImpactPurifAgence("Analyser l'impact des purificateurs sur l'air",&menuAgence,analyserImpactPurif);
 
@@ -63,9 +63,7 @@ MenuBase menuDonneesAirFournisseur("Consulter les données sur la qualité de l'
 
 MenuBase menuClasserCapteurProvider("Classer les capteurs par similarité",&menuDonneesAirFournisseur,classerCapteur);
 
-MenuBase menuCalculerMoyZoneProvider("Calculer la moyenne de la qualité de l'air dans une zone",&menuDonneesAirFournisseur,calculerMoyZone);
-
-MenuBase menuCalculerMoyPosProvider("Calculer la moyenne de la qualité de l'air à une position",&menuDonneesAirFournisseur,calculerMoyPos);
+MenuBase menuCalculerMoyFournisseur("Calculer la moyenne de la qualité de l'air",&menuDonneesAirFournisseur,calculerMoy);
 
 MenuBase menuImpactPurifFournisseur("Analyser l'impact des purificateurs surl l'air",&menuFournisseur,analyserImpactPurif);
 
@@ -163,21 +161,94 @@ int classerCapteur()
     //TODO
     return 0;
 }
-int calculerMoyZone()
+
+int calculerMoy() 
 {
-    //TODO
+    double latitude;
+    double longitude;
+    int rayon;
+    string t1, t2;
+    
+    std::cout << "Veuillez entrer la latitude du centre  : ";
+    std::cin >> latitude;
+
+    std::cout << "Veuillez entrer la longitude du centre : ";
+    std::cin >> longitude;
+
+    std::cout << "Veuillez entrer le rayon (en km) : ";
+    std::cin >> rayon;
+
+    std::cout << "Veuillez entrer la date de début (format YYYY-MM-DD): ";
+    std::cin >> t1;
+
+    std::cout << "Veuillez entrer la date de fin (format YYYY-MM-DD): ";
+    std::cin >> t2;
+    
+
+    CalculerMoyenne cm;
+    int result = cm.calculerMoyenne(latitude, longitude, rayon, t1, t2);
+    
+    if (result == -1) {
+        std::cout << "Pas de capteur dans la zone" << std::endl;
+    } else if (result == -2) {
+        std::cout << "Durée invalide" << std::endl;
+    } else if (result == -3) {
+        std::cout << "Pas de données dans la zone" << std::endl;
+    } else {
+        std::cout << "L'indice ATMO moyen est de " << result << std::endl;
+    }
+    cout << "Tapez sur ENTRER pour continuer...";
+    cin.ignore(numeric_limits<streamsize>::max(),'\n');
+    string buffer;
+    getline(cin,buffer);
+
     return 0;
 }
-int calculerMoyPos()
-{
-    //TODO
-    return 0;
-}
+
+
 int analyserImpactPurif()
 {
-    //TODO
+    string start, stop, capteur;
+    float latitude, longitude;
+    vector<Capteur> capteurs;
+
+    // Récupération des capteurs
+    // Note : Cette partie dépend de votre implémentation pour obtenir les capteurs
+    std::cout << "Entrez l'id du capteur : ";
+    std::cin >> capteur;
+    Capteur capt = Stockage::getCapteurById(capteur);
+    
+    std::cout << "Veuillez entrer la date de début (format YYYY-MM-DD): ";
+    std::cin >> start;
+
+    std::cout << "Veuillez entrer la date de fin   (format YYYY-MM-DD): ";
+    std::cin >> stop;
+
+    std::cout << "Veuillez entrer la latitude de l'appareil : ";
+    std::cin >> latitude;
+
+    std::cout << "Veuillez entrer la longitude de l'appareil : ";
+    std::cin >> longitude;
+
+    
+    
+    ObserverImpact oi;
+    float resultat = oi.observerImpact(capteurs, start, stop, capt);
+    
+    if (resultat == 0.0) {
+        std::cout << "Aucun capteur trouvé avant la date de début, le purificateur n'a pas d'impact" << std::endl;
+    } else {
+        std::cout << "Le rayon d'action est: " << resultat << std::endl;
+    }
+    cout << "Tapez sur ENTRER pour continuer...";
+    cin.ignore(numeric_limits<streamsize>::max(),'\n');
+    string buffer;
+    getline(cin,buffer);
+
     return 0;
 }
+
+
 int analyserCapteur()
 {
     //TODO
