@@ -12,12 +12,14 @@ using namespace std;
 //------------------------------------------------------ Include personnel
 #include "Stockage.h"
 #include "LectureFichier.h"
+#include "../Modeles/Acteurs/Agence.h"
 
 //------------------------------------------------------------- Constantes
 
 std::unordered_map<std::string, Capteur> Stockage::capteurs;
 std::unordered_map<std::string, UtilisateurPrive> Stockage::utilisateursPrives;
 std::unordered_map<std::string, Fournisseur> Stockage::fournisseurs;
+Agence Stockage::agence("agence", "agence@gmail.com", "mdp");
 
 //----------------------------------------------------------------- PUBLIC
 //----------------------------------------------------- Méthodes publiques
@@ -36,6 +38,8 @@ void Stockage::initialiser()
     LectureFichier::lireUtilisateursPrives(utilisateursPrives, capteurs);
 
     LectureFichier::lireFournisseurs(fournisseurs);
+
+
 }
 
 void Stockage::getCapteurs(std::vector<Capteur> &vect_capteurs)
@@ -97,7 +101,10 @@ Capteur& Stockage::getCapteurById(string id)
     return capteurs.at(id);
 }
 
-
+Agence& Stockage::getAgence()
+{
+    return agence;
+}
 
 //------------------------------------------------- Surcharge d'opérateurs
 
