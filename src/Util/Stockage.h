@@ -47,7 +47,7 @@ public:
     // Contrat :
     // Aucun
 
-    static void Stockage::getPurificateurFromFournisseur(string idFournisseur, std::vector<Purificateur> &vect_purificateur);
+    static void getPurificateursFromFournisseur(std::string idFournisseur, std::vector<Purificateur> &vect_purificateur);
 
 
     static UtilisateurPrive* getUtilisateurPrive(std::string id);

@@ -12,6 +12,7 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include <vector>
+#include "../Modeles/Appareils/Purificateur.h"
 #include "../Modeles/Appareils/Capteur.h"
 
 //------------------------------------------------------------- Constantes
@@ -31,7 +32,7 @@ class ObserverImpact
 public:
 //----------------------------------------------------- Méthodes publiques
 
-    float observerImpact(const std::vector<Capteur>& sensors, const std::string& start, const std::string& stop, const Purificateur& p);
+    float observerImpact(const std::vector<Capteur>& sensors, const Purificateur& p, float & indiceConfiance);
 
 //-------------------------------------------- Constructeurs - destructeur
 

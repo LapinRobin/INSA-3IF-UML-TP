@@ -2,6 +2,7 @@
 #include "Menus.h"
 #include "../Services/GestionActeurs.h"
 #include "../Services/VerifierFiabilite.h"
+#include "../Services/ObserverImpact.h"
 #include "../Util/Stockage.h"
 #include "../Modeles/Acteurs/Acteur.h"
 #include "../Modeles/Acteurs/UtilisateurPrive.h"
@@ -177,7 +178,42 @@ int calculerMoyPos()
 }
 int analyserImpactPurif()
 {
-    //TODO
+    string idFournisseur;
+    cout << "Entrez l'ID du fournisseur du purificateur que vous voulez analyser :" << endl;
+    cin >> idFournisseur;
+    vector<Purificateur> listePurificateurs;
+    Stockage::getPurificateursFromFournisseur(idFournisseur, listePurificateurs);
+    for(const Purificateur & p : listePurificateurs)
+        cout << p << endl;
+    string idPurificateur;
+    cout << "Entrez l'ID du purificateur que vous voulez analyser :" << endl;
+    cin >> idPurificateur;
+    const Purificateur* purificateur = nullptr;
+    for(const Purificateur & p : listePurificateurs)
+        if(p.getId() == idPurificateur)
+            purificateur = &p;
+    
+    if(purificateur != nullptr)
+    {
+        ObserverImpact oi;
+        vector<Capteur> capteurs;
+        Stockage::getCapteurs(capteurs);
+        float indiceConfiance;
+        float rayon = oi.observerImpact(capteurs, *purificateur, indiceConfiance);
+        if(rayon != -1)
+        {
+            cout << "Le rayon d'action de ce purificateur est de : " << rayon << "km." << endl;  
+            cout << "L'indice de confiance de cette mesure (nombre de capteurs qui ont mesuré une qualité d'air améliorée / nombre de capteurs total pris en compte) est de :" << indiceConfiance << endl;         
+        }
+        else
+            cout << "Pas de données pour calculer." << endl;
+    }
+    else
+        cout << "Ce purificateur n'existe pas chez ce fournisseur. Avez-vous fait une erreur ?" << endl;
+
+    cin.ignore(numeric_limits<streamsize>::max(),'\n');
+    string buffer;
+    getline(cin,buffer); 
     return 0;
 }
 int analyserCapteur()

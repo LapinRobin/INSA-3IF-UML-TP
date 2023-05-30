@@ -42,7 +42,7 @@ public:
     // Contrat :
     // Le purificateur doit être valide
 
-    void getPurificateurs(vector<Purificateur> & vect_purificateur);
+    void getPurificateurs(std::vector<Purificateur> & vect_purificateur);
 
     
 

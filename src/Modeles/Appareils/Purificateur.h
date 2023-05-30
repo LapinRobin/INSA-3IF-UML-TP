@@ -33,7 +33,11 @@ public:
     //
     // Contrat :
     //
+    std::string getId() const;
 
+    std::string getDemarrage() const;
+
+    std::string getArret() const;
 
 //------------------------------------------------- Surcharge d'opérateurs
 

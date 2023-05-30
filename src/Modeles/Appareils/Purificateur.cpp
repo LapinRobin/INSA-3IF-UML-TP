@@ -28,12 +28,32 @@ using namespace std;
 //{
 //} //----- Fin de Méthode
 
+string Purificateur::getId (  ) const
+// Algorithme :
+//
+{
+    return id;
+} //----- Fin de Méthode
+
+string Purificateur::getDemarrage (  ) const
+// Algorithme :
+//
+{
+    return demarrage;
+} //----- Fin de Méthode
+
+string Purificateur::getArret (  ) const
+// Algorithme :
+//
+{
+    return arret;
+} //----- Fin de Méthode
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 ostream& operator<<(ostream& os,const Purificateur& purif)
 {
-    return os << "Id : " << purif.id << "Latitude : " << purif.latitude << "Longitude : " << purif.longitude << "Date départ : " << purif.demarrage << "Date fin : " << purif.arret;
+    return os << "Id : " << purif.id << " Latitude : " << purif.latitude << " Longitude : " << purif.longitude << " Date départ : " << purif.demarrage << " Date fin : " << purif.arret;
 }
 
 //-------------------------------------------- Constructeurs - destructeur
