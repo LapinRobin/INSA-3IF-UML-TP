@@ -1,6 +1,9 @@
 #include "MenuBase.h"
 #include "Menus.h"
 #include "../Services/GestionActeurs.h"
+#include "../Services/VerifierFiabilite.h"
+#include "../Services/ObserverImpact.h"
+#include "../Util/Stockage.h"
 #include "../Modeles/Acteurs/Acteur.h"
 #include "../Modeles/Acteurs/UtilisateurPrive.h"
 #include "../Modeles/Acteurs/Fournisseur.h"
@@ -102,7 +105,7 @@ int se_connecter()
         estConnecte=false;
         return 0;
     }
-    cout << "Connection " << endl;
+    cout << "Connexion " << endl;
     string identifiant, mot_de_passe;
     cout << "Entrez votre identifiant: ";
     cin >> identifiant;
@@ -208,42 +211,42 @@ int calculerMoy()
 
 int analyserImpactPurif()
 {
-    string start, stop, capteur;
-    float latitude, longitude;
-    vector<Capteur> capteurs;
 
-    // Récupération des capteurs
-    // Note : Cette partie dépend de votre implémentation pour obtenir les capteurs
-    std::cout << "Entrez l'id du capteur : ";
-    std::cin >> capteur;
-    Capteur capt = Stockage::getCapteurById(capteur);
+    string idFournisseur;
+    cout << "Entrez l'ID du fournisseur du purificateur que vous voulez analyser :" << endl;
+    cin >> idFournisseur;
+    vector<Purificateur> listePurificateurs;
+    Stockage::getPurificateursFromFournisseur(idFournisseur, listePurificateurs);
+    for(const Purificateur & p : listePurificateurs)
+        cout << p << endl;
+    string idPurificateur;
+    cout << "Entrez l'ID du purificateur que vous voulez analyser :" << endl;
+    cin >> idPurificateur;
+    const Purificateur* purificateur = nullptr;
+    for(const Purificateur & p : listePurificateurs)
+        if(p.getId() == idPurificateur)
+            purificateur = &p;
     
-    std::cout << "Veuillez entrer la date de début (format YYYY-MM-DD): ";
-    std::cin >> start;
-
-    std::cout << "Veuillez entrer la date de fin   (format YYYY-MM-DD): ";
-    std::cin >> stop;
-
-    std::cout << "Veuillez entrer la latitude de l'appareil : ";
-    std::cin >> latitude;
-
-    std::cout << "Veuillez entrer la longitude de l'appareil : ";
-    std::cin >> longitude;
-
-    
-    
-    ObserverImpact oi;
-    float resultat = oi.observerImpact(capteurs, start, stop, capt);
-    
-    if (resultat == 0.0) {
-        std::cout << "Aucun capteur trouvé avant la date de début, le purificateur n'a pas d'impact" << std::endl;
-    } else {
-        std::cout << "Le rayon d'action est: " << resultat << std::endl;
+    if(purificateur != nullptr)
+    {
+        ObserverImpact oi;
+        vector<Capteur> capteurs;
+        Stockage::getCapteurs(capteurs);
+        float indiceConfiance;
+        float rayon = oi.observerImpact(capteurs, *purificateur);
+        if(rayon != -1)
+        {
+            cout << "Le rayon d'action de ce purificateur est de : " << rayon << "km." << endl;  
+        }
+        else
+            cout << "Pas de données pour calculer." << endl;
     }
-    cout << "Tapez sur ENTRER pour continuer...";
+    else
+        cout << "Ce purificateur n'existe pas chez ce fournisseur. Avez-vous fait une erreur ?" << endl;
+
     cin.ignore(numeric_limits<streamsize>::max(),'\n');
     string buffer;
-    getline(cin,buffer);
+    getline(cin,buffer); 
 
     return 0;
 }
@@ -251,7 +254,29 @@ int analyserImpactPurif()
 
 int analyserCapteur()
 {
-    //TODO
+    string idCapteur;
+    cout << "Entrez l'ID du capteur que vous voulez analyser :" << endl;
+    cin >> idCapteur;
+    Capteur capteur = Stockage::getCapteurById(idCapteur);
+    VerifierFiabilite vf;
+    double taux = vf.calculerTauxErreur(capteur);
+    cout << "Le taux d'erreur de ce capteur, en se basant sur une zone de 50km de rayon, est de : " << taux << endl;
+    double tauxLimite = 0.2;
+    if(taux < tauxLimite )
+        cout << "Ce capteur fonctionne normalement, sans dépasser le taux limite de " << tauxLimite << endl;
+    else
+    {
+        cout << "Ce capteur ne fonctionne pas normalement, il dépasse le taux limite de " << tauxLimite << endl;
+        cout << "Voulez-vous marquer ce capteur comme défaillant ? (oui/non)" << endl;
+        string reponse;
+        cin >> reponse;
+        if(reponse == "oui")
+            cout << "Capteur marqué, vous pourrez le rétablir après réparation grâce à la fonction prévue à cet effet." << endl;
+    }
+        
+    cin.ignore(numeric_limits<streamsize>::max(),'\n');
+    string buffer;
+    getline(cin,buffer);    
     return 0;
 }
 int analyserUtilisateur()

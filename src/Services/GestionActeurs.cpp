@@ -47,14 +47,15 @@ Acteur* GestionActeurs::authentifier(string unId, string unMdp)
         return provider;
     }
 
+    // vérifier si le fournisseur existe dans la base de données
+    Agence* agence = Stockage::getAgence();
+    if (agence != nullptr && agence->getMdp() == unMdp)
+    {
+        return agence;
+    }
+
     // retourner null Acteur si pas trouvé
     return nullptr;
-}
-
-
-bool GestionActeurs::inscrire(Acteur unActeur)
-{
-    // TODO
 }
 
 

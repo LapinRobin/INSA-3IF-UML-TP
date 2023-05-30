@@ -12,12 +12,14 @@ using namespace std;
 //------------------------------------------------------ Include personnel
 #include "Stockage.h"
 #include "LectureFichier.h"
+#include "../Modeles/Acteurs/Agence.h"
 
 //------------------------------------------------------------- Constantes
 
 std::unordered_map<std::string, Capteur> Stockage::capteurs;
 std::unordered_map<std::string, UtilisateurPrive> Stockage::utilisateursPrives;
 std::unordered_map<std::string, Fournisseur> Stockage::fournisseurs;
+Agence Stockage::agence("agence", "agence@gmail.com", "mdp");
 
 //----------------------------------------------------------------- PUBLIC
 //----------------------------------------------------- Méthodes publiques
@@ -36,6 +38,8 @@ void Stockage::initialiser()
     LectureFichier::lireUtilisateursPrives(utilisateursPrives, capteurs);
 
     LectureFichier::lireFournisseurs(fournisseurs);
+
+
 }
 
 void Stockage::getCapteurs(std::vector<Capteur> &vect_capteurs)
@@ -47,6 +51,18 @@ void Stockage::getCapteurs(std::vector<Capteur> &vect_capteurs)
     {
         vect_capteurs.push_back(it->second);
     }
+    
+} //----- Fin de Méthode
+
+void Stockage::getPurificateursFromFournisseur(string idFournisseur, std::vector<Purificateur> &vect_purificateur)
+// Algorithme :
+// Passer par référence un vecteur de purificateurs
+{ 
+    
+    Fournisseur f = fournisseurs.at(idFournisseur);
+
+    f.getPurificateurs(vect_purificateur);
+    
     
 } //----- Fin de Méthode
 
@@ -97,7 +113,10 @@ Capteur& Stockage::getCapteurById(string id)
     return capteurs.at(id);
 }
 
-
+Agence* Stockage::getAgence()
+{
+    return &agence;
+}
 
 //------------------------------------------------- Surcharge d'opérateurs
 

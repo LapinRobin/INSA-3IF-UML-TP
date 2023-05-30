@@ -13,6 +13,7 @@
 //-------------------------------------------------------- Include système
 using namespace std;
 #include <iostream>
+#include <vector>
 
 //------------------------------------------------------ Include personnel
 #include "Fournisseur.h"
@@ -34,6 +35,11 @@ void Fournisseur::ajouterPurificateur(const Purificateur & unPurificateur)
 
 {
     purificateurs.push_back(unPurificateur);
+}
+
+void Fournisseur::getPurificateurs(vector<Purificateur> & vect_purificateur)
+{
+    vect_purificateur = purificateurs;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

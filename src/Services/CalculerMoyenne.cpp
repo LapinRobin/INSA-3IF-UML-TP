@@ -147,7 +147,6 @@ int CalculerMoyenne::calculerIndiceAtmo(double O3, double SO2, double NO2, doubl
 
 
 
-
 //-------------------------------------------- Constructeurs - destructeur
 
 CalculerMoyenne::CalculerMoyenne ( )

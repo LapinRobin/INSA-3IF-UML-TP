@@ -14,6 +14,8 @@
 #include "../Modeles/Acteurs/UtilisateurPrive.h"
 #include "../Modeles/Appareils/Capteur.h"
 #include "../Modeles/Acteurs/Fournisseur.h"
+#include "../Modeles/Acteurs/Agence.h"
+
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -45,6 +47,9 @@ public:
     // Contrat :
     // Aucun
 
+    static void getPurificateursFromFournisseur(std::string idFournisseur, std::vector<Purificateur> &vect_purificateur);
+
+
     static UtilisateurPrive* getUtilisateurPrive(std::string id);
     
     static Fournisseur* getFournisseur(std::string id);
@@ -63,6 +68,8 @@ public:
     // Aucun
 
     static Capteur& getCapteurById(std::string id);
+
+    static Agence* getAgence();
 
 
 //------------------------------------------------- Surcharge d'opérateurs
@@ -88,6 +95,7 @@ protected:
     static std::unordered_map<std::string, Capteur> capteurs;
     static std::unordered_map<std::string, UtilisateurPrive> utilisateursPrives;
     static std::unordered_map<std::string, Fournisseur> fournisseurs;
+    static Agence agence;
     
 //----------------------------------------------------- Attributs protégés
     
