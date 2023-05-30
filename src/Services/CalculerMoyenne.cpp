@@ -141,7 +141,7 @@ int CalculerMoyenne::calculerIndiceAtmo(double O3, double SO2, double NO2, doubl
     else indexPM10 = 1;
 
     // Return the highest index
-    return std::max({indexO3, indexSO2, indexNO2, indexPM10});
+    return max(max(indexO3, indexSO2), max(indexNO2, indexPM10));
 }
 
 int calculerJoursEntreDates(const std::string& date1, const std::string& date2) {

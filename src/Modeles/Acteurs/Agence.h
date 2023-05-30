@@ -40,7 +40,7 @@ friend std::ostream& operator<<(std::ostream& os,const Agence& ag);
 
 //-------------------------------------------- Constructeurs - destructeur
 
-    Agence (string unNom, string unMail, string unMdp );
+    Agence (std::string unNom, std::string unMail, std::string unMdp );
     // Mode d'emploi :
     //
     // Contrat :

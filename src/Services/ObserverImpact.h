@@ -11,6 +11,8 @@
 #define OBSERVERIMPACT_H
 
 //--------------------------------------------------- Interfaces utilisées
+#include <vector>
+#include "../Modeles/Appareils/Capteur.h"
 
 //------------------------------------------------------------- Constantes
 
