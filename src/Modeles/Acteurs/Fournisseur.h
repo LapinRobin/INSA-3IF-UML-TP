@@ -42,6 +42,10 @@ public:
     // Contrat :
     // Le purificateur doit être valide
 
+    void getPurificateurs(vector<Purificateur> & vect_purificateur);
+
+    
+
 //------------------------------------------------- Surcharge d'opérateurs
 
 friend std::ostream& operator<<(std::ostream& os,const Fournisseur& four);

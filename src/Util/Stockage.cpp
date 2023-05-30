@@ -54,6 +54,18 @@ void Stockage::getCapteurs(std::vector<Capteur> &vect_capteurs)
     
 } //----- Fin de Méthode
 
+void Stockage::getPurificateurFromFournisseur(string idFournisseur, std::vector<Purificateur> &vect_purificateur)
+// Algorithme :
+// Passer par référence un vecteur de purificateurs
+{ 
+    
+    Fournisseur f = fournisseurs.at(idFournisseur)
+
+    f.getPurificateurs(vect_purificateur);
+    
+    
+} //----- Fin de Méthode
+
 UtilisateurPrive* Stockage::getUtilisateurPrive(string id)
 {
     try {

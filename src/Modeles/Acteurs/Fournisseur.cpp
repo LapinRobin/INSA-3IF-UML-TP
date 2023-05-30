@@ -36,6 +36,11 @@ void Fournisseur::ajouterPurificateur(const Purificateur & unPurificateur)
     purificateurs.push_back(unPurificateur);
 }
 
+void Fournisseur::getPurificateurs(vector<Purificateur> & vect_purificateur)
+{
+    vect_purificateur = purificateurs;
+}
+
 //------------------------------------------------- Surcharge d'opérateurs
 
 ostream& operator<<(ostream& os,const Fournisseur& four)
