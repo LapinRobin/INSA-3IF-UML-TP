@@ -28,7 +28,7 @@ using namespace std;
 
 //----------------------------------------------------- Méthodes publiques
 
-float ObserverImpact::observerImpact(const vector<Capteur>& sensors, const Purificateur& p, float & indiceConfiance) {
+float ObserverImpact::observerImpact(vector<Capteur>& sensors, const Purificateur& p) {
     float compteurAvant = 0.0;
     float compteurApres = 0.0;
     int capteursPurifies = 0;
@@ -83,24 +83,17 @@ float ObserverImpact::observerImpact(const vector<Capteur>& sensors, const Purif
                 float so2Ratio = so2MoyenApres / so2MoyenAvant;
                 float no2Ratio = no2MoyenApres / no2MoyenAvant;
                 float pm10Ratio = pm10MoyenApres / pm10MoyenAvant;
-                /*cout << "o3" << o3Ratio << endl;
-                cout << "so2" << so2Ratio << endl;
-                cout << "no2" << no2Ratio << endl;
-                cout << "pm10" << pm10Ratio << endl;*/
 
                 float ratio = (o3Ratio + so2Ratio + no2Ratio + pm10Ratio) / 4.0;
                 cout << ratio << endl;
 
-                if (ratio < 0.25 /*&& c.calculerDistance(p) > rayonAction*/) {
-                    capteursPurifies++;
+                if (ratio < 0.25) {
                     rayonAction = c.calculerDistance(p);
-                    cout << "rayon action " << rayonAction << " Ratio " << ratio<<endl;
                 }
                 else
                     break;
             }
-            /*cout << "compteur avant "<< compteurAvant << endl;  
-            cout << "compteur apres "<< compteurApres << endl; */
+
             compteurApres = 0;
             compteurAvant = 0;
         }
@@ -109,7 +102,6 @@ float ObserverImpact::observerImpact(const vector<Capteur>& sensors, const Purif
     if (capteursDansLaZone == 0) {
         return -1;
     }
-    indiceConfiance = ((float)capteursPurifies)/((float)capteursDansLaZone);
     return rayonAction;
 }
 

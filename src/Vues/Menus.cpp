@@ -199,11 +199,10 @@ int analyserImpactPurif()
         vector<Capteur> capteurs;
         Stockage::getCapteurs(capteurs);
         float indiceConfiance;
-        float rayon = oi.observerImpact(capteurs, *purificateur, indiceConfiance);
+        float rayon = oi.observerImpact(capteurs, *purificateur);
         if(rayon != -1)
         {
             cout << "Le rayon d'action de ce purificateur est de : " << rayon << "km." << endl;  
-            cout << "L'indice de confiance de cette mesure (nombre de capteurs qui ont mesuré une qualité d'air améliorée / nombre de capteurs total pris en compte) est de :" << indiceConfiance << endl;         
         }
         else
             cout << "Pas de données pour calculer." << endl;
