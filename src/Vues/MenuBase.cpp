@@ -65,7 +65,7 @@ int MenuBase::doAction()
             choix=caractere;
             mauvaisChoix=false;
         }
-        else if((parent!=nullptr && caractere=='0') || (caractere>'0' && caractere<=('0'+sousMenus.size())))
+        else if((parent!=nullptr && caractere=='0') || (caractere>'0' && caractere<=('0'+(int)sousMenus.size())))
         {
             choix=caractere-'0';
             mauvaisChoix=false;
@@ -76,11 +76,6 @@ int MenuBase::doAction()
 }
 
 //------------------------------------------------- Surcharge d'opérateurs
-MenuBase & MenuBase::operator = ( const MenuBase & unMenuBase )
-// Algorithme :
-//
-{
-} //----- Fin de operator =
 
 ostream& operator<<(ostream& out, const MenuBase& menu)
 {
@@ -98,14 +93,6 @@ ostream& operator<<(ostream& out, const MenuBase& menu)
 }
 
 //-------------------------------------------- Constructeurs - destructeur
-MenuBase::MenuBase ( const MenuBase & unMenuBase )
-// Algorithme :
-//
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <MenuBase>" << endl;
-#endif
-} //----- Fin de MenuBase (constructeur de copie)
 
 
 MenuBase::MenuBase ( std::string unTitre,MenuBase* unParent, int (*uneAction)() ) : titre(unTitre),parent(unParent), action(uneAction)
