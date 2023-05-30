@@ -144,24 +144,6 @@ int CalculerMoyenne::calculerIndiceAtmo(double O3, double SO2, double NO2, doubl
     return max(max(indexO3, indexSO2), max(indexNO2, indexPM10));
 }
 
-int calculerJoursEntreDates(const std::string& date1, const std::string& date2) {
-    struct tm tm1 = {0}, tm2 = {0};
-
-    sscanf(date1.c_str(), "%d-%d-%d", &tm1.tm_year, &tm1.tm_mon, &tm1.tm_mday);
-    sscanf(date2.c_str(), "%d-%d-%d", &tm2.tm_year, &tm2.tm_mon, &tm2.tm_mday);
-
-    tm1.tm_year -= 1900; // years since 1900
-    tm1.tm_mon -= 1; // months since January (0-11)
-    tm2.tm_year -= 1900;
-    tm2.tm_mon -= 1;
-
-    time_t t1 = mktime(&tm1);
-    time_t t2 = mktime(&tm2);
-
-    double secondes = difftime(t2, t1);
-    return secondes / (60 * 60 * 24);
-}
-
 
 
 

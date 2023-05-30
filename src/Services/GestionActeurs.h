@@ -31,8 +31,6 @@ public:
 
     Acteur* authentifier(std::string mail, std::string mdp);
 
-    bool inscrire(Acteur acteur);
-
 
 //-------------------------------------------- Constructeurs - destructeur
 

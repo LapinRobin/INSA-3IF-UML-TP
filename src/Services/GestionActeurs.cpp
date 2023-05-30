@@ -52,12 +52,6 @@ Acteur* GestionActeurs::authentifier(string unId, string unMdp)
 }
 
 
-bool GestionActeurs::inscrire(Acteur unActeur)
-{
-    // TODO
-}
-
-
 
 
 
