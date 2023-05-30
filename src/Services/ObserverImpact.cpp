@@ -27,10 +27,10 @@ using namespace std;
 
 //----------------------------------------------------- Méthodes publiques
 
-float ObserverImpact::observerImpact(const vector<Capteur>& sensors, const string& start, const string& stop, const Appareil& p) {
+float ObserverImpact::observerImpact(const vector<Capteur>& sensors, const string& start, const string& stop, const Purificateur& p) {
     float compteurAvant = 0.0;
     float compteurApres = 0.0;
-    float rayonAction = 1000.0;
+    float rayonAction = 0.0;
 
     float o3MoyenAvant = 0.0, so2MoyenAvant = 0.0, no2MoyenAvant = 0.0, pm10MoyenAvant = 0.0;
     float o3MoyenApres = 0.0, so2MoyenApres = 0.0, no2MoyenApres = 0.0, pm10MoyenApres = 0.0;
@@ -72,7 +72,7 @@ float ObserverImpact::observerImpact(const vector<Capteur>& sensors, const strin
 
             float ratio = (o3Ratio + so2Ratio + no2Ratio + pm10Ratio) / 4.0;
 
-            if (ratio < 0.75 && c.calculerDistance(p) < rayonAction) {
+            if (ratio < 0.75 && c.calculerDistance(p) > rayonAction) {
                 rayonAction = c.calculerDistance(p);
             }
         }

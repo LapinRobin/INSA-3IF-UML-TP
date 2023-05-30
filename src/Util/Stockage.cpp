@@ -101,9 +101,9 @@ Capteur& Stockage::getCapteurById(string id)
     return capteurs.at(id);
 }
 
-Agence& Stockage::getAgence()
+Agence* Stockage::getAgence()
 {
-    return agence;
+    return &agence;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs
