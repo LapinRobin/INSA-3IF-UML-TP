@@ -4,13 +4,21 @@
 #include "Services/VerifierFiabilite.h"
 #include "Modeles/Acteurs/Acteur.h"
 #include "Vues/Menus.h"
+#include "Tests/TestCalculerMoyenne.h"
+#include "Tests/TestObserverImpact.h"
 
 using namespace std;
 
 int main() {
 
     Stockage::initialiser();
-    routine();
+    TestCalculerMoyenne tester;
+    tester.runTests();
+
+    TestObserverImpact tester2;
+    tester2.runTests();
+    
+    //routine();
 
     /*
     vector<Capteur> capteurs;
