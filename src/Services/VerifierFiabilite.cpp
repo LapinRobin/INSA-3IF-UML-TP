@@ -43,6 +43,7 @@ double VerifierFiabilite::calculerTauxErreur ( const Capteur & capteur )
     int compteurCapteur = 0;
 
     vector<Capteur> listeCapteur;
+    
     Stockage::getCapteurs(listeCapteur);
     
     vector<string> listeDate = capteur.getDates();
@@ -50,7 +51,7 @@ double VerifierFiabilite::calculerTauxErreur ( const Capteur & capteur )
     assert(listeDate.size()!=0);
 
     for(int i = 0; i< (int)listeCapteur.size(); i++){
-        
+        cout << listeCapteur[i]<<endl;
         if(listeCapteur[i].estFonctionnel() && capteur.calculerDistance(listeCapteur[i])<limiteDistance && capteur!=listeCapteur[i]){
             for(int j = 0; j<(int)listeDate.size(); j++){
                 if(abs(capteur.getMesureO3(listeDate[j])-listeCapteur[i].getMesureO3(listeDate[j]))>limiteEcartMesure[0]){
@@ -68,9 +69,11 @@ double VerifierFiabilite::calculerTauxErreur ( const Capteur & capteur )
                 compteurMesure+=4;
             }  
             compteurCapteur++;
+            cout << listeCapteur[i] << endl;
         }
     }
     
+    cout << compteurMesure << endl;
     double tauxErreur = (double)(compteurErreur03+compteurErreurno2+compteurErreurpm10+compteurErreurso2)/(double)compteurMesure;
     
     return tauxErreur;
