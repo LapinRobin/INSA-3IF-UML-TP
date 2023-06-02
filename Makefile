@@ -20,9 +20,15 @@ OBJS := $(patsubst %.cpp,$(OBJ_DIR)/%.o,$(SRCS))
 CXX := g++
 CXXFLAGS := -Wall -Wextra -std=c++17
 
+all : clean $(BIN_DIR)/$(EXEC)
 # Rule to link the final executable
 $(BIN_DIR)/$(EXEC): $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $@ $^
+
+test: dtest all
+
+dtest :
+	$(eval CXXFLAGS+=-DTEST) 
 
 # Rule to compile source files into object files
 $(OBJ_DIR)/%.o: %.cpp
