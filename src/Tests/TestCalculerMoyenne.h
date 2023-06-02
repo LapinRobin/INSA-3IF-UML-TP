@@ -42,19 +42,7 @@ public:
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-    TestCalculerMoyenne & operator = ( const TestCalculerMoyenne & unTestVerifierFiabilite );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-
 //-------------------------------------------- Constructeurs - destructeur
-    TestCalculerMoyenne ( const TestCalculerMoyenne & unTestVerifierFiabilite );
-    // Mode d'emploi (constructeur de copie) :
-    //
-    // Contrat :
-    //
 
     TestCalculerMoyenne ( );
     // Mode d'emploi :

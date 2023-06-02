@@ -11,7 +11,7 @@
 #define TESTVERIFIERFIABILITE_H
 
 //--------------------------------------------------- Interfaces utilisées
-
+#include "../Services/VerifierFiabilite.h"
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -33,23 +33,11 @@ public:
     //
     // Contrat :
     //
-
+    void runTests();
 
 //------------------------------------------------- Surcharge d'opérateurs
-    TestVerifierFiabilite & operator = ( const TestVerifierFiabilite & unTestVerifierFiabilite );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
 
 //-------------------------------------------- Constructeurs - destructeur
-    TestVerifierFiabilite ( const TestVerifierFiabilite & unTestVerifierFiabilite );
-    // Mode d'emploi (constructeur de copie) :
-    //
-    // Contrat :
-    //
-
     TestVerifierFiabilite ( );
     // Mode d'emploi :
     //
@@ -66,9 +54,10 @@ public:
 
 protected:
 //----------------------------------------------------- Méthodes protégées
+    
 
 //----------------------------------------------------- Attributs protégés
-
+    VerifierFiabilite verifFiab;
 };
 
 //-------------------------------- Autres définitions dépendantes de <TestVerifierFiabilite>

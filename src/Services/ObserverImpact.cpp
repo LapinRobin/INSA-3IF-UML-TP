@@ -31,7 +31,6 @@ using namespace std;
 float ObserverImpact::observerImpact(vector<Capteur>& sensors, const Purificateur& p) {
     float compteurAvant = 0.0;
     float compteurApres = 0.0;
-    int capteursPurifies = 0;
     int capteursDansLaZone = 0;
     float rayonAction = 0.0;
 
@@ -85,7 +84,6 @@ float ObserverImpact::observerImpact(vector<Capteur>& sensors, const Purificateu
                 float pm10Ratio = pm10MoyenApres / pm10MoyenAvant;
 
                 float ratio = (o3Ratio + so2Ratio + no2Ratio + pm10Ratio) / 4.0;
-                cout << ratio << endl;
 
                 if (ratio < 0.25) {
                     rayonAction = c.calculerDistance(p);

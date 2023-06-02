@@ -86,10 +86,6 @@ int CalculerMoyenne::calculerMoyenne(double latitude, double longitude, int rayo
     so2Moyen /= compteurCapteur;
     no2Moyen /= compteurCapteur;
     pm10Moyen /= compteurCapteur;
-    cout << "o3Moyen: " << o3Moyen << endl;
-    cout << "so2Moyen: " << so2Moyen << endl;
-    cout << "no2Moyen: " << no2Moyen << endl;
-    cout << "pm10Moyen: " << pm10Moyen << endl;
     return calculerIndiceAtmo(o3Moyen, so2Moyen, no2Moyen, pm10Moyen);
 }
 
@@ -145,10 +141,6 @@ int CalculerMoyenne::calculerIndiceAtmo(double O3, double SO2, double NO2, doubl
     else indexPM10 = 1;
 
     // Return the highest index
-    cout << "indexO3: " << indexO3 << endl;
-    cout << "indexSO2: " << indexSO2 << endl;
-    cout << "indexNO2: " << indexNO2 << endl;
-    cout << "indexPM10: " << indexPM10 << endl;
     return max(max(indexO3, indexSO2), max(indexNO2, indexPM10));
 }
 

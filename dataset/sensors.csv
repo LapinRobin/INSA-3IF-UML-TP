@@ -107,3 +107,5 @@ SensorTestVerifierFiabilite1Voisin2;42.6;-1;
 SensorTestVerifierFiabilite2;49;2;
 SensorTestVerifierFiabilite2Voisin1;49.4;2;
 SensorTestVerifierFiabilite2Voisin2;48.6;2;
+SensorTestPurificateur1;50.2;1;
+SensorTestPurificateur2;54.2;4;

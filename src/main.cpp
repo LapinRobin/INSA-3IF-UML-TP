@@ -5,16 +5,17 @@
 #include "Modeles/Acteurs/Acteur.h"
 #include "Vues/Menus.h"
 #include "Tests/TestCalculerMoyenne.h"
+#include "Tests/TestObserverImpact.h"
 
 using namespace std;
 
 int main() {
 
     Stockage::initialiser();
-    TestCalculerMoyenne tester;
-    tester.runTests();
+    //TestCalculerMoyenne tester;
+    //tester.runTests();
     
-    //routine();
+    routine();
 
     /*
     vector<Capteur> capteurs;
