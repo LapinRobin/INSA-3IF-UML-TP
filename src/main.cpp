@@ -5,6 +5,7 @@
 #include "Modeles/Acteurs/Acteur.h"
 #include "Vues/Menus.h"
 #include "Tests/TestCalculerMoyenne.h"
+#include "Tests/TestObserverImpact.h"
 
 using namespace std;
 
