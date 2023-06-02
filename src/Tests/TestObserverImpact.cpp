@@ -59,10 +59,15 @@ void TestObserverImpact::runTests ( )
     Stockage::getPurificateursFromFournisseur("ProviderTest2", lp);
     auto start2 = std::chrono::high_resolution_clock::now();
     rayon = oi.observerImpact(capteurs, lp[0]);
+<<<<<<< HEAD
     auto end2 = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> elapsed2 = end2 - start2;
     assert(rayon < 23 && rayon > 22 && "Test Observer Impact 2 failed");
     cout<<"   Test 2 validé, rayon = " << rayon << ". Durée : "<< elapsed2.count() << "s" << endl;
+=======
+    assert(std::round(rayon) == 22 && "Test Observer Impact 2 failed");
+    cout<<"Test 2 validé, rayon = 22"<<endl;
+>>>>>>> 1a00837794d1661c6d39a2f889a7953048160242
 } //----- Fin de Méthode
 
 
