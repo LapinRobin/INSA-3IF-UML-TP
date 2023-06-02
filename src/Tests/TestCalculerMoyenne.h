@@ -74,7 +74,7 @@ protected:
 //----------------------------------------------------- Méthodes protégées
 private:
     CalculerMoyenne calcMoyenne;
-    std::vector<std::tuple<double, double, int, std::string, std::string, int>> testCases;
+    std::vector<std::tuple<double, double, int, std::string, std::string, int, std::string>> testCases;
 
 //----------------------------------------------------- Attributs protégés
 

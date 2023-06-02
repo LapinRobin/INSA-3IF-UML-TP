@@ -39,7 +39,7 @@ void TestCalculerMoyenne::runTests() {
         auto end = std::chrono::high_resolution_clock::now();
 
         std::chrono::duration<double> elapsed = end - start;
-        std::cout << "test result: " << output << std::endl;
+        std::cout << "Test: " << std::get<6>(test) << std::endl;
 
         assert(output == std::get<5>(test) && "Test failed");
 
@@ -77,23 +77,23 @@ TestCalculerMoyenne::TestCalculerMoyenne ( )
     testCases = {
         
         // entrees valides
-        {0.0, 1.2, 100, "2019-01-01 12:00:00", "2019-01-03 12:00:00", 5},
+        {0.0, 1.2, 100, "2019-01-01 12:00:00", "2019-01-03 12:00:00", 5, "entrees valides"},
 
         // cas ou pas de capteurs dans la region
-        {1.0, 2.0, 100, "2023-06-01 12:00:00", "2023-06-02 12:00:00", -1},
+        {1.0, 2.0, 100, "2023-06-01 12:00:00", "2023-06-02 12:00:00", -1, "pas de capteurs dans la region"},
 
         // cas ou pas de donnees dans la periode
-        {0.0, 1.2, 100, "2019-01-04 12:00:00", "2019-01-05 12:00:00", -3},
+        {0.0, 1.2, 100, "2019-01-04 12:00:00", "2019-01-05 12:00:00", -3, "pas de donnees dans la periode"},
 
         // periode invalide
-        {0.0, 1.2, 100, "2019-01-05 12:00:00", "2019-01-04 12:00:00", -2},
+        {0.0, 1.2, 100, "2019-01-05 12:00:00", "2019-01-04 12:00:00", -2, "periode invalide"},
 
         // cas ou rayon == 0 et capteur dans la region
-        {0.0, 1.3, 0, "2019-01-01 12:00:00", "2019-01-02 12:00:00", 4},
+        {0.0, 1.3, 0, "2019-01-01 12:00:00", "2019-01-02 12:00:00", 4, "rayon == 0 et capteur dans la region"},
 
 
         // cas ou rayon == 0 et pas de capteur dans la region
-        {0.0, 1.2, 0, "2019-01-01 12:00:00", "2019-01-02 12:00:00", -1}
+        {0.0, 1.2, 0, "2019-01-01 12:00:00", "2019-01-02 12:00:00", -1, "rayon == 0 et pas de capteur dans la region"}
     
 
     };
