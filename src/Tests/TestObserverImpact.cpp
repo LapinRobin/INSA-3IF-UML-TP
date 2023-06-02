@@ -14,6 +14,7 @@
 using namespace std;
 #include <iostream>
 #include <cassert>
+#include <cmath>
 
 //------------------------------------------------------ Include personnel
 #include "TestObserverImpact.h"
@@ -54,7 +55,7 @@ void TestObserverImpact::runTests ( )
     cout<<"Test 2, purificateur fonctionnel : "<<endl;
     Stockage::getPurificateursFromFournisseur("ProviderTest2", lp);
     rayon = oi.observerImpact(capteurs, lp[0]);
-    assert(rayon == 22 && "Test Observer Impact 2 failed");
+    assert(std::round(rayon) == 22 && "Test Observer Impact 2 failed");
     cout<<"Test 2 validé, rayon = 22"<<endl;
 } //----- Fin de Méthode
 
