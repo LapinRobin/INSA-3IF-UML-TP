@@ -5,6 +5,7 @@ APPAREIL_DIR := $(SRC_DIR)/Modeles/Appareils
 SERVICES_DIR := $(SRC_DIR)/Services
 UTIL_DIR := $(SRC_DIR)/Util
 VUES_DIR := $(SRC_DIR)/Vues
+TESTS_DIR := $(SRC_DIR)/Tests
 OBJ_DIR := obj
 BIN_DIR := bin
 
@@ -12,7 +13,7 @@ BIN_DIR := bin
 EXEC := main
 
 # Define the source and object files
-SRCS := $(wildcard $(SRC_DIR)/*.cpp $(ACTEUR_DIR)/*.cpp $(APPAREIL_DIR)/*.cpp $(SERVICES_DIR)/*.cpp $(UTIL_DIR)/*.cpp $(VUES_DIR)/*.cpp)
+SRCS := $(wildcard $(SRC_DIR)/*.cpp $(ACTEUR_DIR)/*.cpp $(APPAREIL_DIR)/*.cpp $(SERVICES_DIR)/*.cpp $(UTIL_DIR)/*.cpp $(VUES_DIR)/*.cpp $(TESTS_DIR)/*.cpp)
 OBJS := $(patsubst %.cpp,$(OBJ_DIR)/%.o,$(SRCS))
 
 # Define compiler and flags

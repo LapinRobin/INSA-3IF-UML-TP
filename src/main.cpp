@@ -4,13 +4,17 @@
 #include "Services/VerifierFiabilite.h"
 #include "Modeles/Acteurs/Acteur.h"
 #include "Vues/Menus.h"
+#include "Tests/TestCalculerMoyenne.h"
 
 using namespace std;
 
 int main() {
 
     Stockage::initialiser();
-    routine();
+    TestCalculerMoyenne tester;
+    tester.runTests();
+    
+    //routine();
 
     /*
     vector<Capteur> capteurs;
