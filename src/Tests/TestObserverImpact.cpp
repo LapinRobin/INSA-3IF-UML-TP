@@ -43,8 +43,9 @@ void TestObserverImpact::runTests ( )
     Stockage::getCapteurs(capteurs);
     float rayon;
     vector<Purificateur> lp;
-    
-    cout<<"TEST OBSERVER IMPACT PURIFICATEUR"<<endl<<endl;
+    cout<<endl;
+    cout.width(40);
+    cout<<"TEST OBSERVER IMPACT PURIFICATEUR :"<<endl<<endl;
 
     cout<<"Test 1, purificateur non fonctionnel : "<<endl;
     Stockage::getPurificateursFromFournisseur("ProviderTest1", lp);

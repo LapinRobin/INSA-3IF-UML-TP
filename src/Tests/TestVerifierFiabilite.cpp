@@ -29,7 +29,9 @@ void TestVerifierFiabilite::runTests ( )
 // Algorithme :
 //
 {
-    cout << "TESTS VERIFIER FIABILITE :" << endl;
+    cout << endl;
+    cout.width(40);
+    cout << "TESTS VERIFIER FIABILITE :" << endl<<endl;
     cout << "Test 1 : Capteur avec des données identiques aux capteurs voisins" << endl;
     Capteur capteur1 = Stockage::getCapteurById("SensorTestVerifierFiabilite1");
     auto start1 = std::chrono::high_resolution_clock::now();
@@ -37,7 +39,7 @@ void TestVerifierFiabilite::runTests ( )
     auto end1 = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> elapsed1 = end1 - start1;
     assert(taux1 == 0 && "Test Vérifier Fiabilité 1 failed");
-    cout << "   Test 1 passé : Taux = 0. Durée : "<< elapsed1.count() << "s"<< endl;
+    cout << "   Test 1 validé : Taux = 0. Durée : "<< elapsed1.count() << "s"<< endl;
 
     cout << "Test 2 : Capteur avec des données différentes des capteurs voisins" << endl;
     Capteur capteur2 = Stockage::getCapteurById("SensorTestVerifierFiabilite2");
@@ -46,7 +48,7 @@ void TestVerifierFiabilite::runTests ( )
     auto end2 = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> elapsed2 = end2 - start2;
     assert(taux2 == 1 && "Test Vérifier Fiabilité 2 failed");
-    cout << "   Test 2 passé : Taux = 1. Durée : "<< elapsed2.count() << "s"<< endl;
+    cout << "   Test 2 validé : Taux = 1. Durée : "<< elapsed2.count() << "s"<< endl;
 
 } //----- Fin de Méthode
 

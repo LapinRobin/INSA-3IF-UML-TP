@@ -20,15 +20,19 @@ OBJS := $(patsubst %.cpp,$(OBJ_DIR)/%.o,$(SRCS))
 CXX := g++
 CXXFLAGS := -Wall -Wextra -std=c++17
 
-all : clean $(BIN_DIR)/$(EXEC)
-# Rule to link the final executable
-$(BIN_DIR)/$(EXEC): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $@ $^
+all : cleanMain $(BIN_DIR)/$(EXEC)
 
 test: dtest all
 
 dtest :
-	$(eval CXXFLAGS+=-DTEST) 
+	$(eval DTEST=-DTEST) 
+
+# Rule to link the final executable
+$(BIN_DIR)/$(EXEC): $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $@ $^
+
+$(OBJ_DIR)/$(SRC_DIR)/main.o : $(SRC_DIR)/main.cpp
+	$(CXX) $(CXXFLAGS) $(DTEST) -c -o $@ $<
 
 # Rule to compile source files into object files
 $(OBJ_DIR)/%.o: %.cpp
@@ -38,3 +42,6 @@ $(OBJ_DIR)/%.o: %.cpp
 # Clean rule
 clean:
 	rm -rf $(OBJ_DIR)/* $(BIN_DIR)/$(EXEC)
+
+cleanMain:
+	rm -rf $(OBJ_DIR)/$(SRC_DIR)/main.o $(BIN_DIR)/$(EXEC)

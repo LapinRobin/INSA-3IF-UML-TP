@@ -33,18 +33,21 @@ using namespace std;
 //} //----- Fin de Méthode
 
 void TestCalculerMoyenne::runTests() {
-    cout << "TESTS CALCULER MOYENNE :"<<endl;
+    int compteur=0;
+    cout << endl;
+    cout.width(40);
+    cout << "TESTS CALCULER MOYENNE :"<<endl<<endl;
     for (auto& test : testCases) {
         auto start = std::chrono::high_resolution_clock::now();
         int output = calcMoyenne.calculerMoyenne(std::get<0>(test), std::get<1>(test), std::get<2>(test), std::get<3>(test), std::get<4>(test));
         auto end = std::chrono::high_resolution_clock::now();
 
         std::chrono::duration<double> elapsed = end - start;
-        std::cout << "Test: " << std::get<6>(test) << std::endl;
+        std::cout << "Test "<<compteur << ": "<< std::get<6>(test) << std::endl;
 
-        assert(output == std::get<5>(test) && "Test failed");
+        assert(output == std::get<5>(test) && "Test raté");
 
-        std::cout << "Test passed. Execution time: " << elapsed.count() << " s\n";
+        std::cout << "  Test"<<compteur<< " validé, Durée: " << elapsed.count() << " s\n";
     }
 }
 
