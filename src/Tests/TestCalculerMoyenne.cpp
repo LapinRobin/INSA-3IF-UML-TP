@@ -33,6 +33,7 @@ using namespace std;
 //} //----- Fin de Méthode
 
 void TestCalculerMoyenne::runTests() {
+    cout << "TESTS CALCULER MOYENNE :"<<endl;
     for (auto& test : testCases) {
         auto start = std::chrono::high_resolution_clock::now();
         int output = calcMoyenne.calculerMoyenne(std::get<0>(test), std::get<1>(test), std::get<2>(test), std::get<3>(test), std::get<4>(test));
@@ -49,22 +50,9 @@ void TestCalculerMoyenne::runTests() {
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-TestCalculerMoyenne & TestCalculerMoyenne::operator = ( const TestCalculerMoyenne & unTestVerifierFiabilite )
-// Algorithme :
-//
-{
-} //----- Fin de operator =
 
 
 //-------------------------------------------- Constructeurs - destructeur
-TestCalculerMoyenne::TestCalculerMoyenne ( const TestCalculerMoyenne & unTestVerifierFiabilite )
-// Algorithme :
-//
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <TestCalculerMoyenne>" << endl;
-#endif
-} //----- Fin de TestCalculerMoyenne (constructeur de copie)
 
 
 TestCalculerMoyenne::TestCalculerMoyenne ( )
