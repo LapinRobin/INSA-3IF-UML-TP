@@ -257,23 +257,28 @@ int analyserCapteur()
     string idCapteur;
     cout << "Entrez l'ID du capteur que vous voulez analyser :" << endl;
     cin >> idCapteur;
-    Capteur capteur = Stockage::getCapteurById(idCapteur);
-    VerifierFiabilite vf;
-    double taux = vf.calculerTauxErreur(capteur);
-    cout << "Le taux d'erreur de ce capteur, en se basant sur une zone de 50km de rayon, est de : " << taux << endl;
-    double tauxLimite = 0.2;
-    if(taux < tauxLimite )
-        cout << "Ce capteur fonctionne normalement, sans dépasser le taux limite de " << tauxLimite << endl;
-    else
-    {
-        cout << "Ce capteur ne fonctionne pas normalement, il dépasse le taux limite de " << tauxLimite << endl;
-        cout << "Voulez-vous marquer ce capteur comme défaillant ? (oui/non)" << endl;
-        string reponse;
-        cin >> reponse;
-        if(reponse == "oui")
-            cout << "Capteur marqué, vous pourrez le rétablir après réparation grâce à la fonction prévue à cet effet." << endl;
+    try{
+        Capteur capteur = Stockage::getCapteurById(idCapteur);
+        VerifierFiabilite vf;
+        double taux = vf.calculerTauxErreur(capteur);
+        cout << "Le taux d'erreur de ce capteur, en se basant sur une zone de 50km de rayon, est de : " << taux << endl;
+        double tauxLimite = 0.2;
+        if(taux < tauxLimite )
+            cout << "Ce capteur fonctionne normalement, sans dépasser le taux limite de " << tauxLimite << endl;
+        else
+        {
+            cout << "Ce capteur ne fonctionne pas normalement, il dépasse le taux limite de " << tauxLimite << endl;
+            cout << "Voulez-vous marquer ce capteur comme défaillant ? (oui/non)" << endl;
+            string reponse;
+            cin >> reponse;
+            if(reponse == "oui")
+                cout << "Capteur marqué, vous pourrez le rétablir après réparation grâce à la fonction prévue à cet effet." << endl;
+        }
     }
-        
+    catch(const out_of_range& e){
+        cout << "Ce capteur n'est pas présent dans la base de données"<<endl;
+    }
+       
     cin.ignore(numeric_limits<streamsize>::max(),'\n');
     string buffer;
     getline(cin,buffer);    
