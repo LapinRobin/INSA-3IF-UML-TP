@@ -11,10 +11,10 @@ using namespace std;
 int main() {
 
     Stockage::initialiser();
-    TestCalculerMoyenne tester;
-    tester.runTests();
+    //TestCalculerMoyenne tester;
+    //tester.runTests();
     
-    //routine();
+    routine();
 
     /*
     vector<Capteur> capteurs;

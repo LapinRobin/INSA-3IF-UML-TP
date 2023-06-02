@@ -11,6 +11,9 @@
 #include "../Services/CalculerMoyenne.h"
 #include "../Services/ObserverImpact.h"
 #include "../Util/Stockage.h"
+#include "../Tests/TestVerifierFiabilite.h"
+#include "../Tests/TestCalculerMoyenne.h"
+#include "../Tests/TestObserverImpact.h"
 #include <string>
 #include <iostream>
 
@@ -25,6 +28,7 @@ int calculerMoy();
 int analyserImpactPurif();
 int analyserCapteur();
 int analyserUtilisateur();
+int realiserTests();
 
 static bool estConnecte;
 // Implémentation des menus
@@ -60,6 +64,8 @@ MenuBase menuImpactPurifAgence("Analyser l'impact des purificateurs sur l'air",&
 MenuBase menuAnalyseCapteur("Analyser les données d'un capteur",&menuAgence,analyserCapteur);
 
 MenuBase menuAnalyseUtilisateur("Analyser les données d'un utilisateur",&menuAgence,analyserUtilisateur);
+
+MenuBase menuTestEtPerfs("Réaliser les tests unitaires et mesurer la performance des algorithmes",&menuAgence,realiserTests);
 
 // Fonctionnalités fournisseur
 MenuBase menuDonneesAirFournisseur("Consulter les données sur la qualité de l'air",&menuFournisseur,doNothing);
@@ -284,9 +290,25 @@ int analyserCapteur()
     getline(cin,buffer);    
     return 0;
 }
+
 int analyserUtilisateur()
 {
     //TODO
+    return 0;
+}
+
+int realiserTests()
+{
+    TestVerifierFiabilite tvf;
+    tvf.runTests();
+    TestCalculerMoyenne tcm;
+    tcm.runTests();
+    TestObserverImpact toi;
+    toi.runTests();
+    
+    cin.ignore(numeric_limits<streamsize>::max(),'\n');
+    string buffer;
+    getline(cin,buffer);
     return 0;
 }
 
