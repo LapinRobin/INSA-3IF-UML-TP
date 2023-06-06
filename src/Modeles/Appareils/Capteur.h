@@ -66,6 +66,12 @@ public:
     // Contrat :
     // Aucun
 
+    void setFonctionnel ( bool estFonctionnel );
+    // Mode d'emploi :
+    // Set la valeur de l'attribut fonctionnel à estFonctionnel
+    // Contrat :
+    // Aucun
+
     std::vector<std::string> getDates ( ) const;
     // Mode d'emploi :
     // Retourne un vecteur contenant toutes les dates pour lesquelles on a des mesures

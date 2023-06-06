@@ -24,17 +24,15 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type Capteur::Méthode ( liste des paramètres )
-// Algorithme :
-//
-//{
-//} //----- Fin de Méthode
+void Capteur::setFonctionnel ( bool estFonctionnel )
+{
+    fonctionnel = estFonctionnel;
+} //----- Fin de Méthode
 
 float Capteur::getMesureO3 ( const string& uneDate ) const
 // Algorithme :
 // retourner la mesure de O3 à une date donnée
-{
-    
+{   
     return o3.at(uneDate);
 } //----- Fin de Méthode
 

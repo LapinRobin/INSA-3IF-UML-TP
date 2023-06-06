@@ -222,33 +222,39 @@ int analyserImpactPurif()
     cout << "Entrez l'ID du fournisseur du purificateur que vous voulez analyser :" << endl;
     cin >> idFournisseur;
     vector<Purificateur> listePurificateurs;
-    Stockage::getPurificateursFromFournisseur(idFournisseur, listePurificateurs);
-    for(const Purificateur & p : listePurificateurs)
-        cout << p << endl;
-    string idPurificateur;
-    cout << "Entrez l'ID du purificateur que vous voulez analyser :" << endl;
-    cin >> idPurificateur;
-    const Purificateur* purificateur = nullptr;
-    for(const Purificateur & p : listePurificateurs)
-        if(p.getId() == idPurificateur)
-            purificateur = &p;
-    
-    if(purificateur != nullptr)
-    {
-        ObserverImpact oi;
-        vector<Capteur> capteurs;
-        Stockage::getCapteurs(capteurs);
-        float indiceConfiance;
-        float rayon = oi.observerImpact(capteurs, *purificateur);
-        if(rayon != -1)
+    try{
+       Stockage::getPurificateursFromFournisseur(idFournisseur, listePurificateurs); 
+       for(const Purificateur & p : listePurificateurs)
+            cout << p << endl;
+        string idPurificateur;
+        cout << "Entrez l'ID du purificateur que vous voulez analyser :" << endl;
+        cin >> idPurificateur;
+        const Purificateur* purificateur = nullptr;
+        for(const Purificateur & p : listePurificateurs)
+            if(p.getId() == idPurificateur)
+                purificateur = &p;
+        
+        if(purificateur != nullptr)
         {
-            cout << "Le rayon d'action de ce purificateur est de : " << rayon << "km." << endl;  
+            ObserverImpact oi;
+            vector<Capteur> capteurs;
+            Stockage::getCapteurs(capteurs);
+            float rayon = oi.observerImpact(capteurs, *purificateur);
+            if(rayon != -1)
+            {
+                cout << "Le rayon d'action de ce purificateur est de : " << rayon << "km." << endl;  
+            }
+            else
+                cout << "Pas de données pour calculer." << endl;
         }
         else
-            cout << "Pas de données pour calculer." << endl;
+            cout << "Ce purificateur n'existe pas chez ce fournisseur. Avez-vous fait une erreur ?" << endl;
     }
-    else
-        cout << "Ce purificateur n'existe pas chez ce fournisseur. Avez-vous fait une erreur ?" << endl;
+    catch( const out_of_range & oor){
+        cout << "Cet id de fournisseur n'existe pas." << endl;
+    }
+    
+    
 
     cin.ignore(numeric_limits<streamsize>::max(),'\n');
     string buffer;
@@ -277,8 +283,11 @@ int analyserCapteur()
             cout << "Voulez-vous marquer ce capteur comme défaillant ? (oui/non)" << endl;
             string reponse;
             cin >> reponse;
-            if(reponse == "oui")
+            if(reponse == "oui"){
+                capteur.setFonctionnel(false);
                 cout << "Capteur marqué, vous pourrez le rétablir après réparation grâce à la fonction prévue à cet effet." << endl;
+            }
+                
         }
     }
     catch(const out_of_range& e){

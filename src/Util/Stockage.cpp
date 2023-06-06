@@ -23,11 +23,6 @@ Agence Stockage::agence("agence", "agence@gmail.com", "mdp");
 
 //----------------------------------------------------------------- PUBLIC
 //----------------------------------------------------- Méthodes publiques
-// type Stockage::Méthode ( liste des paramètres )
-// Algorithme :
-//
-//{
-//} //----- Fin de Méthode
 
 void Stockage::initialiser()
 // Algorithme :

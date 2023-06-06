@@ -27,15 +27,5 @@ int main() {
         routine();
     #endif
 
-    /*
-    vector<Capteur> capteurs;
-    Stockage::getCapteurs(capteurs);
-    VerifierFiabilite vf;
-    for(int i = 0; i<(int)capteurs.size(); i++){
-       cout << vf.calculerTauxErreur(capteurs[i])<<endl; 
-    }
-    //cout << vf.calculerTauxErreur(Stockage::getCapteurById("Sensor70"))<<endl; 
-    //cout << vf.calculerTauxErreur(Stockage::getCapteurById("Sensor36"))<<endl; 
-    */
     return 0;
 }

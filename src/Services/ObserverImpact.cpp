@@ -46,7 +46,7 @@ float ObserverImpact::observerImpact(vector<Capteur>& sensors, const Purificateu
 
     sort(sensors.begin(), sensors.end(), compareByDistance);
     for (Capteur c : sensors) {
-        if(c.calculerDistance(p) < 150)
+        if(c.estFonctionnel() && c.calculerDistance(p) < 150)
         {
             capteursDansLaZone++;
             vector<string> dates = c.getDates();

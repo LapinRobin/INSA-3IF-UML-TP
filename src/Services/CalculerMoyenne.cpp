@@ -60,7 +60,7 @@ int CalculerMoyenne::calculerMoyenne(double latitude, double longitude, int rayo
 
     for (Capteur c : capteurs) {
         // if Capteur dans le rayon
-        if (c.calculerDistance(latitude, longitude) <= rayon) {
+        if (c.estFonctionnel() && c.calculerDistance(latitude, longitude) <= rayon) {
             for (string date : c.getDates()) {
                 // si date dans l'intervale
                 if (date >= t1 && date <= t2) {
