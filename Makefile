@@ -41,7 +41,7 @@ $(OBJ_DIR)/%.o: %.cpp
 
 # Clean rule
 clean:
-	rm -rf $(OBJ_DIR)/* $(BIN_DIR)/$(EXEC)
+	rm -rf $(OBJ_DIR)/$(SRC_DIR)/* $(BIN_DIR)/$(EXEC)
 
 cleanMain:
 	rm -rf $(OBJ_DIR)/$(SRC_DIR)/main.o $(BIN_DIR)/$(EXEC)
